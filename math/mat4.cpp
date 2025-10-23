@@ -5,10 +5,10 @@ namespace math
     mat4::mat4()
         :  _columns
         {
-            column { 1.0f, 0.0f, 0.0f, 0.0 },
-            column { 0.0f, 1.0f, 0.0f, 0.0 },
-            column { 0.0f, 0.0f, 1.0f, 0.0 },
-            column { 0.0f, 0.0f, 0.0f, 1.0 }
+            column { 1.0f, 0.0f, 0.0f, 0.0f },
+            column { 0.0f, 1.0f, 0.0f, 0.0f },
+            column { 0.0f, 0.0f, 1.0f, 0.0f },
+            column { 0.0f, 0.0f, 0.0f, 1.0f }
         }
     {
     }
