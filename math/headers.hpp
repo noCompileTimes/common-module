@@ -2,6 +2,8 @@
 
 #include <cmath>
 
+#include "functions.hpp"
+
 #include "vec3.hpp"
 
 #include "column.hpp"
