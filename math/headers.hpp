@@ -1,5 +1,7 @@
 #pragma once
 
+#include <array>
+
 #include <cmath>
 
 #include "functions.hpp"
