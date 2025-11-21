@@ -1,10 +1,12 @@
 #pragma once
 
+#include "column.hpp"
+
 namespace math
 {
     struct mat4
     {
-              mat4();
+             mat4();
 
         auto ortho(float left, float right, float bottom, float top, float near, float far) -> void;
         auto ortho(float left, float right, float bottom, float top)                        -> void;
