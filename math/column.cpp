@@ -6,7 +6,7 @@ namespace math
     {
         return
         {
-            x + other.x,
+            x + other.x, // TODO improve this with simd
             y + other.y,
             z + other.z,
             w + other.w
@@ -17,7 +17,7 @@ namespace math
     {
         return
         {
-            x * value,
+            x * value, // TODO improve this with simd
             y * value,
             z * value,
             w * value
@@ -26,7 +26,7 @@ namespace math
 
     auto column::operator+=(const column& other) -> column&
     {
-        x += other.x;
+        x += other.x; // TODO improve this with simd
         y += other.y;
         z += other.z;
         w += other.w;
@@ -36,7 +36,7 @@ namespace math
 
     auto column::operator*=(const float value) -> column&
     {
-        x *= value;
+        x *= value; // TODO improve this with simd
         y *= value;
         z *= value;
         w *= value;
