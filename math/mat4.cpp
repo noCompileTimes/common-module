@@ -36,8 +36,9 @@ namespace math
 
     auto mat4::perspective(const float fov, const float aspect, const float near, const float far) -> void
     {
-         const auto t =  tan(fov * 0.5f);
-         const auto r =  far     - near;
+         const auto a =  radians(fov);
+         const auto t =  tan(a * 0.5f);
+         const auto r =  far   - near;
 
         _columns[0].x =  1.0f / (t * aspect);
         _columns[1].y =  1.0f /  t;
