@@ -2,9 +2,9 @@
 
 namespace math
 {
-    auto radians(const float degrees) -> float
+    auto sqrt(const float value) -> float
     {
-        return degrees * 0.017453292519943295769f;
+         return std::sqrt(value);
     }
 
     auto sin(const float radians) -> float
