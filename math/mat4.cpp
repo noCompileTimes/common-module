@@ -2,17 +2,6 @@
 
 namespace math
 {
-    constexpr mat4::mat4()
-        :  columns
-        {
-            column { 1.0f, 0.0f, 0.0f, 0.0f },
-            column { 0.0f, 1.0f, 0.0f, 0.0f },
-            column { 0.0f, 0.0f, 1.0f, 0.0f },
-            column { 0.0f, 0.0f, 0.0f, 1.0f }
-        }
-    {
-    }
-
     auto mat4::ortho(const float left, const float right, const float bottom, const float top, const float near, const float far) -> void
     {
         columns[0].x =  2.0f / (right - left);

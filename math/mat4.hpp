@@ -6,7 +6,16 @@ namespace math
 {
     struct mat4
     {
-        constexpr mat4();
+        constexpr mat4()
+            :  columns
+            {
+                { 1.0f, 0.0f, 0.0f, 0.0f },
+                { 0.0f, 1.0f, 0.0f, 0.0f },
+                { 0.0f, 0.0f, 1.0f, 0.0f },
+                { 0.0f, 0.0f, 0.0f, 1.0f }
+            }
+        {
+        }
 
         auto ortho(float left, float right, float bottom, float top, float near, float far) -> void;
         auto ortho(float left, float right, float bottom, float top)                        -> void;
@@ -16,6 +25,6 @@ namespace math
         auto   translate(const vec3& vec) -> void;
         auto       scale(const vec3& vec) -> void;
 
-        std::array<column, 4>  columns;
+        column columns[4];
     };
 }
