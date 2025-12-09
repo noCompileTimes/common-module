@@ -38,14 +38,14 @@ namespace math
         columns[3].w =   0.0f;
     }
 
-    auto mat4::translate(const vec3& vec) -> void
+    auto mat4::translate(const vec3& vec) noexcept -> void
     {
         columns[3] += columns[0] * vec.x +
                       columns[1] * vec.y +
                       columns[2] * vec.z;
     }
 
-    auto mat4::scale(const vec3& vec) -> void
+    auto mat4::scale(const vec3& vec) noexcept -> void
     {
         columns[0] *= vec.x;
         columns[1] *= vec.y;
