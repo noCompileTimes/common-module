@@ -2,7 +2,7 @@
 
 namespace math
 {
-    auto mat4::ortho(const float left, const float right, const float bottom, const float top, const float near, const float far) -> void
+    auto mat4::ortho(const float left, const float right, const float bottom, const float top, const float near, const float far) noexcept -> void
     {
         columns[0].x =  2.0f / (right - left);
         columns[1].y =  2.0f / (top   - bottom);
@@ -13,7 +13,7 @@ namespace math
         columns[3].z = -(far   + near)   / (far   - near);
     }
 
-    auto mat4::ortho(const float left, const float right, const float bottom, const float top) -> void
+    auto mat4::ortho(const float left, const float right, const float bottom, const float top) noexcept -> void
     {
         columns[0].x =  2.0f / (right - left);
         columns[1].y =  2.0f / (top   - bottom);
@@ -23,7 +23,7 @@ namespace math
         columns[3].y = -(top   + bottom) / (top   - bottom);
     }
 
-    auto mat4::perspective(const float fov, const float aspect, const float near, const float far) -> void
+    auto mat4::perspective(const float fov, const float aspect, const float near, const float far) noexcept -> void
     {
         const auto t =  tan(fov * 0.5f);
         const auto r =  far     - near;

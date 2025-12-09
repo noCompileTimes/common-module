@@ -4,11 +4,11 @@ namespace math
 {
     struct column
     {
-        auto operator+ (const column& other) const -> column;
-        auto operator* (float         value) const -> column;
+        auto operator+ (const column& other) const noexcept -> column;
+        auto operator* (float         value) const noexcept -> column;
 
-        auto operator+=(const column& other)       -> column&;
-        auto operator*=(float         value)       -> column&;
+        auto operator+=(const column& other)       noexcept -> column&;
+        auto operator*=(float         value)       noexcept -> column&;
 
         float x { };
         float y { };

@@ -6,7 +6,7 @@ namespace math
 {
     struct mat4
     {
-        constexpr mat4()
+        constexpr mat4() noexcept
             :  columns
             {
                 { 1.0f, 0.0f, 0.0f, 0.0f },
@@ -17,10 +17,10 @@ namespace math
         {
         }
 
-        auto ortho(float left, float right, float bottom, float top, float near, float far) -> void;
-        auto ortho(float left, float right, float bottom, float top)                        -> void;
+        auto ortho(float left, float right, float bottom, float top, float near, float far) noexcept -> void;
+        auto ortho(float left, float right, float bottom, float top)                        noexcept -> void;
 
-        auto perspective(float fov, float aspect, float near, float far) -> void;
+        auto perspective(float fov, float aspect, float near, float far) noexcept -> void;
 
         auto   translate(const vec3& vec) -> void;
         auto       scale(const vec3& vec) -> void;

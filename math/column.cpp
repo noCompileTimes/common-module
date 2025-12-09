@@ -2,7 +2,7 @@
 
 namespace math
 {
-    auto column::operator+(const column& other) const -> column
+    auto column::operator+(const column& other) const noexcept -> column
     {
         return
         {
@@ -13,7 +13,7 @@ namespace math
         };
     }
 
-    auto column::operator*(const float value) const -> column
+    auto column::operator*(const float value) const noexcept -> column
     {
         return
         {
@@ -24,7 +24,7 @@ namespace math
         };
     }
 
-    auto column::operator+=(const column& other) -> column&
+    auto column::operator+=(const column& other) noexcept -> column&
     {
         x += other.x; // TODO improve this with simd
         y += other.y;
@@ -34,7 +34,7 @@ namespace math
         return *this;
     }
 
-    auto column::operator*=(const float value) -> column&
+    auto column::operator*=(const float value) noexcept -> column&
     {
         x *= value; // TODO improve this with simd
         y *= value;

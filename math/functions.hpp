@@ -2,22 +2,22 @@
 
 namespace math
 {
-    inline auto sqrt(const float value) -> float // TODO make this constexpr when switching to cpp 26
+    inline auto sqrt(const float value) noexcept -> float // TODO make this constexpr when switching to cpp 26
     {
         return std::sqrt(value);
     }
 
-    inline auto sin(const float radians) -> float
+    inline auto sin(const float radians) noexcept -> float
     {
         return std::sin(radians);
     }
 
-    inline auto cos(const float radians) -> float
+    inline auto cos(const float radians) noexcept -> float
     {
         return std::cos(radians);
     }
 
-    inline auto tan(const float radians) -> float
+    inline auto tan(const float radians) noexcept -> float
     {
         return std::tan(radians);
     }
