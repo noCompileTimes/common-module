@@ -17,7 +17,7 @@ namespace math
 
     auto vec3::length() const noexcept -> float
     {
-        return std::sqrt(squared_length());
+        return sqrt(squared_length());
     }
 
     auto vec3::squared_length() const noexcept -> float
