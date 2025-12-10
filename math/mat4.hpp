@@ -22,8 +22,8 @@ namespace math
 
         auto perspective(float fov, float aspect, float near, float far) noexcept -> void;
 
-        auto   translate(const vec3& vec) -> void;
-        auto       scale(const vec3& vec) -> void;
+        auto   translate(const vec3& vec) noexcept -> void;
+        auto       scale(const vec3& vec) noexcept -> void;
 
         column columns[4];
     };
