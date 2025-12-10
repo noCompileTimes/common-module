@@ -6,13 +6,13 @@ namespace math
 {
     struct mat4
     {
-        constexpr mat4() noexcept
-            :  columns
-            {
-                { 1.0f, 0.0f, 0.0f, 0.0f },
-                { 0.0f, 1.0f, 0.0f, 0.0f },
-                { 0.0f, 0.0f, 1.0f, 0.0f },
-                { 0.0f, 0.0f, 0.0f, 1.0f }
+                 constexpr mat4()                  noexcept = default;
+        explicit constexpr mat4(const float scale) noexcept
+            : columns  {
+                column { scale },
+                column { 0.0f, scale },
+                column { 0.0f, 0.0f, scale },
+                column { 0.0f, 0.0f, 0.0f, scale }
             }
         {
         }
@@ -25,6 +25,6 @@ namespace math
         auto   translate(const vec3& vec) noexcept -> void;
         auto       scale(const vec3& vec) noexcept -> void;
 
-        column columns[4];
+        std::array<column, 4>  columns;
     };
 }

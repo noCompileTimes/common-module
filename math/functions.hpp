@@ -2,7 +2,7 @@
 
 namespace math
 {
-    inline auto sqrt(const float value) noexcept -> float // TODO make this constexpr when switching to cpp 26
+    inline auto sqrt(const float value) noexcept -> float
     {
         return std::sqrt(value);
     }
