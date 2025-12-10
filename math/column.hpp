@@ -10,9 +10,9 @@ namespace math
         [[nodiscard]] auto operator+(const column& other) const noexcept -> column;
         [[nodiscard]] auto operator*(float         value) const noexcept -> column;
 
-        float x { };
-        float y { };
-        float z { };
-        float w { };
+        float x;
+        float y;
+        float z;
+        float w;
     };
 }
