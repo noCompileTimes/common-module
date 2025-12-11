@@ -25,6 +25,6 @@ namespace math
         auto   translate(const vec3& vec) noexcept -> void;
         auto       scale(const vec3& vec) noexcept -> void;
 
-        std::array<column, 4>  columns;
+        std::array<column, 4> columns;
     };
 }
