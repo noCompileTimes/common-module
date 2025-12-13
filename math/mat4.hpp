@@ -25,6 +25,9 @@ namespace math
         auto   translate(const vec3& vec) noexcept -> void;
         auto       scale(const vec3& vec) noexcept -> void;
 
+                      auto operator*=(const mat4& other)       noexcept -> mat4&;
+        [[nodiscard]] auto operator* (const mat4& other) const noexcept -> mat4;
+
         std::array<column, 4> columns;
     };
 }

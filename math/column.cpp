@@ -4,20 +4,14 @@ namespace math
 {
     auto column::operator+=(const column& other) noexcept -> column&
     {
-        x += other.x; // TODO improve this with simd
-        y += other.y;
-        z += other.z;
-        w += other.w;
+        data = _mm_add_ps(data, other.data);
 
         return *this;
     }
 
     auto column::operator*=(const float value) noexcept -> column&
     {
-        x *= value; // TODO improve this with simd
-        y *= value;
-        z *= value;
-        w *= value;
+        data = _mm_mul_ps(data, _mm_set1_ps(value));
 
         return *this;
     }
@@ -26,10 +20,7 @@ namespace math
     {
         return
         {
-            x + other.x, // TODO improve this with simd
-            y + other.y,
-            z + other.z,
-            w + other.w
+            .data = _mm_add_ps(data, other.data)
         };
     }
 
@@ -37,10 +28,7 @@ namespace math
     {
         return
         {
-            x * value, // TODO improve this with simd
-            y * value,
-            z * value,
-            w * value
+            .data = _mm_mul_ps(data, _mm_set1_ps(value))
         };
     }
 }
