@@ -51,4 +51,25 @@ namespace math
         columns[1] *= vec.y;
         columns[2] *= vec.z;
     }
+
+    auto mat4::operator*=(const mat4& other) noexcept -> mat4&
+    {
+        *this = *this * other;
+         return *this;
+    }
+
+    auto mat4::operator*(const mat4& other) const noexcept -> mat4
+    {
+        mat4 matrix;
+
+        for (auto i = 0; i < columns.size(); ++i)
+        {
+            matrix.columns[i] = columns[0] * other.columns[i].x +
+                                columns[1] * other.columns[i].y +
+                                columns[2] * other.columns[i].z +
+                                columns[3] * other.columns[i].w;
+        }
+
+        return matrix;
+    }
 }
