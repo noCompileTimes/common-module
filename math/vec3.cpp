@@ -51,6 +51,15 @@ namespace math
         return *this;
     }
 
+    auto vec3::operator-=(const vec3& other) noexcept -> vec3&
+    {
+        x -= other.x;
+        y -= other.y;
+        z -= other.z;
+
+        return *this;
+    }
+
     auto vec3::operator*=(const float value) noexcept -> vec3&
     {
         x *= value;
@@ -67,6 +76,16 @@ namespace math
             x + other.x,
             y + other.y,
             z + other.z
+        };
+    }
+
+    auto vec3::operator-(const vec3& other) const noexcept -> vec3
+    {
+        return
+        {
+            x - other.x,
+            y - other.y,
+            z - other.z
         };
     }
 
