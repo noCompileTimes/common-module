@@ -14,5 +14,6 @@
 #include "vec3.hpp"
 
 #include "mat4.hpp"
+#include "quat.hpp"
 
 #include "rgb.hpp"

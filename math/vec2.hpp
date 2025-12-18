@@ -8,6 +8,8 @@ namespace math
 
         [[nodiscard]] auto operator+(const vec2& other) const noexcept -> vec2;
 
+        // TODO minus operator
+
         float x;
         float y;
     };
