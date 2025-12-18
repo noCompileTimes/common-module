@@ -4,7 +4,7 @@ namespace math
 {
     auto quat::matrix() const -> mat4
     {
-        mat4 matrix;
+        mat4  matrix;
 
         const auto wx = w * x;
         const auto wy = w * y;
@@ -44,7 +44,7 @@ namespace math
 
     auto quat::normalize() -> void
     {
-        if (const auto l = length();
+        if (const auto l = length(); // rename this with full name?
                        l > epsilon)
         {
             const auto i = 1.0f / l;
