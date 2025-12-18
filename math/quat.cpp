@@ -2,7 +2,7 @@
 
 namespace math
 {
-    auto quat::matrix() const -> mat4
+    auto quat::matrix() const noexcept -> mat4
     {
         mat4  matrix;
 
@@ -42,12 +42,12 @@ namespace math
         return matrix;
     }
 
-    auto quat::normalize() -> void
+    auto quat::normalize() noexcept -> void
     {
-        if (const auto l = length(); // rename this with full name?
-                       l > epsilon)
+        if (const auto len = length();
+                       len > epsilon)
         {
-            const auto i = 1.0f / l;
+            const auto i = 1.0f / len;
 
             w *= i;
             x *= i;
@@ -56,17 +56,17 @@ namespace math
         }
     }
 
-    auto quat::length() const -> float
+    auto quat::length() const noexcept -> float
     {
         return sqrt(squared_length());
     }
 
-    auto quat::squared_length() const -> float
+    auto quat::squared_length() const noexcept -> float
     {
         return  w * w + x * x + y * y + z * z;
     }
 
-    auto quat::rotation(const vec3& axis, const float radians) -> void
+    auto quat::rotation(const vec3& axis, const float radians) noexcept -> void
     {
         const auto     half_angle = radians * 0.5f;
         const auto sin_half_angle = sin(half_angle);

@@ -25,16 +25,16 @@ namespace math
 
     auto mat4::perspective(const float fov, const float aspect, const float near, const float far) noexcept -> void
     {
-        const auto t =  tan(fov * 0.5f);
-        const auto r =  far     - near;
+        const auto tan_fov =  tan(fov * 0.5f);
+        const auto range   =      far - near;
 
-        columns[0].x =  1.0f / (t * aspect);
-        columns[1].y =  1.0f /  t;
+        columns[0].x =  1.0f / (tan_fov * aspect);
+        columns[1].y =  1.0f /  tan_fov;
 
-        columns[2].z = -(far + near) / r;
+        columns[2].z = -(far + near) / range;
         columns[2].w = -1.0f;
 
-        columns[3].z = -(2.0f * far * near) / r;
+        columns[3].z = -(2.0f * far * near) / range;
         columns[3].w =   0.0f;
     }
 

@@ -4,10 +4,10 @@ namespace math
 {
     auto vec3::normalize() noexcept -> void
     {
-        if (const auto l = length();
-                       l > epsilon)
+        if (const auto len = length();
+                       len > epsilon)
         {
-            const auto i = 1.0f / l;
+            const auto i = 1.0f / len;
 
             x *= i;
             y *= i;
