@@ -4,10 +4,10 @@ namespace math
 {
     struct vec3
     {
-        auto      normalize() noexcept -> void;
+        auto normalize() noexcept -> void;
 
-        auto         length() const noexcept -> float;
-        auto squared_length() const noexcept -> float;
+        [[nodiscard]] auto         length() const noexcept -> float;
+        [[nodiscard]] auto squared_length() const noexcept -> float;
 
         static auto cross(const vec3& a, const vec3& b) noexcept -> vec3;
         static auto   dot(const vec3& a, const vec3& b) noexcept -> float;
