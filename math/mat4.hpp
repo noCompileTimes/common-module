@@ -12,7 +12,16 @@ namespace math
                 column { scale },
                 column { 0.0f, scale },
                 column { 0.0f, 0.0f, scale },
-                column { 0.0f, 0.0f, 0.0f, scale }
+                column { 0.0f, 0.0f, 0.0f, 1.0f }
+            }
+        {
+        }
+        explicit constexpr mat4(const vec3& scale) noexcept
+            : columns  {
+                column { scale.x },
+                column { 0.0f, scale.y },
+                column { 0.0f, 0.0f, scale.z },
+                column { 0.0f, 0.0f, 0.0f, 1.0f }
             }
         {
         }
