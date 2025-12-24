@@ -10,7 +10,19 @@ namespace math
         [[nodiscard]] auto operator+(const vec2& other) const noexcept -> vec2;
         [[nodiscard]] auto operator-(const vec2& other) const noexcept -> vec2;
 
-        float x;
-        float y;
+        union
+        {
+            struct
+            {
+                float x;
+                float y;
+            };
+
+            struct
+            {
+                float u;
+                float v;
+            };
+        };
     };
 }
