@@ -2,15 +2,15 @@
 
 namespace math
 {
-    auto mat4::ortho(const float left, const float right, const float bottom, const float top, const float near, const float far) noexcept -> void
+    auto mat4::ortho(const float left, const float right, const float bottom, const float top, const float near_z, const float far_z) noexcept -> void
     {
         columns[0].x =  2.0f / (right - left);
         columns[1].y =  2.0f / (top   - bottom);
-        columns[2].z = -2.0f / (far   - near);
+        columns[2].z = -2.0f / (far_z - near_z);
 
         columns[3].x = -(right + left)   / (right - left);
         columns[3].y = -(top   + bottom) / (top   - bottom);
-        columns[3].z = -(far   + near)   / (far   - near);
+        columns[3].z = -(far_z + near_z) / (far_z - near_z);
     }
 
     auto mat4::ortho(const float left, const float right, const float bottom, const float top) noexcept -> void
@@ -23,18 +23,18 @@ namespace math
         columns[3].y = -(top   + bottom) / (top   - bottom);
     }
 
-    auto mat4::perspective(const float fov, const float aspect, const float near, const float far) noexcept -> void
+    auto mat4::perspective(const float fov, const float aspect, const float near_z, const float far_z) noexcept -> void
     {
         const auto tan_fov =  tan(fov * 0.5f);
-        const auto range   =      far - near;
+        const auto range   =    far_z - near_z;
 
         columns[0].x =  1.0f / (tan_fov * aspect);
         columns[1].y =  1.0f /  tan_fov;
 
-        columns[2].z = -(far + near) / range;
+        columns[2].z = -(far_z + near_z) / range;
         columns[2].w = -1.0f;
 
-        columns[3].z = -(2.0f * far * near) / range;
+        columns[3].z = -(2.0f  * near_z * far_z) / range;
         columns[3].w =   0.0f;
     }
 

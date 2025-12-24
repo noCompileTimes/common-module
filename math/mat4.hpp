@@ -26,10 +26,10 @@ namespace math
         {
         }
 
-        auto ortho(float left, float right, float bottom, float top, float near, float far) noexcept -> void;
-        auto ortho(float left, float right, float bottom, float top)                        noexcept -> void;
+        auto ortho(float left, float right, float bottom, float top, float near_z, float far_z) noexcept -> void;
+        auto ortho(float left, float right, float bottom, float top)                            noexcept -> void;
 
-        auto perspective(float fov, float aspect, float near, float far) noexcept -> void;
+        auto perspective(float fov, float aspect, float near_z, float far_z) noexcept -> void;
 
         auto translation(const vec3& vec) noexcept -> void;
         auto   translate(const vec3& vec) noexcept -> void;
