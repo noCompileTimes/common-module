@@ -66,6 +66,23 @@ namespace math
         return  w * w + x * x + y * y + z * z;
     }
 
+    auto quat::operator*=(const quat& other) noexcept -> quat&
+    {
+        *this = *this * other;
+         return *this;
+    }
+
+    auto quat::operator*(const quat& other) const noexcept -> quat
+    {
+        return
+        {
+            w * other.w - x * other.x - y * other.y - z * other.z,
+            w * other.x + x * other.w + y * other.z - z * other.y,
+            w * other.y - x * other.z + y * other.w + z * other.x,
+            w * other.z + x * other.y - y * other.x + z * other.w
+        };
+    }
+
     auto quat::rotation(const vec3& axis, const float radians) noexcept -> void
     {
         const auto     half_angle = radians * 0.5f;
