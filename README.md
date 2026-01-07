@@ -1,6 +1,6 @@
 # Common Module
 
-`Work in progress`
+`Under development`
 
 ### About
 
