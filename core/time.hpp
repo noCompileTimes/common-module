@@ -10,11 +10,14 @@ namespace core
     class Time
     {
     public:
-        auto start() noexcept -> void;
-        auto  tick() noexcept -> void;
+        auto  start() noexcept -> void;
+        auto   tick() noexcept -> void;
 
-        static auto elapsed() noexcept -> float;
-        static auto   delta() noexcept -> float;
+        [[nodiscard]] static auto    delta() noexcept -> float;
+        [[nodiscard]] static auto  elapsed() noexcept -> float;
+
+        [[nodiscard]] static auto  current()                                     noexcept -> time_point;
+        [[nodiscard]] static auto duration(time_point start_t, time_point end_t) noexcept -> time_seconds;
 
     private:
         static constexpr auto max_delta_t = 1.0f / 30.0f;
