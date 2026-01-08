@@ -4,11 +4,35 @@ namespace math
 {
     struct column
     {
-        auto operator+=(const column& other) noexcept -> column&;
-        auto operator*=(float         value) noexcept -> column&;
+        auto operator+=(const column& other) noexcept -> column&
+        {
+            data = _mm_add_ps(data, other.data);
 
-        [[nodiscard]] auto operator+(const column& other) const noexcept -> column;
-        [[nodiscard]] auto operator*(float         value) const noexcept -> column;
+            return *this;
+        }
+
+        auto operator*=(const float value) noexcept -> column&
+        {
+            data = _mm_mul_ps(data, _mm_set1_ps(value));
+
+            return *this;
+        }
+
+        [[nodiscard]] auto operator+(const column& other) const noexcept -> column
+        {
+            return
+            {
+                .data = _mm_add_ps(data, other.data)
+            };
+        }
+
+        [[nodiscard]] auto operator*(const float value) const noexcept -> column
+        {
+            return
+            {
+                .data = _mm_mul_ps(data, _mm_set1_ps(value))
+            };
+        }
 
         union
         {
