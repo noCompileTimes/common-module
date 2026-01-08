@@ -1,10 +1,12 @@
 #pragma once
 
+#include "mat4.hpp"
+
 namespace math
 {
     struct quat
     {
-        auto quat::matrix() const noexcept -> mat4
+        auto matrix() const noexcept -> mat4
         {
             mat4  matrix;
 
@@ -44,7 +46,7 @@ namespace math
             return matrix;
         }
 
-        auto quat::normalize() noexcept -> void
+        auto normalize() noexcept -> void
         {
             if (const auto len = length();
                            len > epsilon)
@@ -58,23 +60,23 @@ namespace math
             }
         }
 
-        [[nodiscard]] auto quat::length() const noexcept -> float
+        [[nodiscard]] auto length() const noexcept -> float
         {
             return sqrt(squared_length());
         }
 
-        [[nodiscard]] auto quat::squared_length() const noexcept -> float
+        [[nodiscard]] auto squared_length() const noexcept -> float
         {
             return  w * w + x * x + y * y + z * z;
         }
 
-        auto quat::operator*=(const quat& other) noexcept -> quat&
+        auto operator*=(const quat& other) noexcept -> quat&
         {
             *this = *this * other;
-            return *this;
+             return *this;
         }
 
-        [[nodiscard]] auto quat::operator*(const quat& other) const noexcept -> quat
+        [[nodiscard]] auto operator*(const quat& other) const noexcept -> quat
         {
             return
             {
@@ -85,7 +87,7 @@ namespace math
             };
         }
 
-        auto quat::rotation(const vec3& axis, const float radians) noexcept -> void
+        auto rotation(const vec3& axis, const float radians) noexcept -> void
         {
             const auto     half_angle = radians * 0.5f;
             const auto sin_half_angle = sin(half_angle);

@@ -27,7 +27,7 @@ namespace math
         {
         }
 
-        auto mat4::ortho(const float left, const float right, const float bottom, const float top, const float near_z, const float far_z) noexcept -> void
+        auto ortho(const float left, const float right, const float bottom, const float top, const float near_z, const float far_z) noexcept -> void
         {
             columns[0].x =  2.0f / (right - left);
             columns[1].y =  2.0f / (top   - bottom);
@@ -38,7 +38,7 @@ namespace math
             columns[3].z = -(far_z + near_z) / (far_z - near_z);
         }
 
-        auto mat4::ortho(const float left, const float right, const float bottom, const float top) noexcept -> void
+        auto ortho(const float left, const float right, const float bottom, const float top) noexcept -> void
         {
             columns[0].x =  2.0f / (right - left);
             columns[1].y =  2.0f / (top   - bottom);
@@ -48,7 +48,7 @@ namespace math
             columns[3].y = -(top   + bottom) / (top   - bottom);
         }
 
-        auto mat4::perspective(const float fov, const float aspect, const float near_z, const float far_z) noexcept -> void
+        auto perspective(const float fov, const float aspect, const float near_z, const float far_z) noexcept -> void
         {
             const auto tan_fov =  tan(fov * 0.5f);
             const auto range   =    far_z - near_z;
@@ -63,34 +63,34 @@ namespace math
             columns[3].w =   0.0f;
         }
 
-        auto mat4::translation(const vec3& vec) noexcept -> void
+        auto translation(const vec3& vec) noexcept -> void
         {
             columns[3].x = vec.x;
             columns[3].y = vec.y;
             columns[3].z = vec.z;
         }
 
-        auto mat4::translate(const vec3& vec) noexcept -> void
+        auto translate(const vec3& vec) noexcept -> void
         {
             columns[3] += columns[0] * vec.x +
                           columns[1] * vec.y +
                           columns[2] * vec.z;
         }
 
-        auto mat4::scale(const vec3& vec) noexcept -> void
+        auto scale(const vec3& vec) noexcept -> void
         {
             columns[0] *= vec.x;
             columns[1] *= vec.y;
             columns[2] *= vec.z;
         }
 
-        auto mat4::operator*=(const mat4& other) noexcept -> mat4&
+        auto operator*=(const mat4& other) noexcept -> mat4&
         {
             *this = *this * other;
              return *this;
         }
 
-        [[nodiscard]] auto mat4::operator*(const mat4& other) const noexcept -> mat4
+        [[nodiscard]] auto operator*(const mat4& other) const noexcept -> mat4
         {
             mat4 matrix;
 
