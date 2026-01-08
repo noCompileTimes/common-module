@@ -4,16 +4,98 @@ namespace math
 {
     struct quat
     {
-        auto     matrix() const noexcept -> mat4;
-        auto  normalize()       noexcept -> void;
+        auto quat::matrix() const noexcept -> mat4
+        {
+            mat4  matrix;
 
-        [[nodiscard]] auto         length() const noexcept -> float;
-        [[nodiscard]] auto squared_length() const noexcept -> float;
+            const auto wx = w * x;
+            const auto wy = w * y;
+            const auto wz = w * z;
 
-                      auto operator*=(const quat& other)       noexcept -> quat&;
-        [[nodiscard]] auto operator* (const quat& other) const noexcept -> quat;
+            const auto xx = x * x;
+            const auto xy = x * y;
+            const auto xz = x * z;
 
-        auto rotation(const vec3& axis, float radians) noexcept -> void;
+            const auto yy = y * y;
+            const auto yz = y * z;
+
+            const auto zz = z * z;
+
+            matrix.columns[0].x = 1.0f - 2.0f * (yy + zz);
+            matrix.columns[0].y =        2.0f * (xy + wz);
+            matrix.columns[0].z =        2.0f * (xz - wy);
+            matrix.columns[0].w =        0.0f;
+
+            matrix.columns[1].x =        2.0f * (xy - wz);
+            matrix.columns[1].y = 1.0f - 2.0f * (xx + zz);
+            matrix.columns[1].z =        2.0f * (yz + wx);
+            matrix.columns[1].w =        0.0f;
+
+            matrix.columns[2].x =        2.0f * (xz + wy);
+            matrix.columns[2].y =        2.0f * (yz - wx);
+            matrix.columns[2].z = 1.0f - 2.0f * (xx + yy);
+            matrix.columns[2].w =        0.0f;
+
+            matrix.columns[3].x =        0.0f;
+            matrix.columns[3].y =        0.0f;
+            matrix.columns[3].z =        0.0f;
+            matrix.columns[3].w =        1.0f;
+
+            return matrix;
+        }
+
+        auto quat::normalize() noexcept -> void
+        {
+            if (const auto len = length();
+                           len > epsilon)
+            {
+                const auto i = 1.0f / len;
+
+                w *= i;
+                x *= i;
+                y *= i;
+                z *= i;
+            }
+        }
+
+        [[nodiscard]] auto quat::length() const noexcept -> float
+        {
+            return sqrt(squared_length());
+        }
+
+        [[nodiscard]] auto quat::squared_length() const noexcept -> float
+        {
+            return  w * w + x * x + y * y + z * z;
+        }
+
+        auto quat::operator*=(const quat& other) noexcept -> quat&
+        {
+            *this = *this * other;
+            return *this;
+        }
+
+        [[nodiscard]] auto quat::operator*(const quat& other) const noexcept -> quat
+        {
+            return
+            {
+                w * other.w - x * other.x - y * other.y - z * other.z,
+                w * other.x + x * other.w + y * other.z - z * other.y,
+                w * other.y - x * other.z + y * other.w + z * other.x,
+                w * other.z + x * other.y - y * other.x + z * other.w
+            };
+        }
+
+        auto quat::rotation(const vec3& axis, const float radians) noexcept -> void
+        {
+            const auto     half_angle = radians * 0.5f;
+            const auto sin_half_angle = sin(half_angle);
+
+            x = axis.x * sin_half_angle;
+            y = axis.y * sin_half_angle;
+            z = axis.z * sin_half_angle;
+
+            w = cos(half_angle);
+        }
 
         float w;
         float x;
