@@ -7,8 +7,8 @@ namespace core
     public:
         File() = delete;
 
-        static auto read(const std::filesystem::path& path, const int32_t mode = 0) -> std::vector<char> {
-
+        [[nodiscard]] static auto read(const std::filesystem::path& path, const int32_t mode = 0) -> std::vector<char>
+        {
             assert(is_regular_file(path));
 
             std::ifstream stream(path, std::ios::ate | mode);
