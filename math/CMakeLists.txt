@@ -1,4 +1,4 @@
 #=======================================================================================================================
 target_precompile_headers(${PROJECT_NAME} PUBLIC headers.hpp)
-           target_sources(${PROJECT_NAME} PUBLIC mat4.cpp quat.cpp vec3.cpp)
+           target_sources(${PROJECT_NAME} PUBLIC mat4.cpp quat.cpp)
 #=======================================================================================================================
