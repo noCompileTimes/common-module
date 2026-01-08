@@ -16,6 +16,7 @@ namespace math
             }
         {
         }
+
         explicit constexpr mat4(const vec3& scale) noexcept
             : columns  {
                 column { scale.x },
