@@ -6,6 +6,11 @@ namespace math
 {
     struct quat
     {
+        float w;
+        float x;
+        float y;
+        float z;
+
         auto matrix() const noexcept -> mat4
         {
             mat4  matrix;
@@ -98,10 +103,5 @@ namespace math
 
             w = cos(half_angle);
         }
-
-        float w;
-        float x;
-        float y;
-        float z;
     };
 }

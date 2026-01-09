@@ -4,6 +4,19 @@ namespace math
 {
     struct column
     {
+        union
+        {
+            struct
+            {
+                float x;
+                float y;
+                float z;
+                float w;
+            };
+
+            __m128 data;
+        };
+
         auto operator+=(const column& other) noexcept -> column&
         {
             data = _mm_add_ps(data, other.data);
@@ -33,18 +46,5 @@ namespace math
                 .data = _mm_mul_ps(data, _mm_set1_ps(value))
             };
         }
-
-        union
-        {
-            struct
-            {
-                float x;
-                float y;
-                float z;
-                float w;
-            };
-
-            __m128 data;
-        };
     };
 }

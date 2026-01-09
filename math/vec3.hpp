@@ -4,6 +4,10 @@ namespace math
 {
     struct vec3
     {
+        float x;
+        float y;
+        float z;
+
         auto normalize() noexcept -> void
         {
             if (const auto len = length();
@@ -100,9 +104,5 @@ namespace math
                 z * value
             };
         }
-
-        float x;
-        float y;
-        float z;
     };
 }

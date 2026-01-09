@@ -6,6 +6,8 @@ namespace math
 {
     struct mat4
     {
+        std::array<column, 4> columns;
+
                  constexpr mat4()                  noexcept = default;
         explicit constexpr mat4(const float scale) noexcept
             : columns  {
@@ -104,7 +106,5 @@ namespace math
 
             return matrix;
         }
-
-        std::array<column, 4> columns;
     };
 }
