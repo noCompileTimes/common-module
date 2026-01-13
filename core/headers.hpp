@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "data/camera.hpp"
+#include "data/image.hpp"
 #include "data/transform.hpp"
 
 #include "vertex/type/basic.hpp"
