@@ -98,13 +98,23 @@ namespace math
 
             for (auto i = 0; i < columns.size(); ++i)
             {
-                matrix.columns[i] = columns[0] * other.columns[i].x +
-                                    columns[1] * other.columns[i].y +
-                                    columns[2] * other.columns[i].z +
-                                    columns[3] * other.columns[i].w;
+                matrix[i] = columns[0] * other[i].x +
+                            columns[1] * other[i].y +
+                            columns[2] * other[i].z +
+                            columns[3] * other[i].w;
             }
 
             return matrix;
+        }
+
+        [[nodiscard]] constexpr auto operator[](const size_t index) const noexcept -> const column&
+        {
+            return columns[index];
+        }
+
+        [[nodiscard]] constexpr auto operator[](const size_t index) noexcept -> column&
+        {
+            return columns[index];
         }
     };
 }

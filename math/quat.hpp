@@ -28,25 +28,25 @@ namespace math
 
             const auto zz = z * z;
 
-            matrix.columns[0].x = 1.0f - 2.0f * (yy + zz);
-            matrix.columns[0].y =        2.0f * (xy + wz);
-            matrix.columns[0].z =        2.0f * (xz - wy);
-            matrix.columns[0].w =        0.0f;
+            matrix[0].x = 1.0f - 2.0f * (yy + zz);
+            matrix[0].y =        2.0f * (xy + wz);
+            matrix[0].z =        2.0f * (xz - wy);
+            matrix[0].w =        0.0f;
 
-            matrix.columns[1].x =        2.0f * (xy - wz);
-            matrix.columns[1].y = 1.0f - 2.0f * (xx + zz);
-            matrix.columns[1].z =        2.0f * (yz + wx);
-            matrix.columns[1].w =        0.0f;
+            matrix[1].x =        2.0f * (xy - wz);
+            matrix[1].y = 1.0f - 2.0f * (xx + zz);
+            matrix[1].z =        2.0f * (yz + wx);
+            matrix[1].w =        0.0f;
 
-            matrix.columns[2].x =        2.0f * (xz + wy);
-            matrix.columns[2].y =        2.0f * (yz - wx);
-            matrix.columns[2].z = 1.0f - 2.0f * (xx + yy);
-            matrix.columns[2].w =        0.0f;
+            matrix[2].x =        2.0f * (xz + wy);
+            matrix[2].y =        2.0f * (yz - wx);
+            matrix[2].z = 1.0f - 2.0f * (xx + yy);
+            matrix[2].w =        0.0f;
 
-            matrix.columns[3].x =        0.0f;
-            matrix.columns[3].y =        0.0f;
-            matrix.columns[3].z =        0.0f;
-            matrix.columns[3].w =        1.0f;
+            matrix[3].x =        0.0f;
+            matrix[3].y =        0.0f;
+            matrix[3].z =        0.0f;
+            matrix[3].w =        1.0f;
 
             return matrix;
         }
