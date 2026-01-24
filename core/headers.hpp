@@ -1,10 +1,10 @@
 #pragma once
 
-#include <cassert>
-
 #include <filesystem>
 #include <fstream>
 #include <vector>
+
+#include <cassert>
 
 #include "data/camera.hpp"
 #include "data/image.hpp"
