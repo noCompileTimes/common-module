@@ -20,24 +20,25 @@ namespace core
         {
             const auto current_tp = current();
 
-              _delta_t  = duration(_current_tp, current_tp).count();
-              _total_t  = duration(_initial_tp, current_tp).count();
+            _delta_ts = duration(_current_tp, current_tp).count();
+            _total_ts = duration(_initial_tp, current_tp).count();
+
             _current_tp = current_tp;
 
-            if (_delta_t > max_delta_t)
+            if (_delta_ts > max_delta_ts)
             {
-                _delta_t = max_delta_t;
+                _delta_ts = max_delta_ts;
             }
         }
 
         [[nodiscard]] static auto delta() noexcept -> float
         {
-            return _delta_t;
+            return _delta_ts;
         }
 
         [[nodiscard]] static auto total() noexcept -> float
         {
-            return _total_t;
+            return _total_ts;
         }
 
         [[nodiscard]] static auto duration(const time_point start_tp, const time_point end_tp) noexcept -> time_seconds
@@ -51,10 +52,10 @@ namespace core
         }
 
     private:
-        static constexpr auto max_delta_t = 1.0f / 30.0f;
+        static constexpr auto max_delta_ts = 1.0f / 30.0f;
 
-        inline static auto _delta_t = 0.0f;
-        inline static auto _total_t = 0.0f;
+        inline static auto _delta_ts = 0.0f;
+        inline static auto _total_ts = 0.0f;
 
         time_point _initial_tp { };
         time_point _current_tp { };
