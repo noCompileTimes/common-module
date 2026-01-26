@@ -12,17 +12,17 @@ namespace core
     public:
         auto start() noexcept -> void
         {
-            _initial_t =
-            _current_t = current();
+            _initial_tp =
+            _current_tp = current();
         }
 
         auto tick() noexcept -> void
         {
-            const auto current_t = current();
+            const auto current_tp = current();
 
-              _delta_t = duration(_current_t, current_t).count();
-              _total_t = duration(_initial_t, current_t).count();
-            _current_t = current_t;
+              _delta_t  = duration(_current_tp, current_tp).count();
+              _total_t  = duration(_initial_tp, current_tp).count();
+            _current_tp = current_tp;
 
             if (_delta_t > max_delta_t)
             {
@@ -40,9 +40,9 @@ namespace core
             return _total_t;
         }
 
-        [[nodiscard]] static auto duration(const time_point start_t, const time_point end_t) noexcept -> time_seconds
+        [[nodiscard]] static auto duration(const time_point start_tp, const time_point end_tp) noexcept -> time_seconds
         {
-            return end_t - start_t;
+            return end_tp - start_tp;
         }
 
         [[nodiscard]] static auto current() noexcept -> time_point
@@ -56,7 +56,7 @@ namespace core
         inline static auto _delta_t = 0.0f;
         inline static auto _total_t = 0.0f;
 
-        time_point _initial_t { };
-        time_point _current_t { };
+        time_point _initial_tp { };
+        time_point _current_tp { };
     };
 }
