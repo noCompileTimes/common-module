@@ -12,52 +12,52 @@ namespace core
     public:
         auto start() noexcept -> void
         {
-            _initial_tp =
-            _current_tp = current();
+            _initial_time_point =
+            _current_time_point = current_time_point();
         }
 
         auto tick() noexcept -> void
         {
-            const auto current_tp = current();
+             const auto current = current_time_point();
 
-            _delta_ts = duration(_current_tp, current_tp).count();
-            _total_ts = duration(_initial_tp, current_tp).count();
+            _delta_time = duration(_current_time_point, current).count();
+            _total_time = duration(_initial_time_point, current).count();
 
-            _current_tp = current_tp;
+            _current_time_point = current;
 
-            if (_delta_ts > max_delta_ts)
+            if (_delta_time > max_delta_time)
             {
-                _delta_ts = max_delta_ts;
+                _delta_time = max_delta_time;
             }
         }
 
-        [[nodiscard]] static auto delta() noexcept -> float
+        [[nodiscard]] static auto delta_time() noexcept -> float
         {
-            return _delta_ts;
+            return _delta_time;
         }
 
-        [[nodiscard]] static auto total() noexcept -> float
+        [[nodiscard]] static auto total_time() noexcept -> float
         {
-            return _total_ts;
+            return _total_time;
         }
 
-        [[nodiscard]] static auto duration(const time_point start_tp, const time_point end_tp) noexcept -> time_seconds
+        [[nodiscard]] static auto duration(const time_point start_time_point, const time_point end_time_point) noexcept -> time_seconds
         {
-            return end_tp - start_tp;
+            return end_time_point - start_time_point;
         }
 
-        [[nodiscard]] static auto current() noexcept -> time_point
+        [[nodiscard]] static auto current_time_point() noexcept -> time_point
         {
             return time_clock::now();
         }
 
     private:
-        static constexpr auto max_delta_ts = 1.0f / 30.0f;
+        static constexpr auto max_delta_time = 1.0f / 30.0f;
 
-        inline static auto _delta_ts = 0.0f;
-        inline static auto _total_ts = 0.0f;
+        inline static auto _delta_time = 0.0f;
+        inline static auto _total_time = 0.0f;
 
-        time_point _initial_tp { };
-        time_point _current_tp { };
+        time_point _initial_time_point { };
+        time_point _current_time_point { };
     };
 }
