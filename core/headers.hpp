@@ -1,14 +1,15 @@
 #pragma once
 
+#include <cassert>
+
 #include <filesystem>
 #include <fstream>
 #include <vector>
 
-#include <cassert>
+#include "data/image.hpp"
 
 #include "data/camera.hpp"
 #include "data/geometry.hpp"
-#include "data/image.hpp"
 #include "data/transform.hpp"
 
 #include "vertex/type/basic.hpp"
