@@ -1,11 +1,13 @@
 #pragma once
 
 #include <cassert>
+#include <cstdint>
 
 #include <filesystem>
 #include <fstream>
 #include <vector>
 
+#include "data/buffer.hpp"
 #include "data/image.hpp"
 
 #include "data/camera.hpp"
