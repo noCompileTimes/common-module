@@ -1,3 +1,4 @@
 #=======================================================================================================================
-target_precompile_headers(${PROJECT_NAME} INTERFACE headers.hpp internal.hpp)
+target_include_directories(${PROJECT_NAME} INTERFACE ..)
+ target_precompile_headers(${PROJECT_NAME} INTERFACE headers.hpp)
 #=======================================================================================================================

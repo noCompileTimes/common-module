@@ -1,6 +1,7 @@
 #pragma once
 
-#include "column.hpp"
+#include "vec3.hpp"
+#include "vec4.hpp"
 
 namespace math
 {
@@ -9,20 +10,20 @@ namespace math
                  constexpr mat4()                  noexcept = default;
         explicit constexpr mat4(const float scale) noexcept
             : _columns {
-                column { scale },
-                column { 0.0f, scale },
-                column { 0.0f, 0.0f, scale },
-                column { 0.0f, 0.0f, 0.0f, 1.0f }
+                  vec4 { scale },
+                  vec4 { 0.0f, scale },
+                  vec4 { 0.0f, 0.0f, scale },
+                  vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
             }
         {
         }
 
         explicit constexpr mat4(const vec3& scale) noexcept
             : _columns {
-                column { scale.x },
-                column { 0.0f, scale.y },
-                column { 0.0f, 0.0f, scale.z },
-                column { 0.0f, 0.0f, 0.0f, 1.0f }
+                  vec4 { scale.x },
+                  vec4 { 0.0f, scale.y },
+                  vec4 { 0.0f, 0.0f, scale.z },
+                  vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
             }
         {
         }
@@ -105,17 +106,17 @@ namespace math
             return matrix;
         }
 
-        [[nodiscard]] constexpr auto operator[](const size_t index) const noexcept -> const column&
+        [[nodiscard]] constexpr auto operator[](const size_t index) const noexcept -> const vec4&
         {
             return _columns[index];
         }
 
-        [[nodiscard]] constexpr auto operator[](const size_t index) noexcept -> column&
+        [[nodiscard]] constexpr auto operator[](const size_t index) noexcept -> vec4&
         {
             return _columns[index];
         }
 
     private:
-        std::array<column, 4> _columns;
+        std::array<vec4, 4> _columns;
     };
 }
