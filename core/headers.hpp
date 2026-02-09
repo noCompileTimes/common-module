@@ -1,7 +1,5 @@
 #pragma once
 
-#include <cassert>
-
 #include <array>
 #include <vector>
 
@@ -10,3 +8,5 @@
 
 #include <limits>
 #include <numbers>
+
+#include <cassert>
