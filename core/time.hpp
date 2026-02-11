@@ -10,46 +10,15 @@ namespace core
     class Time
     {
     public:
-        auto start() noexcept -> void
-        {
-            _initial_time_point =
-            _current_time_point = current_time_point();
-        }
+        auto start() noexcept -> void;
+        auto  tick() noexcept -> void;
 
-        auto tick() noexcept -> void
-        {
-             const auto current = current_time_point();
+        [[nodiscard]] static auto delta_time() noexcept -> float;
+        [[nodiscard]] static auto total_time() noexcept -> float;
 
-            _delta_time = duration(_current_time_point, current).count();
-            _total_time = duration(_initial_time_point, current).count();
+        [[nodiscard]] static auto duration(time_point start_time_point, time_point end_time_point) noexcept -> time_seconds;
 
-            _current_time_point = current;
-
-            if (_delta_time > max_delta_time)
-            {
-                _delta_time = max_delta_time;
-            }
-        }
-
-        [[nodiscard]] static auto delta_time() noexcept -> float
-        {
-            return _delta_time;
-        }
-
-        [[nodiscard]] static auto total_time() noexcept -> float
-        {
-            return _total_time;
-        }
-
-        [[nodiscard]] static auto duration(const time_point start_time_point, const time_point end_time_point) noexcept -> time_seconds
-        {
-            return end_time_point - start_time_point;
-        }
-
-        [[nodiscard]] static auto current_time_point() noexcept -> time_point
-        {
-            return time_clock::now();
-        }
+        [[nodiscard]] static auto current_time_point() noexcept -> time_point;
 
     private:
         static constexpr auto max_delta_time = 1.0f / 30.0f;
