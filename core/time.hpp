@@ -16,7 +16,7 @@ namespace core
         [[nodiscard]] static auto delta_time() noexcept -> float;
         [[nodiscard]] static auto total_time() noexcept -> float;
 
-        [[nodiscard]] static auto duration(time_point start_time_point, time_point end_time_point) noexcept -> time_seconds;
+        [[nodiscard]] static auto calculate_duration(time_point start_time_point, time_point end_time_point) noexcept -> time_seconds;
 
         [[nodiscard]] static auto current_time_point() noexcept -> time_point;
 

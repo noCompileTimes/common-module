@@ -12,8 +12,8 @@ namespace core
     {
          const auto current = current_time_point();
 
-        _delta_time = duration(_current_time_point, current).count();
-        _total_time = duration(_initial_time_point, current).count();
+        _delta_time = calculate_duration(_current_time_point, current).count();
+        _total_time = calculate_duration(_initial_time_point, current).count();
 
         _current_time_point = current;
 
@@ -33,7 +33,7 @@ namespace core
         return _total_time;
     }
 
-    auto Time::duration(const time_point start_time_point, const time_point end_time_point) noexcept -> time_seconds
+    auto Time::calculate_duration(const time_point start_time_point, const time_point end_time_point) noexcept -> time_seconds
     {
         return end_time_point - start_time_point;
     }

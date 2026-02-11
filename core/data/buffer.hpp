@@ -2,7 +2,7 @@
 
 namespace core::data // TODO rename the file to some other name?
 {
-    struct buffer // TODO replace this with a std::pair?
+    struct buffer    // TODO replace this with a std::pair?
     {
         const void*  ptr  { };
         const size_t size { };
