@@ -1,29 +1,28 @@
 #pragma once
 
-#include "vec3.hpp"
-#include "vec4.hpp"
-
 namespace math
 {
     struct mat4
     {
                  constexpr mat4()                  noexcept = default;
         explicit constexpr mat4(const float scale) noexcept
-            : _columns {
-                  vec4 { scale },
-                  vec4 { 0.0f, scale },
-                  vec4 { 0.0f, 0.0f, scale },
-                  vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
+            : _columns
+            {
+                { scale },
+                { 0.0f, scale },
+                { 0.0f, 0.0f, scale },
+                { 0.0f, 0.0f, 0.0f, 1.0f }
             }
         {
         }
 
         explicit constexpr mat4(const vec3& scale) noexcept
-            : _columns {
-                  vec4 { scale.x },
-                  vec4 { 0.0f, scale.y },
-                  vec4 { 0.0f, 0.0f, scale.z },
-                  vec4 { 0.0f, 0.0f, 0.0f, 1.0f }
+            : _columns
+            {
+                { scale.x },
+                { 0.0f, scale.y },
+                { 0.0f, 0.0f, scale.z },
+                { 0.0f, 0.0f, 0.0f, 1.0f }
             }
         {
         }
@@ -95,7 +94,7 @@ namespace math
         {
             mat4 matrix;
 
-            for (auto i = 0; i < _columns.size(); ++i)
+            for (auto i = 0; i < 4; ++i)
             {
                 matrix[i] = _columns[0] * other[i].x +
                             _columns[1] * other[i].y +
@@ -117,6 +116,6 @@ namespace math
         }
 
     private:
-        std::array<vec4, 4> _columns;
+        vec4 _columns[4];
     };
 }

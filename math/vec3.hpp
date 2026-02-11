@@ -1,7 +1,5 @@
 #pragma once
 
-#include "constants.hpp"
-
 namespace math
 {
     struct vec3

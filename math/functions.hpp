@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cmath>
+
 namespace math
 {
     inline auto sqrt(const float value) noexcept -> float
