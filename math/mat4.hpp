@@ -51,7 +51,7 @@ namespace math
         auto perspective(const float fov, const float aspect, const float near_z, const float far_z) noexcept -> void
         {
             const auto tan_fov =  tan(fov * 0.5f);
-            const auto range   =    far_z - near_z;
+            const auto range   =  far_z - near_z;
 
             _columns[0].x =  1.0f / (tan_fov * aspect);
             _columns[1].y =  1.0f /  tan_fov;
