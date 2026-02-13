@@ -1,5 +1,7 @@
 #pragma once
 
+#include <chrono>
+
 namespace core
 {
     using time_clock   = std::chrono::high_resolution_clock;
