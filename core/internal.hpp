@@ -1,6 +1,5 @@
 #pragma once
 
-#include "data/buffer.hpp"
 #include "data/image.hpp"
 
 #include "data/camera.hpp"
