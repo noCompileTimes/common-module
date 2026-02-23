@@ -23,7 +23,7 @@ namespace core
         [[nodiscard]] static auto current_time_point() noexcept -> time_point;
 
     private:
-        static constexpr auto max_delta_time = 1.0f / 30.0f;
+     constexpr static auto  delta_time_max = 1.0f / 30.0f;
 
         inline static auto _delta_time = 0.0f;
         inline static auto _total_time = 0.0f;

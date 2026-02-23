@@ -17,9 +17,9 @@ namespace core
 
         _current_time_point = current;
 
-        if (_delta_time > max_delta_time)
+        if (_delta_time > delta_time_max)
         {
-            _delta_time = max_delta_time;
+            _delta_time = delta_time_max;
         }
     }
 
