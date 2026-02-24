@@ -92,8 +92,8 @@ namespace math
 
         auto rotation(const vec3& axis, const float radians) noexcept -> void
         {
-            const auto     half_angle = radians * 0.5f;
-            const auto sin_half_angle = sin(half_angle);
+            const auto       half_angle = radians * 0.5f;
+            const auto   sin_half_angle = sin(half_angle);
 
             x = axis.x * sin_half_angle;
             y = axis.y * sin_half_angle;
