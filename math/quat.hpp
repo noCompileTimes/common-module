@@ -9,7 +9,7 @@ namespace math
         float y;
         float z;
 
-        auto matrix() const noexcept -> mat4
+        [[nodiscard]] auto matrix() const noexcept -> mat4
         {
             mat4  matrix;
 
@@ -73,12 +73,6 @@ namespace math
             return  w * w + x * x + y * y + z * z;
         }
 
-        auto operator*=(const quat& other) noexcept -> quat&
-        {
-            *this = *this * other;
-             return *this;
-        }
-
         [[nodiscard]] auto operator*(const quat& other) const noexcept -> quat
         {
             return
@@ -88,6 +82,12 @@ namespace math
                 w * other.y - x * other.z + y * other.w + z * other.x,
                 w * other.z + x * other.y - y * other.x + z * other.w
             };
+        }
+
+        auto operator*=(const quat& other) noexcept -> quat&
+        {
+            *this = *this * other;
+             return *this;
         }
 
         auto rotation(const vec3& axis, const float radians) noexcept -> void
