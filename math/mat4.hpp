@@ -27,7 +27,7 @@ namespace math
         {
         }
 
-        auto ortho(const float left, const float right, const float bottom, const float top, const float near_z, const float far_z) noexcept -> void
+        auto ortho(const float left, const float right, const float bottom, const float top, const float near_z, const float far_z) noexcept
         {
             _columns[0].x =  2.0f / (right - left);
             _columns[1].y =  2.0f / (top   - bottom);
@@ -38,7 +38,7 @@ namespace math
             _columns[3].z = -(far_z + near_z) / (far_z - near_z);
         }
 
-        auto ortho(const float left, const float right, const float bottom, const float top) noexcept -> void
+        auto ortho(const float left, const float right, const float bottom, const float top) noexcept
         {
             _columns[0].x =  2.0f / (right - left);
             _columns[1].y =  2.0f / (top   - bottom);
@@ -48,7 +48,7 @@ namespace math
             _columns[3].y = -(top   + bottom) / (top   - bottom);
         }
 
-        auto perspective(const float fov, const float aspect, const float near_z, const float far_z) noexcept -> void
+        auto perspective(const float fov, const float aspect, const float near_z, const float far_z) noexcept
         {
             const auto tan_fov =  tan(fov * 0.5f);
             const auto range   =  far_z - near_z;
@@ -63,21 +63,21 @@ namespace math
             _columns[3].w =   0.0f;
         }
 
-        auto translation(const vec3& vec) noexcept -> void
+        auto translation(const vec3& vec) noexcept
         {
             _columns[3].x = vec.x;
             _columns[3].y = vec.y;
             _columns[3].z = vec.z;
         }
 
-        auto translate(const vec3& vec) noexcept -> void
+        auto translate(const vec3& vec) noexcept
         {
             _columns[3] += _columns[0] * vec.x +
                            _columns[1] * vec.y +
                            _columns[2] * vec.z;
         }
 
-        auto scale(const vec3& vec) noexcept -> void
+        auto scale(const vec3& vec) noexcept
         {
             _columns[0] *= vec.x;
             _columns[1] *= vec.y;
