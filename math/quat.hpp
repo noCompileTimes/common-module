@@ -49,7 +49,7 @@ namespace math
             return matrix;
         }
 
-        auto normalize() noexcept -> void
+        auto normalize() noexcept
         {
             if (const auto len = length();
                            len > epsilon)
@@ -90,7 +90,7 @@ namespace math
              return *this;
         }
 
-        auto rotation(const vec3& axis, const float radians) noexcept -> void
+        auto rotation(const vec3& axis, const float radians) noexcept
         {
             const auto       half_angle = radians * 0.5f;
             const auto   sin_half_angle = sin(half_angle);

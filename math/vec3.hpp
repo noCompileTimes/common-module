@@ -8,7 +8,7 @@ namespace math
         float y;
         float z;
 
-        auto normalize() noexcept -> void
+        auto normalize() noexcept
         {
             if (const auto len = length();
                            len > epsilon)
