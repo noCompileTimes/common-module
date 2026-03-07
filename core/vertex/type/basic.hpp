@@ -1,6 +1,6 @@
 #pragma once
 
-namespace core::vertex::type
+namespace core::vertex::type // TODO all the types in the same file? vertex::types?
 {
     struct basic
     {
