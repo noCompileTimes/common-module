@@ -2,6 +2,7 @@
 
 namespace core
 {
+    // TODO make this return a vector of std::byte? or another function for binary format?
     auto File::read(const std::filesystem::path& path, const int32_t mode) -> std::vector<char>
     {
         assert(is_regular_file(path));
