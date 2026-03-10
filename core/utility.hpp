@@ -20,6 +20,6 @@ namespace core
                 requires std::is_enum_v<type>
     static auto as_base(const type value) noexcept
     {
-        return std::to_underlying(value);
+         return std::to_underlying(value);
     }
 }
