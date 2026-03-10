@@ -1,7 +1,5 @@
 #pragma once
 
-#include "data/image.hpp"
-
 #include "data/camera.hpp"
 #include "data/geometry.hpp"
 #include "data/transform.hpp"
