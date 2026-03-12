@@ -15,7 +15,7 @@ namespace core
             assert(is_regular_file(path));
 
             std::ifstream stream(path, std::ios::in | std::ios::ate | mode);
-            assert(stream.is_open());
+                   assert(stream);
 
             const auto end = stream.tellg();
                 assert(end > 0);
