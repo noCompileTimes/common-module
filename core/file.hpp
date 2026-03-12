@@ -7,6 +7,28 @@ namespace core
     public:
         File() = delete;
 
-        [[nodiscard]] static auto read(const std::filesystem::path& path, int32_t mode = 0) -> std::vector<char>;
+        template <typename type = std::byte>
+        [[nodiscard]] static auto read(const std::filesystem::path& path, const std::ios::openmode mode = std::ios::binary) -> std::vector<type>
+        {
+            static_assert(sizeof(type) == 1, "file read requires byte-sized types");
+
+            assert(is_regular_file(path));
+
+            std::ifstream stream(path, std::ios::in | std::ios::ate | mode);
+            assert(stream.is_open());
+
+            const auto end = stream.tellg();
+                assert(end > 0);
+
+            const auto size = static_cast<std::size_t>(end);
+            std::vector<type> content(size);
+
+            stream.seekg(0, std::ios::beg);
+            stream.read(reinterpret_cast<char*>(content.data()), static_cast<std::streamsize>(size));
+
+            assert(stream.gcount() == static_cast<std::streamsize>(size));
+
+            return content;
+        }
     };
 }
