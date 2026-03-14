@@ -4,20 +4,8 @@ namespace math
 {
     struct vec2
     {
-        union
-        {
-            struct
-            {
-                float x;
-                float y;
-            };
-
-            struct
-            {
-                float u;
-                float v;
-            };
-        };
+        float x;
+        float y;
 
         auto operator+=(const vec2& other) noexcept -> vec2&
         {

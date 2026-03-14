@@ -11,7 +11,7 @@ namespace math
 
         [[nodiscard]] auto matrix() const noexcept -> mat4
         {
-            mat4  matrix;
+            mat4 matrix;
 
             const auto wx = w * x;
             const auto wy = w * y;
