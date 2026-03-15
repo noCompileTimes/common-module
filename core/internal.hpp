@@ -1,7 +1,6 @@
 #pragma once
 
 #include "data/camera.hpp"
-#include "data/geometry.hpp"
 #include "data/transform.hpp"
 
 #include "vertex/attribute.hpp"

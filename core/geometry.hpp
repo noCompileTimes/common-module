@@ -1,6 +1,6 @@
 #pragma once
 
-namespace core::data
+namespace core
 {
     template <typename vertex>
               requires std::is_class_v<vertex>
