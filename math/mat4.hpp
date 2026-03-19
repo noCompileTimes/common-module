@@ -86,7 +86,8 @@ namespace math
 
         auto operator*=(const mat4& other) noexcept -> mat4&
         {
-            *this = *this * other;
+                    *this =
+                    *this * other;
              return *this;
         }
 

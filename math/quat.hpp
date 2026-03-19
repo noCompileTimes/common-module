@@ -86,7 +86,8 @@ namespace math
 
         auto operator*=(const quat& other) noexcept -> quat&
         {
-            *this = *this * other;
+                    *this =
+                    *this * other;
              return *this;
         }
 
