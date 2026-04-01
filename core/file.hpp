@@ -7,7 +7,7 @@ namespace core
     public:
         File() = delete;
 
-          template <typename type = std::byte>
+        template <typename type = std::byte>
         [[nodiscard]] static auto read(const std::filesystem::path& path, const std::ios::openmode mode = std::ios::binary) -> std::vector<type>
         {
             static_assert(sizeof(type) == 1, "file read requires byte-sized types");
