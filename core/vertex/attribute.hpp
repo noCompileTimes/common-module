@@ -4,9 +4,9 @@ namespace core::vertex
 {
     struct attribute
     {
-        uint32_t  index;
-        uint32_t   size;
-        uint32_t   type;
-        uint32_t offset;
+        std::uint32_t  index;
+        std::uint32_t   size;
+        std::uint32_t   type;
+        std::uint32_t offset;
     };
 }
