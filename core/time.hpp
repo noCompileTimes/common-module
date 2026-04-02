@@ -4,10 +4,8 @@
 
 namespace core
 {
-    using time_clock   = std::chrono::high_resolution_clock;
-    using time_point   = std::chrono::high_resolution_clock::time_point;
-
-    using time_seconds = std::chrono::duration<float>;
+    using time_clock = std::chrono::high_resolution_clock;
+    using time_point = std::chrono::high_resolution_clock::time_point;
 
     class Time
     {
@@ -42,7 +40,7 @@ namespace core
             return _total_time;
         }
 
-        [[nodiscard]] static auto calculate_duration(time_point start_time_point, time_point end_time_point) noexcept -> time_seconds
+        [[nodiscard]] static auto calculate_duration(const time_point start_time_point, const time_point end_time_point) noexcept -> std::chrono::duration<float>
         {
             return end_time_point - start_time_point;
         }
