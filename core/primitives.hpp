@@ -33,7 +33,7 @@ namespace core
             };
         }
 
-        static auto create_bouding_box(const math::vec3& scale, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
+        static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
         {
             const auto hx = scale.x * 0.5f;
             const auto hy = scale.y * 0.5f;
