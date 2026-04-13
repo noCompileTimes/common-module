@@ -5,8 +5,6 @@ namespace core
     class File
     {
     public:
-        File() = delete;
-
         template <typename type = std::byte>
         [[nodiscard]] static auto read(const std::filesystem::path& path, const std::ios::openmode mode = std::ios::binary) -> std::vector<type>
         {
@@ -30,5 +28,8 @@ namespace core
 
             return content;
         }
+
+    private:
+        File() = delete;
     };
 }
