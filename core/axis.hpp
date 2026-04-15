@@ -4,7 +4,7 @@
 
 namespace core
 {
-    class Axis
+    class Axis // TODO make axis a struct? to name it with lower case letter
     {
     public:
         enum class mode
