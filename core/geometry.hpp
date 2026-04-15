@@ -16,7 +16,8 @@ namespace core
             vertices.reserve(other.vertices.size() + offset);
             elements.reserve(other.elements.size() + elements.size());
 
-            vertices.insert(vertices.end(), other.vertices.begin(), other.vertices.end());
+            vertices.insert(vertices.end(), other.vertices.begin(),
+                                            other.vertices.end());
 
             for (const auto index : other.elements)
             {
