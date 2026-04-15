@@ -7,6 +7,64 @@ namespace core
     class Primitives
     {
     public:
+        static auto create_circle(const uint32_t segments, const float radius, const Axis::mode mode, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
+        {
+            geometry<vertex::type::editor> geometry;
+
+            geometry.vertices.reserve(segments);
+            geometry.elements.reserve(segments * 2);
+
+            const auto step = 2.0f * math::pi / static_cast<float>(segments);
+
+            for (auto i = 0; i < segments; ++i)
+            {
+                const auto a = static_cast<float>(i) * step;
+
+                const auto c = radius * math::cos(a);
+                const auto s = radius * math::sin(a);
+
+                switch (mode)
+                {
+                    case Axis::mode::xy:
+                    {
+                        geometry.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
+                        break;
+                    }
+                    case Axis::mode::xz:
+                    {
+                        geometry.vertices.emplace_back(math::vec3 { c, 0.0f, s }, color);
+                        break;
+                    }
+                    case Axis::mode::yz:
+                    {
+                        geometry.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
+                        break;
+                    }
+                    default:
+                        return { };
+                }
+            }
+
+            for (auto i = 0; i < segments; ++i)
+            {
+                geometry.elements.emplace_back(i);
+                geometry.elements.emplace_back((i + 1) % segments);
+            }
+
+            return geometry;
+        }
+
+        static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
+        {
+            geometry<vertex::type::editor> geometry;
+
+            geometry.merge(create_circle(segments, radius, Axis::mode::xy, color));
+            geometry.merge(create_circle(segments, radius, Axis::mode::xz, color));
+            geometry.merge(create_circle(segments, radius, Axis::mode::yz, color));
+
+            return geometry;
+        }
+
         static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
         {
             const auto hx = scale.x * 0.5f;

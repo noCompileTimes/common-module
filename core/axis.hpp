@@ -7,6 +7,17 @@ namespace core
     class Axis
     {
     public:
+        enum class mode
+        {
+            x, y, z,
+
+            xy,
+            xz,
+            yz,
+
+            xyz
+        };
+
         static auto create(const math::vec3& scale) noexcept -> geometry<vertex::type::editor>
         {
             const auto hx = scale.x * 0.5f;  constexpr math::vec3 r = { 1.0f, 0.0f, 0.0f };
