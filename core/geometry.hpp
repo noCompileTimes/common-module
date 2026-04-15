@@ -24,5 +24,7 @@ namespace core
                 elements.emplace_back(index + offset);
             }
         }
+
+        // TODO add some reserve method - maybe named init?
     };
 }
