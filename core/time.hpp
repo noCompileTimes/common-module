@@ -10,13 +10,13 @@ namespace core
     class Time
     {
     public:
-        auto start() noexcept -> void
+        auto start() noexcept
         {
             _initial_time_point =
             _current_time_point = current_time_point();
         }
 
-        auto tick() noexcept -> void
+        auto tick() noexcept
         {
              const auto current = current_time_point();
 

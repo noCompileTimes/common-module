@@ -13,8 +13,8 @@ namespace core
         {
             const auto offset = static_cast<uint32_t>(vertices.size());
 
-            vertices.reserve(other.vertices.size() + offset);
-            elements.reserve(other.elements.size() + elements.size());
+            reserve(other.vertices.size() + offset,
+                    other.elements.size() + elements.size());
 
             vertices.insert(vertices.end(), other.vertices.begin(),
                                             other.vertices.end());
@@ -25,6 +25,10 @@ namespace core
             }
         }
 
-        // TODO add some reserve method - maybe named init?
+        auto reserve(std::size_t vertices_count, std::size_t elements_count) noexcept
+        {
+            vertices.reserve(vertices_count);
+            elements.reserve(elements_count);
+        }
     };
 }

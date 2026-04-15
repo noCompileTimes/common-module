@@ -10,9 +10,8 @@ namespace core
         static auto create_circle(const uint32_t segments, const float radius, const Axis::mode mode, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
         {
             geometry<vertex::type::editor> geometry;
-
-            geometry.vertices.reserve(segments);
-            geometry.elements.reserve(segments * 2);
+            geometry.reserve(segments,
+                             segments * 2);
 
             const auto step = 2.0f * math::pi / static_cast<float>(segments);
 
