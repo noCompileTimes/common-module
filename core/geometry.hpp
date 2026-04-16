@@ -9,7 +9,7 @@ namespace core
         std::vector<vertex>   vertices;
         std::vector<uint32_t> elements;
 
-        auto merge(const geometry& other) noexcept
+        auto append(const geometry& other) noexcept
         {
             const auto offset = static_cast<uint32_t>(vertices.size());
 
@@ -25,7 +25,7 @@ namespace core
             }
         }
 
-        auto reserve(std::size_t vertices_count, std::size_t elements_count) noexcept
+        auto reserve(const std::size_t vertices_count, const std::size_t elements_count) noexcept
         {
             vertices.reserve(vertices_count);
             elements.reserve(elements_count);

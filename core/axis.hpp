@@ -4,9 +4,8 @@
 
 namespace core
 {
-    class Axis // TODO make axis a struct? to name it with lower case letter
+    struct axis
     {
-    public:
         enum class mode
         {
             x, y, z,
@@ -42,7 +41,6 @@ namespace core
             };
         }
 
-    private:
-        Axis() = delete;
+        axis() = delete;
     };
 }

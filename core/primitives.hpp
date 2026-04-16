@@ -7,9 +7,10 @@ namespace core
     class Primitives
     {
     public:
-        static auto create_circle(const uint32_t segments, const float radius, const Axis::mode mode, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
+        static auto create_circle(const uint32_t segments, const float radius, const axis::mode mode, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
         {
             geometry<vertex::type::editor> geometry;
+
             geometry.reserve(segments,
                              segments * 2);
 
@@ -24,17 +25,17 @@ namespace core
 
                 switch (mode)
                 {
-                    case Axis::mode::xy:
+                    case axis::mode::xy:
                     {
                         geometry.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
                         break;
                     }
-                    case Axis::mode::xz:
+                    case axis::mode::xz:
                     {
                         geometry.vertices.emplace_back(math::vec3 { c, 0.0f, s }, color);
                         break;
                     }
-                    case Axis::mode::yz:
+                    case axis::mode::yz:
                     {
                         geometry.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
                         break;
@@ -57,9 +58,9 @@ namespace core
         {
             geometry<vertex::type::editor> geometry;
 
-            geometry.merge(create_circle(segments, radius, Axis::mode::xy, color));
-            geometry.merge(create_circle(segments, radius, Axis::mode::xz, color));
-            geometry.merge(create_circle(segments, radius, Axis::mode::yz, color));
+            geometry.append(create_circle(segments, radius, axis::mode::xy, color));
+            geometry.append(create_circle(segments, radius, axis::mode::xz, color));
+            geometry.append(create_circle(segments, radius, axis::mode::yz, color));
 
             return geometry;
         }
