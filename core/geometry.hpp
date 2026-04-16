@@ -25,7 +25,8 @@ namespace core
             }
         }
 
-        auto reserve(const std::size_t vertices_count, const std::size_t elements_count) noexcept
+        auto reserve(const std::size_t vertices_count,
+                     const std::size_t elements_count) noexcept
         {
             vertices.reserve(vertices_count);
             elements.reserve(elements_count);
