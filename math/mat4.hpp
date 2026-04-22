@@ -27,7 +27,7 @@ namespace math
         {
         }
 
-        auto ortho(const float left, const float right, const float bottom, const float top, const float near_z, const float far_z) noexcept
+        [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top, const float near_z, const float far_z) noexcept
         {
             _columns[0].x =  2.0f / (right - left);
             _columns[1].y =  2.0f / (top   - bottom);
@@ -41,11 +41,11 @@ namespace math
         auto ortho(const float left, const float right, const float bottom, const float top) noexcept
         {
             _columns[0].x =  2.0f / (right - left);
-            _columns[1].y =  2.0f / (top   - bottom);
+            _columns[1].y =  2.0f / (top - bottom);
             _columns[2].z = -1.0f;
 
-            _columns[3].x = -(right + left)   / (right - left);
-            _columns[3].y = -(top   + bottom) / (top   - bottom);
+            _columns[3].x = -(right + left) / (right - left);
+            _columns[3].y = -(top + bottom) / (top - bottom);
         }
 
         auto perspective(const float fov, const float aspect, const float near_z, const float far_z) noexcept
