@@ -59,7 +59,7 @@ namespace math
             _columns[2].z = -(far_z + near_z) / range;
             _columns[2].w = -1.0f;
 
-            _columns[3].z = -(2.0f  * near_z * far_z) / range;
+            _columns[3].z = -(2.0f * near_z * far_z) / range;
             _columns[3].w =   0.0f;
         }
 
