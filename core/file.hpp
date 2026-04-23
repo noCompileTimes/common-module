@@ -29,7 +29,6 @@ namespace core
             return content;
         }
 
-    private:
         File() = delete;
     };
 }

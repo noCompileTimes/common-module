@@ -3,6 +3,7 @@
 #include "geometry.hpp"
 
 #include "math/plane.hpp"
+#include "math/vec3.hpp"
 
 namespace core
 {
@@ -117,7 +118,6 @@ namespace core
             };
         }
 
-    private:
         Primitives() = delete;
     };
 }
