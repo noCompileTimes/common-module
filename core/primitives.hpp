@@ -5,6 +5,8 @@
 #include "math/plane.hpp"
 #include "math/vec3.hpp"
 
+#include "vertex/type/editor.hpp"
+
 namespace core
 {
     class Primitives
