@@ -2,7 +2,7 @@
 
 namespace core::vertex
 {
-    struct attribute
+    struct attribute // TODO move this back to graphics? it makes sense to be there???
     {
         uint32_t index;
         uint32_t start;
