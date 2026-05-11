@@ -6,6 +6,6 @@ namespace core::data
     {
         math::rgb  color;
         float    ambient;
-        math::vec3 extra; // can be either direction or position
+        math::vec3 extra;
     };
 }
