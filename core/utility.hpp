@@ -4,7 +4,7 @@ namespace core
 {
       template <typename type>
                 requires std::is_trivially_copyable_v<type>
-    static auto as_bytes(const std::vector<type>& data) noexcept
+    static auto as_bytes(const std::vector<type>& data) noexcept // TODO add some version for std::array
     {
         return std::as_bytes(std::span { data });
     }
