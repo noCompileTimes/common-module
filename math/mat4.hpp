@@ -1,5 +1,13 @@
 #pragma once
 
+#ifdef near // TODO remove at some point after we remove common_module from graphics
+#undef near
+#endif
+
+#ifdef far // TODO remove at some point after we remove common_module from graphics
+#undef far
+#endif
+
 namespace math
 {
     struct mat4
