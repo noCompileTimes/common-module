@@ -1,12 +1,12 @@
 #pragma once
 
-#include "type/editor.hpp"
+#include "type/basic.hpp"
 #include "type/sprite.hpp" // TODO move this into the static version maybe later?
 #include "type/model.hpp"
 
 namespace core::vertex
 {
-    template <typename vertex = type::editor>
+    template <typename vertex = type::basic>
               requires std::is_class_v<vertex>
     struct geometry // TODO think of a way to add some static geometry? to avoid the new operator somehow? used maybe for sprites? because we have many
     {

@@ -4,7 +4,7 @@
 
 namespace core::vertex::type
 {
-    struct editor
+    struct basic
     {
         math::vec3 position;
         math::vec3 extra;
