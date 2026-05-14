@@ -4,16 +4,15 @@
 #include "math/vec3.hpp"
 
 #include "vertex/geometry.hpp"
-#include "vertex/type/editor.hpp"
 
 namespace core
 {
     class Primitives
     {
     public:
-        static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept -> vertex::geometry<vertex::type::editor>
+        static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept -> auto
         {
-            vertex::geometry<vertex::type::editor> geometry;
+            vertex::geometry geometry;
                     geometry.reserve(segments, segments * 2);
 
             const auto step = 2.0f * math::pi / static_cast<float>(segments);
@@ -43,7 +42,7 @@ namespace core
                         break;
                     }
                     default:
-                        return { };
+                        return geometry;
                 }
             }
 
@@ -56,9 +55,9 @@ namespace core
             return geometry;
         }
 
-        static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept -> vertex::geometry<vertex::type::editor>
+        static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept -> auto
         {
-            vertex::geometry<vertex::type::editor> geometry;
+            vertex::geometry geometry;
 
             geometry.append(create_circle(segments, radius, math::plane::orientation::xy, color));
             geometry.append(create_circle(segments, radius, math::plane::orientation::xz, color));
@@ -67,7 +66,7 @@ namespace core
             return geometry;
         }
 
-        static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> vertex::geometry<vertex::type::editor>
+        static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> vertex::geometry<>
         {
             const auto hx = scale.x * 0.5f;
             const auto hy = scale.y * 0.5f;
@@ -93,7 +92,7 @@ namespace core
             };
         }
 
-        static auto create_axis(const math::vec3& scale) noexcept -> vertex::geometry<vertex::type::editor> // TODO maybe move axis in some other file/struct?
+        static auto create_axis(const math::vec3& scale) noexcept -> vertex::geometry<> // TODO maybe move axis in some other file/struct?
         {
             const auto hx = scale.x * 0.5f;  constexpr math::vec3 r = { 1.0f, 0.0f, 0.0f };
             const auto hy = scale.y * 0.5f;  constexpr math::vec3 g = { 0.0f, 1.0f, 0.0f };
