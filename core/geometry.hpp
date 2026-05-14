@@ -4,7 +4,7 @@ namespace core
 {
     template <typename vertex>
               requires std::is_class_v<vertex>
-    struct geometry
+    struct geometry // TODO think of a way to add some static geometry? to avoid the new operator somehow? used maybe for sprites? because we have many
     {
         std::vector<vertex>   vertices;
         std::vector<uint32_t> elements;
