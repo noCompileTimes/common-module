@@ -11,7 +11,7 @@ namespace core
 
         auto append(const geometry& other) noexcept
         {
-            const auto offset = static_cast<uint32_t>(vertices.size());
+            const auto offset = static_cast<uint32_t>(vertices.size()); // TODO remove the cast here? it is ok to just use .size()
 
             reserve(other.vertices.size() + offset,
                     other.elements.size() + elements.size());
