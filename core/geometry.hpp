@@ -25,6 +25,8 @@ namespace core
             }
         }
 
+        // TODO o functie care va da replace la un anumit vertex? sau un set? ar fi utila
+
         auto reserve(const std::size_t vertices_count,
                      const std::size_t elements_count) noexcept
         {
