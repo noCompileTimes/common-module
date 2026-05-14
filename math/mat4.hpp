@@ -27,15 +27,15 @@ namespace math
         {
         }
 
-        [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top, const float near_z, const float far_z) noexcept
+        [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top, const float near, const float far) noexcept
         {
             _columns[0].x =  2.0f / (right - left);
             _columns[1].y =  2.0f / (top   - bottom);
-            _columns[2].z = -2.0f / (far_z - near_z);
+            _columns[2].z = -2.0f / (far   - near);
 
             _columns[3].x = -(right + left)   / (right - left);
             _columns[3].y = -(top   + bottom) / (top   - bottom);
-            _columns[3].z = -(far_z + near_z) / (far_z - near_z);
+            _columns[3].z = -(far   + near)   / (far   - near);
         }
 
         auto ortho(const float left, const float right, const float bottom, const float top) noexcept
@@ -48,18 +48,18 @@ namespace math
             _columns[3].y = -(top + bottom) / (top - bottom);
         }
 
-        auto perspective(const float fov, const float aspect, const float near_z, const float far_z) noexcept
+        auto perspective(const float fov, const float aspect, const float near, const float far) noexcept
         {
             const auto tan_fov = tan(fov * 0.5f);
-            const auto   range = far_z - near_z;
+            const auto   range = far - near;
 
             _columns[0].x = 1.0f / (tan_fov * aspect);
             _columns[1].y = 1.0f /  tan_fov;
 
-            _columns[2].z = -(far_z + near_z) / range;
+            _columns[2].z = -(far + near) / range;
             _columns[2].w = -1.0f;
 
-            _columns[3].z = -(2.0f * near_z * far_z) / range;
+            _columns[3].z = -(2.0f * far + near) / range;
             _columns[3].w =   0.0f;
         }
 
