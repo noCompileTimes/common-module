@@ -15,7 +15,6 @@ namespace core
         static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept -> geometry<vertex::type::editor>
         {
             geometry<vertex::type::editor> geometry;
-
             geometry.reserve(segments,
                              segments * 2);
 
