@@ -9,7 +9,7 @@ namespace math
         float y;
         float z;
 
-        [[nodiscard]] auto matrix() const noexcept -> mat4
+        [[nodiscard]] auto matrix() const noexcept
         {
             mat4 matrix;
 
