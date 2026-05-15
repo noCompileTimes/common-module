@@ -5,7 +5,7 @@ namespace core
     class File
     {
     public:
-          template <typename type = std::byte>                            // TODO which should be the value for mode if you don't want binary?
+        template <typename type = std::byte>                              // TODO which should be the value for mode if you don't want binary?
         [[nodiscard]] static auto read(const std::filesystem::path& path, const std::ios::openmode mode = std::ios::binary) -> std::vector<type>
         {
             static_assert(sizeof(type) == 1, "file read requires byte-sized types"); // TODO check if this is supported with char

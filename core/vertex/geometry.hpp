@@ -6,12 +6,11 @@
 
 namespace core::vertex
 {
-    template <typename vertex = type::basic>
-              requires std::is_class_v<vertex>
-    struct geometry // TODO think of a way to add some static geometry? to avoid the new operator somehow? used maybe for sprites? because we have many
+    template <typename vertex = type::basic, typename element = uint32_t>
+    struct geometry
     {
-        std::vector<vertex>   vertices;
-        std::vector<uint32_t> elements; // TODO add elements as template with uint32_t as default
+        std::vector<vertex>  vertices;
+        std::vector<element> elements; // TODO add elements as template with uint32_t as default
 
         auto append(const geometry& other) noexcept
         {
