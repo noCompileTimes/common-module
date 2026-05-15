@@ -1,7 +1,7 @@
 #pragma once
 
 #include "math/plane.hpp"
-#include "math/vec3.hpp"
+#include "math/vec3.hpp" // TODO remove redundant include
 
 #include "vertex/geometry.hpp"
 
