@@ -10,7 +10,7 @@ namespace core
     class Primitives
     {
     public:
-        static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept -> auto
+        static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept
         {
             vertex::geometry geometry;
                     geometry.reserve(segments, segments * 2);
@@ -55,7 +55,7 @@ namespace core
             return geometry;
         }
 
-        static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept -> auto
+        static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
         {
             vertex::geometry geometry;
 
