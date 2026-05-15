@@ -96,9 +96,11 @@ namespace core
                                                                                         // TODO return return type with auto
         static auto create_axis(const math::vec3& scale) noexcept -> vertex::geometry<> // TODO maybe move axis in some other file/struct?
         {                                                                               // TODO use here a static geometry because we know all the vertices = no allocation
-            const auto hx = scale.x * 0.5f;  constexpr math::vec3 r = { 1.0f, 0.0f, 0.0f };
-            const auto hy = scale.y * 0.5f;  constexpr math::vec3 g = { 0.0f, 1.0f, 0.0f };
-            const auto hz = scale.z * 0.5f;  constexpr math::vec3 b = { 0.0f, 0.0f, 1.0f };
+            constexpr auto value = 0.5f;
+
+            const auto hx = scale.x * value;  constexpr math::vec3 r = { 1.0f, 0.0f, 0.0f };
+            const auto hy = scale.y * value;  constexpr math::vec3 g = { 0.0f, 1.0f, 0.0f };
+            const auto hz = scale.z * value;  constexpr math::vec3 b = { 0.0f, 0.0f, 1.0f };
 
             return
             {
