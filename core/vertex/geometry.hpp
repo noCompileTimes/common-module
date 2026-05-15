@@ -11,7 +11,7 @@ namespace core::vertex
     struct geometry // TODO think of a way to add some static geometry? to avoid the new operator somehow? used maybe for sprites? because we have many
     {
         std::vector<vertex>   vertices;
-        std::vector<uint32_t> elements;
+        std::vector<uint32_t> elements; // TODO add elements as template with uint32_t as default
 
         auto append(const geometry& other) noexcept
         {
