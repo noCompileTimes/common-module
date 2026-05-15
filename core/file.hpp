@@ -18,7 +18,7 @@ namespace core
             const auto end = stream.tellg();
                 assert(end > 0);
 
-            const auto size = static_cast<std::size_t>(end);
+            const auto size = static_cast<size_t>(end);
             std::vector<type> content(size);
 
             stream.seekg(0, std::ios::beg);
