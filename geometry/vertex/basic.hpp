@@ -2,7 +2,7 @@
 
 #include "math/vec3.hpp"
 
-namespace core::vertex::type
+namespace geometry::vertex
 {
     struct basic
     {

@@ -1,3 +1,3 @@
 #=======================================================================================================================
-target_precompile_headers(${PROJECT_NAME} INTERFACE internal.hpp)
+target_precompile_headers(${PROJECT_NAME} INTERFACE internal.hpp) # TODO remove the CMAKE file, it is not needed
 #=======================================================================================================================

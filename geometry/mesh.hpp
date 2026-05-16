@@ -1,18 +1,18 @@
 #pragma once
 
-#include "type/basic.hpp"
-#include "type/sprite.hpp" // TODO move this into the static version maybe later?
-#include "type/model.hpp"
+#include "vertex/basic.hpp"
+#include "vertex/sprite.hpp"
+#include "vertex/model.hpp"
 
-namespace core::vertex
+namespace geometry
 {
-    template <typename vertex = type::basic, typename element = uint32_t>
-    struct geometry
+    template <typename vertex = vertex::basic, typename element = uint32_t>
+    struct mesh
     {
         std::vector<vertex>  vertices;
-        std::vector<element> elements; // TODO add elements as template with uint32_t as default
+        std::vector<element> elements;
 
-        auto append(const geometry& other) noexcept
+        auto append(const mesh& other) noexcept
         {
             const auto offset = static_cast<uint32_t>(vertices.size()); // TODO remove the cast here? it is ok to just use .size()
 

@@ -3,17 +3,16 @@
 #include "math/plane.hpp"
 #include "math/vec3.hpp" // TODO remove redundant include
 
-#include "vertex/geometry.hpp"
+#include "geometry/mesh.hpp"
 
-namespace core
+namespace geometry
 {
     class Primitives
     {
     public:
         static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept
         {
-            vertex::geometry geometry;
-                    geometry.reserve(segments, segments * 2);
+            mesh mesh; mesh.reserve(segments, segments * 2);
 
             const auto step = 2.0f * math::pi / static_cast<float>(segments);
 
@@ -28,46 +27,46 @@ namespace core
                 {
                     case math::plane::orientation::xy:
                     {
-                        geometry.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
+                        mesh.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
                         break;
                     }
                     case math::plane::orientation::xz:
                     {
-                        geometry.vertices.emplace_back(math::vec3 { c, 0.0f, s }, color);
+                        mesh.vertices.emplace_back(math::vec3 { c, 0.0f, s }, color);
                         break;
                     }
                     case math::plane::orientation::yz:
                     {
-                        geometry.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
+                        mesh.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
                         break;
                     }
                     default:
-                        return geometry;
+                        return mesh;
                 }
             }
 
             for (auto i = 0; i < segments; ++i)
             {
-                geometry.elements.emplace_back(i);
-                geometry.elements.emplace_back((i + 1) % segments);
+                mesh.elements.emplace_back(i);
+                mesh.elements.emplace_back((i + 1) % segments);
             }
 
-            return geometry;
+            return mesh;
         }
 
         static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
         {
-            vertex::geometry geometry;
+            mesh mesh;
 
-            geometry.append(create_circle(segments, radius, math::plane::orientation::xy, color));
-            geometry.append(create_circle(segments, radius, math::plane::orientation::xz, color));
-            geometry.append(create_circle(segments, radius, math::plane::orientation::yz, color));
+            mesh.append(create_circle(segments, radius, math::plane::orientation::xy, color));
+            mesh.append(create_circle(segments, radius, math::plane::orientation::xz, color));
+            mesh.append(create_circle(segments, radius, math::plane::orientation::yz, color));
 
-            return geometry;
+            return mesh;
         }
 
-        static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> vertex::geometry<> // TODO return return type with auto
-        {                                                                                                                // TODO use here a static geometry because we know all the vertices = no allocation
+        static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> mesh<> // TODO return return type with auto
+        {                                                                                                        // TODO use here a static geometry because we know all the vertices = no allocation
             constexpr auto value = 0.5f;
 
             const auto hx = scale.x * value;
@@ -93,9 +92,9 @@ namespace core
                 }
             };
         }
-                                                                                        // TODO return return type with auto
-        static auto create_axis(const math::vec3& scale) noexcept -> vertex::geometry<> // TODO maybe move axis in some other file/struct?
-        {                                                                               // TODO use here a static geometry because we know all the vertices = no allocation
+                                                                            // TODO return return type with auto
+        static auto create_axis(const math::vec3& scale) noexcept -> mesh<> // TODO maybe move axis in some other file/struct?
+        {                                                                   // TODO use here a static geometry because we know all the vertices = no allocation
             constexpr auto value = 0.5f;
 
             const auto hx = scale.x * value;  constexpr math::vec3 r = { 1.0f, 0.0f, 0.0f };

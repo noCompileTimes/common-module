@@ -1,6 +1,6 @@
 #pragma once
 
-namespace core::vertex::type
+namespace geometry::vertex
 {
     struct model
     {
