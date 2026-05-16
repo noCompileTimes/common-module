@@ -30,12 +30,12 @@ namespace core
             }
         }
 
-        [[nodiscard]] static auto delta_time() noexcept -> float
+        [[nodiscard]] static auto delta_time() noexcept
         {
             return _delta_time;
         }
 
-        [[nodiscard]] static auto total_time() noexcept -> float
+        [[nodiscard]] static auto total_time() noexcept
         {
             return _total_time;
         }
@@ -51,10 +51,10 @@ namespace core
         }
 
     private:
-     constexpr static auto  delta_time_max = 1.0f / 30.0f;
+     constexpr static auto  delta_time_max { 1.0f / 30.0f };
 
-        inline static auto _delta_time = 0.0f;
-        inline static auto _total_time = 0.0f;
+        inline static auto _delta_time { 0.0f };
+        inline static auto _total_time { 0.0f };
 
         time_point _initial_time_point { };
         time_point _current_time_point { };
