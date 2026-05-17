@@ -55,7 +55,7 @@ namespace geometry
             return mesh;
         }
 
-        static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
+        static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept // TODO move to gizmos
         {
             mesh mesh;
 
@@ -65,7 +65,7 @@ namespace geometry
 
             return mesh;
         }
-
+                                                                                                             // TODO move to gizmos - and rename it without bounding
         static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> mesh<> // TODO return return type with auto
         {                                                                                                    // TODO use here a static geometry because we know all the vertices = no allocation
             constexpr auto value = 0.5f;
@@ -96,7 +96,7 @@ namespace geometry
 
         static auto create_axis(const math::vec3& scale) noexcept // TODO maybe move axis in some other file/struct?
         {                                                         // TODO use here a static geometry because we know all the vertices = no allocation
-            constexpr auto value = 0.5f;
+            constexpr auto value = 0.5f;                          // TODO move to gizmos
 
             const auto hx = scale.x * value; constexpr math::vec3 r { 1.0f, 0.0f, 0.0f };
             const auto hy = scale.y * value; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
