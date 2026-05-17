@@ -32,11 +32,10 @@ namespace geometry
 
         // TODO o functie care va da replace la un anumit vertex? sau un set? ar fi utila
 
-        auto reserve(const size_t vertices_count,
-                     const size_t elements_count) noexcept
+        auto reserve(const size_t vertices_size, const size_t elements_size) noexcept
         {
-            vertices.reserve(vertices_count);
-            elements.reserve(elements_count);
+            vertices.reserve(vertices_size);
+            elements.reserve(elements_size);
         }
     };
 }
