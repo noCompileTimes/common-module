@@ -126,6 +126,6 @@ namespace math
         }
 
     private:
-        vec4 _columns[4];
+        vec4 _columns[4]; // TODO use std::array?
     };
 }
