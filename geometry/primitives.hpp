@@ -4,6 +4,7 @@
 #include "math/vec3.hpp" // TODO remove redundant include
 
 #include "geometry/mesh.hpp"
+#include "geometry/primitive/line.hpp"
 
 namespace geometry
 {
@@ -66,7 +67,7 @@ namespace geometry
         }
 
         static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> mesh<> // TODO return return type with auto
-        {                                                                                                        // TODO use here a static geometry because we know all the vertices = no allocation
+        {                                                                                                    // TODO use here a static geometry because we know all the vertices = no allocation
             constexpr auto value = 0.5f;
 
             const auto hx = scale.x * value;
@@ -76,14 +77,14 @@ namespace geometry
             return
             {
                 {
-                    { { -hx, -hy, -hz }, color }, // 0
-                    { {  hx, -hy, -hz }, color }, // 1
-                    { {  hx,  hy, -hz }, color }, // 2
-                    { { -hx,  hy, -hz }, color }, // 3
-                    { { -hx, -hy,  hz }, color }, // 4
-                    { {  hx, -hy,  hz }, color }, // 5
-                    { {  hx,  hy,  hz }, color }, // 6
-                    { { -hx,  hy,  hz }, color }  // 7
+                    { { -hx, -hy, -hz }, color },
+                    { {  hx, -hy, -hz }, color },
+                    { {  hx,  hy, -hz }, color },
+                    { { -hx,  hy, -hz }, color },
+                    { { -hx, -hy,  hz }, color },
+                    { {  hx, -hy,  hz }, color },
+                    { {  hx,  hy,  hz }, color },
+                    { { -hx,  hy,  hz }, color }
                 },
                 {
                     0, 1,  1, 2,  2, 3,  3, 0,
@@ -92,29 +93,29 @@ namespace geometry
                 }
             };
         }
-                                                                            // TODO return return type with auto
-        static auto create_axis(const math::vec3& scale) noexcept -> mesh<> // TODO maybe move axis in some other file/struct?
-        {                                                                   // TODO use here a static geometry because we know all the vertices = no allocation
+
+        static auto create_axis(const math::vec3& scale) noexcept // TODO maybe move axis in some other file/struct?
+        {                                                         // TODO use here a static geometry because we know all the vertices = no allocation
             constexpr auto value = 0.5f;
 
-            const auto hx = scale.x * value;  constexpr math::vec3 r = { 1.0f, 0.0f, 0.0f };
-            const auto hy = scale.y * value;  constexpr math::vec3 g = { 0.0f, 1.0f, 0.0f };
-            const auto hz = scale.z * value;  constexpr math::vec3 b = { 0.0f, 0.0f, 1.0f };
+            const auto hx = scale.x * value; constexpr math::vec3 r { 1.0f, 0.0f, 0.0f };
+            const auto hy = scale.y * value; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
+            const auto hz = scale.z * value; constexpr math::vec3 b { 0.0f, 0.0f, 1.0f };
 
-            return
+            return geometry::mesh<vertex::basic, primitive::line>
             {
                 {
-                    { { -hx,    0.0f,  0.0f }, r }, // 0
-                    { {  hx,    0.0f,  0.0f }, r }, // 1
-                    { {  0.0f, -hy,    0.0f }, g }, // 2
-                    { {  0.0f,  hy,    0.0f }, g }, // 3
-                    { {  0.0f,  0.0f, -hz   }, b }, // 4
-                    { {  0.0f,  0.0f,  hz   }, b }  // 5
+                    { {  -hx,  0.0f,  0.0f }, r },
+                    { {   hx,  0.0f,  0.0f }, r },
+                    { { 0.0f,   -hy,  0.0f }, g },
+                    { { 0.0f,    hy,  0.0f }, g },
+                    { { 0.0f,  0.0f,   -hz }, b },
+                    { { 0.0f,  0.0f,    hz }, b }
                 },
                 {
-                    0, 1, // x
-                    2, 3, // y
-                    4, 5  // z
+                    { 0, 1 },
+                    { 2, 3 },
+                    { 4, 5 }
                 }
             };
         }
