@@ -3,6 +3,7 @@
 #include "math/rect.hpp"
 
 #include "geometry/mesh.hpp"
+#include "geometry/vertex/sprite.hpp"
 
 #include "primitive/triangle.hpp"
 
