@@ -6,7 +6,7 @@
 
 namespace geometry
 {
-    template <typename vertex = vertex::basic, typename element = uint32_t>
+    template <typename vertex = vertex::basic, typename element = uint32_t> // TODO put the default for the primitive to be line?
     struct mesh // TODO maybe named it again geometry when we make a generic namespace across all modules - I really dont like the mesh name for this structure
     {
         std::vector<vertex>  vertices;

@@ -65,16 +65,16 @@ namespace geometry
 
             return mesh;
         }
-                                                                                                             // TODO move to gizmos - and rename it without bounding
-        static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept -> mesh<> // TODO return return type with auto
-        {                                                                                                    // TODO use here a static geometry because we know all the vertices = no allocation
+
+        static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept // TODO move to gizmos - and rename it without bounding
+        {                                                                                          // TODO use here a static geometry because we know all the vertices = no allocation
             constexpr auto value = 0.5f;
 
             const auto hx = scale.x * value;
             const auto hy = scale.y * value;
             const auto hz = scale.z * value;
 
-            return
+            return mesh
             {
                 {
                     { { -hx, -hy, -hz }, color },
@@ -102,7 +102,7 @@ namespace geometry
             const auto hy = scale.y * value; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
             const auto hz = scale.z * value; constexpr math::vec3 b { 0.0f, 0.0f, 1.0f };
 
-            return geometry::mesh<vertex::basic, primitive::line>
+            return mesh<vertex::basic, primitive::line>
             {
                 {
                     { {  -hx,  0.0f,  0.0f }, r },
