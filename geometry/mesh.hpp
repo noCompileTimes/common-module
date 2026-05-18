@@ -7,7 +7,7 @@
 namespace geometry
 {
     template <typename vertex = vertex::basic, typename element = uint32_t>
-    struct mesh // TODO maybe named it again geometry when we make a generic namespace across all modules
+    struct mesh // TODO maybe named it again geometry when we make a generic namespace across all modules - I really dont like the mesh name for this structure
     {
         std::vector<vertex>  vertices;
         std::vector<element> elements;
