@@ -1,8 +1,6 @@
 #pragma once
 
 #include "vertex/basic.hpp"
-#include "vertex/sprite.hpp"
-#include "vertex/model.hpp"
 
 namespace geometry
 {   // TODO restrict the element to be a struct? to accept just line and triangle? it seems to be a good idea
