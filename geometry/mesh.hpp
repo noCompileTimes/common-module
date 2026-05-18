@@ -4,15 +4,15 @@
 
 namespace geometry
 {   // TODO restrict the element to be a struct? to accept just line and triangle? it seems to be a good idea
-    template <typename vertex = vertex::basic, typename element = uint32_t> // TODO put the default for the primitive to be line?
+    template <typename vertex = vertex::basic, typename primitive = uint32_t> // TODO put the default for the primitive to be line?
     struct mesh // TODO maybe named it again geometry when we make a generic namespace across all modules - I really dont like the mesh name for this structure
     {
-        std::vector<vertex>  vertices;
-        std::vector<element> elements;
+        std::vector<vertex>    vertices;
+        std::vector<primitive> elements;
 
         auto append(const mesh& other) noexcept
         {
-            const auto offset = static_cast<uint32_t>(vertices.size()); // TODO remove the cast here? it is ok to just use .size()
+            const auto offset = static_cast<std::uint32_t>(vertices.size()); // TODO remove the cast here? it is ok to just use .size()
 
             reserve(other.vertices.size() + offset,
                     other.elements.size() + elements.size());
@@ -20,9 +20,9 @@ namespace geometry
             vertices.insert(vertices.end(), other.vertices.begin(),
                                             other.vertices.end());
 
-            for (const auto& index : other.elements)
+            for (const auto& element : other.elements)
             {
-                elements.emplace_back(index + offset);
+                elements.emplace_back(element + offset);
             }
         }
 
