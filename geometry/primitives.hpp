@@ -13,7 +13,7 @@ namespace geometry
     public:
         static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept
         {
-            mesh mesh; mesh.reserve(segments, segments * 2);
+            mesh<vertex::basic, primitive::line> mesh; mesh.reserve(segments, segments * 2);
 
             const auto step = 2.0f * math::pi / static_cast<float>(segments);
 
@@ -48,8 +48,7 @@ namespace geometry
 
             for (auto i = 0; i < segments; ++i)
             {
-                mesh.elements.emplace_back(i);
-                mesh.elements.emplace_back((i + 1) % segments);
+                mesh.elements.emplace_back(i, (i + 1) % segments);
             }
 
             return mesh;
@@ -57,7 +56,7 @@ namespace geometry
 
         static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept // TODO move to gizmos
         {
-            mesh mesh;
+            mesh<vertex::basic, primitive::line> mesh;
 
             mesh.append(create_circle(segments, radius, math::plane::orientation::xy, color));
             mesh.append(create_circle(segments, radius, math::plane::orientation::xz, color));

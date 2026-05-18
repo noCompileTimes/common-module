@@ -22,7 +22,7 @@ namespace geometry
             vertices.insert(vertices.end(), other.vertices.begin(),
                                             other.vertices.end());
 
-            for (const auto index : other.elements)
+            for (const auto& index : other.elements)
             {
                 elements.emplace_back(index + offset);
             }
