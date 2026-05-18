@@ -32,9 +32,9 @@ namespace math
             };
         }
 
-        [[nodiscard]] auto operator-(const vec2& other) const noexcept -> vec2
+        [[nodiscard]] auto operator-(const vec2& other) const noexcept
         {
-            return
+            return vec2
             {
                 x - other.x,
                 y - other.y
