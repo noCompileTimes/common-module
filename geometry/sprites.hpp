@@ -34,6 +34,8 @@ namespace geometry
             return create({ { }, static_cast<float>(width), static_cast<float>(height) });
         }
 
+        // TODO some version to accept a pivot version? seems usefull to not do the * 0.5f outside the function
+
         Sprites() = delete;
     };
 }
