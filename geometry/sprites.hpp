@@ -2,7 +2,7 @@
 
 #include "math/rect.hpp"
 
-#include "utility.hpp"
+#include "types.hpp"
 
 namespace geometry
 {
