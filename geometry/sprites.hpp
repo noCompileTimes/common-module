@@ -1,7 +1,5 @@
 #pragma once
 
-#include "math/rect.hpp"
-
 #include "types.hpp"
 
 namespace geometry

@@ -10,4 +10,6 @@
 #include "mat4.hpp"
 #include "quat.hpp"
 
+#include "rect.hpp"
+
 #include "rgb.hpp"
