@@ -18,7 +18,7 @@ namespace core
 
       template <typename type>
                 requires std::is_enum_v<type>
-    static auto as_base(const type value) noexcept // TODO rename to base?
+    static auto as_base(const type value) noexcept
     {
          return std::to_underlying(value);
     }
