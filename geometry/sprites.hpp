@@ -2,10 +2,7 @@
 
 #include "math/rect.hpp"
 
-#include "geometry/mesh.hpp"
-#include "geometry/vertex/sprite.hpp"
-
-#include "primitive/triangle.hpp"
+#include "utility.hpp"
 
 namespace geometry
 {
@@ -14,7 +11,7 @@ namespace geometry
     public:
         static auto create(const math::rect& position) noexcept
         {
-            return mesh<vertex::sprite, primitive::triangle>
+            return sprite
             {
                 {
                     {   position.min,                     { 0.0f, 1.0f } },
