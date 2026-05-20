@@ -15,11 +15,11 @@ namespace geometry
         {
             mesh<vertex::basic, primitive::line> mesh; mesh.reserve(segments, segments * 2);
 
-            const auto step = 2.0f * math::pi / static_cast<float>(segments);
+            const auto t = 2.0f * math::pi / static_cast<float>(segments);
 
             for (auto i = 0; i < segments; ++i)
             {
-                const auto a = static_cast<float>(i) * step;
+                const auto a = static_cast<float>(i) * t;
 
                 const auto c = radius * math::cos(a);
                 const auto s = radius * math::sin(a);

@@ -12,7 +12,7 @@ namespace geometry
 
         auto append(const mesh& other) noexcept
         {
-            const auto offset = static_cast<std::uint32_t>(vertices.size()); // TODO remove the cast here? it is ok to just use .size()
+            const auto offset = static_cast<uint32_t>(vertices.size());
 
             reserve(other.vertices.size() + offset,
                     other.elements.size() + elements.size());
