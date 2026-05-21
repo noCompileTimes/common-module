@@ -315,7 +315,7 @@ namespace math
 
         //auto inv_model = model.inverse_affine();
         //auto inv_view  = view.inverse_rigid();
-        //auto inv_proj  = projection.inverse();
+        //auto inv_proj  = projection.inverse(); // TODO for ortho use the affine inverse
 
     private:
         vec4 _columns[4]; // TODO use std::array? yes
