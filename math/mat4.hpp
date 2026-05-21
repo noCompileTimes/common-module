@@ -261,7 +261,7 @@ namespace math
 
             const auto inv_det = 1.0f / determinant;
 
-            mat4 result { 1.0f };
+            mat4 result { 1.0f }; // TODO use the uninitialized constructor and put the diagonals with 1.0f
 
             result[0].x = c00 * inv_det;
             result[0].y = c10 * inv_det;
@@ -288,7 +288,7 @@ namespace math
 
         [[nodiscard]] auto inverse_rigid() const noexcept -> mat4
         {
-            mat4 result { 1.0f };
+            mat4 result { 1.0f }; // TODO use the uninitialized constructor and put the diagonals with 1.0f
 
             result[0].x = _columns[0].x;
             result[0].y = _columns[1].x;
