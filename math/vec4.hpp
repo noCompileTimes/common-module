@@ -4,7 +4,7 @@
 
 namespace math
 {
-    struct vec4
+    struct alignas(16) vec4
     {
         union
         {
@@ -38,6 +38,22 @@ namespace math
             return
             {
                 .data = _mm_add_ps(data, other.data)
+            };
+        }
+
+        [[nodiscard]] auto operator-(const vec4& other) const noexcept -> vec4
+        {
+            return
+            {
+                .data = _mm_sub_ps(data, other.data)
+            };
+        }
+
+        [[nodiscard]] auto operator*(const vec4& other) const noexcept -> vec4
+        {
+            return
+            {
+                .data = _mm_mul_ps(data, other.data)
             };
         }
 
