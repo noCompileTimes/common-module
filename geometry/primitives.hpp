@@ -3,7 +3,7 @@
 #include "math/plane.hpp"
 #include "math/vec3.hpp" // TODO remove redundant include
 
-#include "geometry/mesh.hpp"
+#include "geometry/types.hpp"
 #include "geometry/primitive/line.hpp"
 
 namespace geometry
@@ -13,7 +13,7 @@ namespace geometry
     public:
         static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept
         {
-            mesh<vertex::basic, primitive::line> mesh; mesh.reserve(segments, segments * 2);
+            geometry<vertex::basic, primitive::line> mesh; mesh.reserve(segments, segments * 2);
 
             const auto t = 2.0f * math::pi / static_cast<float>(segments);
 
@@ -56,7 +56,7 @@ namespace geometry
 
         static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept // TODO move to gizmos
         {
-            mesh<vertex::basic, primitive::line> mesh;
+            geometry<vertex::basic, primitive::line> mesh;
 
             mesh.append(create_circle(segments, radius, math::plane::orientation::xy, color));
             mesh.append(create_circle(segments, radius, math::plane::orientation::xz, color));
@@ -73,7 +73,7 @@ namespace geometry
             const auto hy = scale.y * value;
             const auto hz = scale.z * value;
 
-            return mesh
+            return geometry
             {
                 {
                     { { -hx, -hy, -hz }, color },
@@ -101,7 +101,7 @@ namespace geometry
             const auto hy = scale.y * value; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
             const auto hz = scale.z * value; constexpr math::vec3 b { 0.0f, 0.0f, 1.0f };
 
-            return mesh<vertex::basic, primitive::line>
+            return geometry<vertex::basic, primitive::line>
             {
                 {
                     { {  -hx,  0.0f,  0.0f }, r },
