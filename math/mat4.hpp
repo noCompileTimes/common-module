@@ -100,7 +100,7 @@ namespace math
              return *this;
         }
 
-        [[nodiscard]] auto operator*(const mat4& other) const noexcept -> mat4
+        [[nodiscard]] auto operator*(const mat4& other) const noexcept
         {
             mat4 matrix;
 
@@ -113,6 +113,17 @@ namespace math
             }
 
             return matrix;
+        }
+
+        [[nodiscard]] auto operator*(const vec4& vec) const noexcept
+        {
+            return vec4
+            {
+                _columns[0].x * vec.x + _columns[1].x * vec.y + _columns[2].x * vec.z + _columns[3].x * vec.w,
+                _columns[0].y * vec.x + _columns[1].y * vec.y + _columns[2].y * vec.z + _columns[3].y * vec.w,
+                _columns[0].z * vec.x + _columns[1].z * vec.y + _columns[2].z * vec.z + _columns[3].z * vec.w,
+                _columns[0].w * vec.x + _columns[1].w * vec.y + _columns[2].w * vec.z + _columns[3].w * vec.w
+            };
         }
 
         [[nodiscard]] constexpr auto operator[](const size_t index) const noexcept -> const vec4&

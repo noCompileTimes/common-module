@@ -60,10 +60,10 @@ namespace math
         const vec4 vec2 { m12, m02, m02, m02 };
         const vec4 vec3 { m13, m03, m03, m03 };
 
-        const vec4 inv0 = vec1 * fac0 - vec2 * fac1 + vec3 * fac2;
-        const vec4 inv1 = vec0 * fac0 - vec2 * fac3 + vec3 * fac4;
-        const vec4 inv2 = vec0 * fac1 - vec1 * fac3 + vec3 * fac5;
-        const vec4 inv3 = vec0 * fac2 - vec1 * fac4 + vec2 * fac5;
+        const auto inv0 = vec1 * fac0 - vec2 * fac1 + vec3 * fac2;
+        const auto inv1 = vec0 * fac0 - vec2 * fac3 + vec3 * fac4;
+        const auto inv2 = vec0 * fac1 - vec1 * fac3 + vec3 * fac5;
+        const auto inv3 = vec0 * fac2 - vec1 * fac4 + vec2 * fac5;
 
         constexpr vec4 sign_a {  1.0f, -1.0f,  1.0f, -1.0f };
         constexpr vec4 sign_b { -1.0f,  1.0f, -1.0f,  1.0f };
@@ -93,7 +93,7 @@ namespace math
             return mat4 { 1.0f };
         }
 
-        const float inverse_determinant = 1.0f / determinant;
+        const auto inverse_determinant = 1.0f / determinant;
 
         result[0] *= inverse_determinant;
         result[1] *= inverse_determinant;
