@@ -10,6 +10,8 @@
 #include "vec4.hpp"
 
 #include "mat4.hpp"
+#include "mat4_inverse.hpp"
+
 #include "quat.hpp"
 
 #include "rect.hpp"

@@ -51,8 +51,7 @@ namespace math
 
         auto normalize() noexcept
         {
-            if (const auto len = length();
-                           len > epsilon)
+            if (const auto len = length(); len > epsilon)
             {
                 const auto i = 1.0f / len;
 
