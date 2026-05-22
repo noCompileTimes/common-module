@@ -21,8 +21,8 @@ namespace geometry
             {
                 const auto a = static_cast<float>(i) * t;
 
-                const auto c = radius * math::cos(a);
-                const auto s = radius * math::sin(a);
+                const auto c = radius * std::cos(a);
+                const auto s = radius * std::sin(a);
 
                 switch (plane)
                 {

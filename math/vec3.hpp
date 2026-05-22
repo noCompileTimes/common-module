@@ -23,7 +23,7 @@ namespace math
 
         [[nodiscard]] auto length() const noexcept -> float
         {
-            return sqrt(squared_length());
+            return std::sqrt(squared_length());
         }
 
         [[nodiscard]] auto squared_length() const noexcept -> float

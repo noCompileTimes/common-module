@@ -59,11 +59,11 @@ namespace math
 
         [[maybe_unused]] auto perspective(const float fov, const float aspect, const float near, const float far) noexcept
         {
-            const auto tan_fov = tan(fov * 0.5f);
-            const auto   range = far - near;
+            const auto value = std::tan(fov * 0.5f);
+            const auto range = far - near;
 
-            _columns[0].x = 1.0f / (tan_fov * aspect);
-            _columns[1].y = 1.0f /  tan_fov;
+            _columns[0].x = 1.0f / (value * aspect);
+            _columns[1].y = 1.0f /  value;
 
             _columns[2].z = -(far + near) / range;
             _columns[2].w = -1.0f;
@@ -211,7 +211,7 @@ namespace math
                 _columns[0].z * row0.z +
                 _columns[0].w * row0.w;
 
-            if (determinant == 0.0f)
+            if (std::abs(determinant) < epsilon)
             {
                 return mat4 { 1.0f };
             }
@@ -254,7 +254,7 @@ namespace math
 
             const auto determinant = a00 * c00 + a01 * c10 + a02 * c20;
 
-            if (determinant == 0.0f)
+            if (std::abs(determinant) < epsilon)
             {
                 return mat4 { 1.0f };
             }
