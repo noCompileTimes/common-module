@@ -13,6 +13,7 @@
 #include "mat4_inverse.hpp"
 
 #include "quat.hpp"
+#include "quat_matrix.hpp"
 
 #include "rect.hpp"
 
