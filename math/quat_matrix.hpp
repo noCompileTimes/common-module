@@ -19,7 +19,7 @@ namespace math
 
         const auto zz = quat.z * quat.z;
 
-        matrix[0].x = 1.0f - 2.0f * (yy + zz);
+        matrix[0].x = 1.0f - 2.0f * (yy + zz); // TODO it seems that many values are the same as the identity matrix, maybe use the mat4 { 1.0f }?
         matrix[0].y =        2.0f * (xy + wz);
         matrix[0].z =        2.0f * (xz - wy);
         matrix[0].w =        0.0f;
