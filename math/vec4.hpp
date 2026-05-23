@@ -64,5 +64,13 @@ namespace math
                 .data = _mm_mul_ps(data, _mm_set1_ps(value))
             };
         }
+
+        [[nodiscard]] auto operator/(const float value) const noexcept
+        {
+            return vec4
+            {
+                .data = _mm_div_ps(data, _mm_set1_ps(value))
+            };
+        }
     };
 }
