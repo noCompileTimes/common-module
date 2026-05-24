@@ -33,6 +33,13 @@ namespace math
             return *this;
         }
 
+        auto operator/=(const float value) noexcept -> vec4&
+        {
+            data = _mm_div_ps(data, _mm_set1_ps(value));
+
+            return *this;
+        }
+
         [[nodiscard]] auto operator+(const vec4& other) const noexcept
         {
             return vec4
