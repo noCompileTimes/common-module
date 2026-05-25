@@ -2,8 +2,6 @@
 
 #include "math/vec3.hpp" // TODO remove redundant include
 
-#include "primitive/line.hpp"
-
 #include "geometry_type.hpp"
 
 namespace geometry
