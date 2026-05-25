@@ -8,10 +8,10 @@
 #include "primitive/triangle.hpp"
 #include "primitive/line.hpp"
 
-namespace geometry // TODO remove this file?
+namespace geometry
 {
     using  model = geometry<vertex::model>;
     using sprite = geometry<vertex::sprite, primitive::triangle>;
 
-    using  gizmo = geometry<vertex::basic, primitive::line>;
+    using  gizmo = geometry<vertex::basic,  primitive::line>;
 }
