@@ -74,7 +74,7 @@ namespace math
         result[2] = inv2 * sign_a;
         result[3] = inv3 * sign_b;
 
-        const vec4 row0
+        const vec4 row0 // TODO handle this different
         {
             result[0].x,
             result[1].x,
