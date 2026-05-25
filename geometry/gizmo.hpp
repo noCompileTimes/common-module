@@ -19,7 +19,7 @@ namespace geometry
             const auto hy = scale.y * value; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
             const auto hz = scale.z * value; constexpr math::vec3 b { 0.0f, 0.0f, 1.0f };
 
-            return geometry<vertex::basic, primitive::line>
+            return gizmo
             {
                 {
                     { {  -hx,  0.0f,  0.0f }, r },
