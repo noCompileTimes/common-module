@@ -1,10 +1,10 @@
 #pragma once
 
-#include "types.hpp"
+#include "geometry_type.hpp"
 
 namespace geometry
 {
-    class Sprites
+    class Sprite
     {
     public:
         static auto create(const math::rect& position) noexcept
@@ -32,6 +32,6 @@ namespace geometry
         // TODO some version to accept a pivot version? seems usefull to not do the * 0.5f outside the function
         // TODO some version to accept an offset version? seems usefull to not do add the offset each time in the rendering part
 
-        Sprites() = delete;
+        Sprite() = delete;
     };
 }

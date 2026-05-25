@@ -3,17 +3,18 @@
 #include "math/plane.hpp"
 #include "math/vec3.hpp" // TODO remove redundant include
 
-#include "geometry/types.hpp"
-#include "geometry/primitive/line.hpp"
+#include "primitive/line.hpp"
+
+#include "geometry_type.hpp"
 
 namespace geometry
 {
-    class Primitives
+    class Primitive
     {
     public:
-        static auto create_circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept
+        static auto circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept
         {
-            geometry<vertex::basic, primitive::line> mesh; mesh.reserve(segments, segments * 2);
+            geometry<vertex::basic, primitive::line> geometry; geometry.reserve(segments, segments * 2);
 
             const auto t = 2.0f * math::pi / static_cast<float>(segments);
 
@@ -28,45 +29,45 @@ namespace geometry
                 {
                     case math::plane::orientation::xy:
                     {
-                        mesh.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
+                        geometry.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
                         break;
                     }
                     case math::plane::orientation::xz:
                     {
-                        mesh.vertices.emplace_back(math::vec3 { c, 0.0f, s }, color);
+                        geometry.vertices.emplace_back(math::vec3 { c, 0.0f, s }, color);
                         break;
                     }
                     case math::plane::orientation::yz:
                     {
-                        mesh.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
+                        geometry.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
                         break;
                     }
                     default:
-                        return mesh;
+                        return geometry;
                 }
             }
 
             for (auto i = 0; i < segments; ++i)
             {
-                mesh.elements.emplace_back(i, (i + 1) % segments);
+                geometry.elements.emplace_back(i, (i + 1) % segments);
             }
 
-            return mesh;
+            return geometry;
         }
 
-        static auto create_bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept // TODO move to gizmos
+        static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept // TODO move to gizmos
         {
-            geometry<vertex::basic, primitive::line> mesh;
+            geometry<vertex::basic, primitive::line> geometry;
 
-            mesh.append(create_circle(segments, radius, math::plane::orientation::xy, color));
-            mesh.append(create_circle(segments, radius, math::plane::orientation::xz, color));
-            mesh.append(create_circle(segments, radius, math::plane::orientation::yz, color));
+            geometry.append(circle(segments, radius, math::plane::orientation::xy, color));
+            geometry.append(circle(segments, radius, math::plane::orientation::xz, color));
+            geometry.append(circle(segments, radius, math::plane::orientation::yz, color));
 
-            return mesh;
+            return geometry;
         }
 
-        static auto create_bounding_box(const math::vec3& scale, const math::vec3& color) noexcept // TODO move to gizmos - and rename it without bounding
-        {                                                                                          // TODO use here a static geometry because we know all the vertices = no allocation
+        static auto bounding_box(const math::vec3& scale, const math::vec3& color) noexcept // TODO move to gizmos - and rename it without bounding
+        {                                                                                   // TODO use here a static geometry because we know all the vertices = no allocation
             constexpr auto value = 0.5f;
 
             const auto hx = scale.x * value; // TODO for this use an aabb instead of the scale? it makes more sens if you want to have more control over the bounding box - like in sprites with rect
@@ -93,9 +94,9 @@ namespace geometry
             };
         }
 
-        static auto create_axis(const math::vec3& scale) noexcept // TODO maybe move axis in some other file/struct?
-        {                                                         // TODO use here a static geometry because we know all the vertices = no allocation
-            constexpr auto value = 0.5f;                          // TODO move to gizmos
+        static auto axis(const math::vec3& scale) noexcept // TODO maybe move axis in some other file/struct?
+        {                                                  // TODO use here a static geometry because we know all the vertices = no allocation
+            constexpr auto value = 0.5f;                   // TODO move to gizmos
 
             const auto hx = scale.x * value; constexpr math::vec3 r { 1.0f, 0.0f, 0.0f };
             const auto hy = scale.y * value; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
@@ -119,6 +120,6 @@ namespace geometry
             };
         }
 
-        Primitives() = delete;
+        Primitive() = delete;
     };
 }
