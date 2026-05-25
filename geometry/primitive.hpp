@@ -3,8 +3,6 @@
 #include "math/plane.hpp"
 #include "math/vec3.hpp" // TODO remove redundant include
 
-#include "primitive/line.hpp"
-
 #include "geometry_type.hpp"
 
 namespace geometry
@@ -14,7 +12,8 @@ namespace geometry
     public:
         static auto circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept
         {
-            geometry<vertex::basic, primitive::line> geometry; geometry.reserve(segments, segments * 2);
+            gizmo geometry;
+                  geometry.reserve(segments, segments * 2);
 
             const auto t = 2.0f * math::pi / static_cast<float>(segments);
 
@@ -57,7 +56,7 @@ namespace geometry
 
         static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept // TODO move to gizmos
         {
-            geometry<vertex::basic, primitive::line> geometry;
+            gizmo geometry;
 
             geometry.append(circle(segments, radius, math::plane::orientation::xy, color));
             geometry.append(circle(segments, radius, math::plane::orientation::xz, color));
