@@ -54,7 +54,7 @@ namespace geometry
             return geometry;
         }
 
-        static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept // TODO move to gizmos
+        static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
         {
             gizmo geometry;
 
@@ -65,8 +65,8 @@ namespace geometry
             return geometry;
         }
 
-        static auto bounding_box(const math::vec3& scale, const math::vec3& color) noexcept // TODO move to gizmos - and rename it without bounding
-        {                                                                                   // TODO use here a static geometry because we know all the vertices = no allocation
+        static auto bounding_box(const math::vec3& scale, const math::vec3& color) noexcept // TODO use here a static geometry because we know all the vertices = no allocation
+        {
             constexpr auto value = 0.5f;
 
             const auto hx = scale.x * value; // TODO for this use an aabb instead of the scale? it makes more sens if you want to have more control over the bounding box - like in sprites with rect
