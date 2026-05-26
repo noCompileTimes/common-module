@@ -24,46 +24,46 @@ namespace math
         const auto m32 = mat[3].z;
         const auto m33 = mat[3].w;
 
-        const auto coef00 = m22 * m33 - m32 * m23;
-        const auto coef02 = m12 * m33 - m32 * m13;
-        const auto coef03 = m12 * m23 - m22 * m13;
+        const auto c00 = m22 * m33 - m32 * m23;
+        const auto c02 = m12 * m33 - m32 * m13;
+        const auto c03 = m12 * m23 - m22 * m13;
 
-        const auto coef04 = m21 * m33 - m31 * m23;
-        const auto coef06 = m11 * m33 - m31 * m13;
-        const auto coef07 = m11 * m23 - m21 * m13;
+        const auto c04 = m21 * m33 - m31 * m23;
+        const auto c06 = m11 * m33 - m31 * m13;
+        const auto c07 = m11 * m23 - m21 * m13;
 
-        const auto coef08 = m21 * m32 - m31 * m22;
-        const auto coef10 = m11 * m32 - m31 * m12;
-        const auto coef11 = m11 * m22 - m21 * m12;
+        const auto c08 = m21 * m32 - m31 * m22;
+        const auto c10 = m11 * m32 - m31 * m12;
+        const auto c11 = m11 * m22 - m21 * m12;
 
-        const auto coef12 = m20 * m33 - m30 * m23;
-        const auto coef14 = m10 * m33 - m30 * m13;
-        const auto coef15 = m10 * m23 - m20 * m13;
+        const auto c12 = m20 * m33 - m30 * m23;
+        const auto c14 = m10 * m33 - m30 * m13;
+        const auto c15 = m10 * m23 - m20 * m13;
 
-        const auto coef16 = m20 * m32 - m30 * m22;
-        const auto coef18 = m10 * m32 - m30 * m12;
-        const auto coef19 = m10 * m22 - m20 * m12;
+        const auto c16 = m20 * m32 - m30 * m22;
+        const auto c18 = m10 * m32 - m30 * m12;
+        const auto c19 = m10 * m22 - m20 * m12;
 
-        const auto coef20 = m20 * m31 - m30 * m21;
-        const auto coef22 = m10 * m31 - m30 * m11;
-        const auto coef23 = m10 * m21 - m20 * m11;
+        const auto c20 = m20 * m31 - m30 * m21;
+        const auto c22 = m10 * m31 - m30 * m11;
+        const auto c23 = m10 * m21 - m20 * m11;
 
-        const vec4 fac0 { coef00, coef00, coef02, coef03 };
-        const vec4 fac1 { coef04, coef04, coef06, coef07 };
-        const vec4 fac2 { coef08, coef08, coef10, coef11 };
-        const vec4 fac3 { coef12, coef12, coef14, coef15 };
-        const vec4 fac4 { coef16, coef16, coef18, coef19 };
-        const vec4 fac5 { coef20, coef20, coef22, coef23 };
+        const vec4 f0 { c00, c00, c02, c03 };
+        const vec4 f1 { c04, c04, c06, c07 };
+        const vec4 f2 { c08, c08, c10, c11 };
+        const vec4 f3 { c12, c12, c14, c15 };
+        const vec4 f4 { c16, c16, c18, c19 };
+        const vec4 f5 { c20, c20, c22, c23 };
 
-        const vec4 vec0 { m10, m00, m00, m00 };
-        const vec4 vec1 { m11, m01, m01, m01 };
-        const vec4 vec2 { m12, m02, m02, m02 };
-        const vec4 vec3 { m13, m03, m03, m03 };
+        const vec4 v0 { m10, m00, m00, m00 };
+        const vec4 v1 { m11, m01, m01, m01 };
+        const vec4 v2 { m12, m02, m02, m02 };
+        const vec4 v3 { m13, m03, m03, m03 };
 
-        const auto inv0 = vec1 * fac0 - vec2 * fac1 + vec3 * fac2;
-        const auto inv1 = vec0 * fac0 - vec2 * fac3 + vec3 * fac4;
-        const auto inv2 = vec0 * fac1 - vec1 * fac3 + vec3 * fac5;
-        const auto inv3 = vec0 * fac2 - vec1 * fac4 + vec2 * fac5;
+        const auto inv0 = v1 * f0 - v2 * f1 + v3 * f2;
+        const auto inv1 = v0 * f0 - v2 * f3 + v3 * f4;
+        const auto inv2 = v0 * f1 - v1 * f3 + v3 * f5;
+        const auto inv3 = v0 * f2 - v1 * f4 + v2 * f5;
 
         constexpr vec4 sign_a {  1.0f, -1.0f,  1.0f, -1.0f };
         constexpr vec4 sign_b { -1.0f,  1.0f, -1.0f,  1.0f };
@@ -105,52 +105,52 @@ namespace math
 
     [[nodiscard]] static auto inverse_affine(const mat4& mat) noexcept
     {
-        const auto a00 = mat[0].x;
-        const auto a01 = mat[1].x;
-        const auto a02 = mat[2].x;
+        const auto m00 = mat[0].x;
+        const auto m01 = mat[0].y;
+        const auto m02 = mat[0].z;
 
-        const auto a10 = mat[0].y;
-        const auto a11 = mat[1].y;
-        const auto a12 = mat[2].y;
+        const auto m10 = mat[1].x;
+        const auto m11 = mat[1].y;
+        const auto m12 = mat[1].z;
 
-        const auto a20 = mat[0].z;
-        const auto a21 = mat[1].z;
-        const auto a22 = mat[2].z;
+        const auto m20 = mat[2].x;
+        const auto m21 = mat[2].y;
+        const auto m22 = mat[2].z;
 
-        const auto c00 = a11 * a22 - a12 * a21;
-        const auto c01 = a02 * a21 - a01 * a22;
-        const auto c02 = a01 * a12 - a02 * a11;
+        const auto c00 = m11 * m22 - m21 * m12;
+        const auto c01 = m21 * m02 - m01 * m22;
+        const auto c02 = m01 * m12 - m11 * m02;
 
-        const auto c10 = a12 * a20 - a10 * a22;
-        const auto c11 = a00 * a22 - a02 * a20;
-        const auto c12 = a02 * a10 - a00 * a12;
+        const auto c10 = m20 * m12 - m10 * m22;
+        const auto c11 = m00 * m22 - m20 * m02;
+        const auto c12 = m10 * m02 - m00 * m12;
 
-        const auto c20 = a10 * a21 - a11 * a20;
-        const auto c21 = a01 * a20 - a00 * a21;
-        const auto c22 = a00 * a11 - a01 * a10;
+        const auto c20 = m10 * m21 - m20 * m11;
+        const auto c21 = m20 * m01 - m00 * m21;
+        const auto c22 = m00 * m11 - m10 * m01;
 
-        const auto determinant = a00 * c00 + a01 * c10 + a02 * c20;
+        const auto determinant = m00 * c00 + m10 * c01 + m20 * c02;
 
         if (std::abs(determinant) < epsilon)
         {
-            return mat4 { 1.0f };
+            return mat4 { 1.0f }; // TODO use the uninitialized constructor and put the diagonals with 1.0f
         }
 
-        const auto inv_det = 1.0f / determinant;
+        const auto inverse_determinant = 1.0f / determinant;
 
-        mat4 result { 1.0f }; // TODO use the uninitialized constructor and put the diagonals with 1.0f
+        mat4 result { 1.0f };
 
-        result[0].x = c00 * inv_det;
-        result[0].y = c10 * inv_det;
-        result[0].z = c20 * inv_det;
+        result[0].x = c00 * inverse_determinant;
+        result[0].y = c01 * inverse_determinant;
+        result[0].z = c02 * inverse_determinant;
 
-        result[1].x = c01 * inv_det;
-        result[1].y = c11 * inv_det;
-        result[1].z = c21 * inv_det;
+        result[1].x = c10 * inverse_determinant;
+        result[1].y = c11 * inverse_determinant;
+        result[1].z = c12 * inverse_determinant;
 
-        result[2].x = c02 * inv_det;
-        result[2].y = c12 * inv_det;
-        result[2].z = c22 * inv_det;
+        result[2].x = c20 * inverse_determinant;
+        result[2].y = c21 * inverse_determinant;
+        result[2].z = c22 * inverse_determinant;
 
         const auto tx = mat[3].x;
         const auto ty = mat[3].y;
