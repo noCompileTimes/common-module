@@ -79,5 +79,13 @@ namespace math
                 .data = _mm_div_ps(data, _mm_set1_ps(value))
             };
         }
+
+        [[nodiscard]] explicit operator vec3() const noexcept
+        {
+            return vec3
+            {
+                x, y, z
+            };
+        }
     };
 }

@@ -73,7 +73,7 @@ namespace geometry
             const auto hy = scale.y * value;
             const auto hz = scale.z * value;
 
-            return geometry
+            return geometry // TODO use lines for this
             {
                 {
                     { { -hx, -hy, -hz }, color },
