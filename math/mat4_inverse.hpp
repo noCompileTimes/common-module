@@ -5,23 +5,23 @@ namespace math
     [[nodiscard]] static auto inverse(const mat4& mat) noexcept
     {
         const auto m00 = mat[0].x;
-        const auto m01 = mat[1].x;
-        const auto m02 = mat[2].x;
-        const auto m03 = mat[3].x;
+        const auto m01 = mat[0].y;
+        const auto m02 = mat[0].z;
+        const auto m03 = mat[0].w;
 
-        const auto m10 = mat[0].y;
+        const auto m10 = mat[1].x;
         const auto m11 = mat[1].y;
-        const auto m12 = mat[2].y;
-        const auto m13 = mat[3].y;
+        const auto m12 = mat[1].z;
+        const auto m13 = mat[1].w;
 
-        const auto m20 = mat[0].z;
-        const auto m21 = mat[1].z;
+        const auto m20 = mat[2].x;
+        const auto m21 = mat[2].y;
         const auto m22 = mat[2].z;
-        const auto m23 = mat[3].z;
+        const auto m23 = mat[2].w;
 
-        const auto m30 = mat[0].w;
-        const auto m31 = mat[1].w;
-        const auto m32 = mat[2].w;
+        const auto m30 = mat[3].x;
+        const auto m31 = mat[3].y;
+        const auto m32 = mat[3].z;
         const auto m33 = mat[3].w;
 
         const auto coef00 = m22 * m33 - m32 * m23;
