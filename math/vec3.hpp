@@ -30,9 +30,9 @@ namespace math
             return x * x + y * y + z * z;
         }
 
-        [[nodiscard]] static auto cross(const vec3& a, const vec3& b) noexcept -> vec3
+        [[nodiscard]] static auto cross(const vec3& a, const vec3& b) noexcept // TODO move this to another file?
         {
-            return
+            return vec3
             {
                 a.y * b.z - a.z * b.y,
                 a.z * b.x - a.x * b.z,
@@ -40,7 +40,7 @@ namespace math
             };
         }
 
-        static auto dot(const vec3& a, const vec3& b) noexcept -> float
+        static auto dot(const vec3& a, const vec3& b) noexcept // TODO move this to another file?
         {
             return a.x * b.x +
                    a.y * b.y +
@@ -74,9 +74,9 @@ namespace math
             return *this;
         }
 
-        [[nodiscard]] auto operator+(const vec3& other) const noexcept -> vec3
+        [[nodiscard]] auto operator+(const vec3& other) const noexcept
         {
-            return
+            return vec3
             {
                 x + other.x,
                 y + other.y,
@@ -84,9 +84,9 @@ namespace math
             };
         }
 
-        [[nodiscard]] auto operator-(const vec3& other) const noexcept -> vec3
+        [[nodiscard]] auto operator-(const vec3& other) const noexcept
         {
-            return
+            return vec3
             {
                 x - other.x,
                 y - other.y,
@@ -94,9 +94,19 @@ namespace math
             };
         }
 
-        [[nodiscard]] auto operator*(const float value) const noexcept -> vec3
+        [[nodiscard]] auto operator*(const vec3& other) const noexcept
         {
-            return
+            return vec3
+            {
+                x * other.x,
+                y * other.y,
+                z * other.z
+            };
+        }
+
+        [[nodiscard]] auto operator*(const float value) const noexcept
+        {
+            return vec3
             {
                 x * value,
                 y * value,
