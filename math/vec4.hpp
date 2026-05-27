@@ -40,6 +40,12 @@ namespace math
             return *this;
         }
 
+        // TODO check more if this is a solution, how it looks in glm?
+        /*auto operator/=(const float value) noexcept -> vec4&
+        {
+            return *this *= 1.0f / value;
+        }*/
+
         [[nodiscard]] auto operator+(const vec4& other) const noexcept
         {
             return vec4
@@ -79,6 +85,12 @@ namespace math
                 .data = _mm_div_ps(data, _mm_set1_ps(value))
             };
         }
+
+        // TODO check more if this is a solution, how it looks in glm?
+        /*[[nodiscard]] auto operator/(const float value) const noexcept
+        {
+            return *this * (1.0f / value);
+        }*/
 
         [[nodiscard]] explicit operator vec3() const noexcept
         {
