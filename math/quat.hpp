@@ -51,14 +51,14 @@ namespace math
 
         auto rotation(const vec3& axis, const float radians) noexcept
         {
-            const auto     half_angle = radians * 0.5f;
-            const auto sin_half_angle = std::sin(half_angle);
+            const auto angle = radians * 0.5f;
+            const auto value = std::sin(angle);
 
-            x = axis.x * sin_half_angle;
-            y = axis.y * sin_half_angle;
-            z = axis.z * sin_half_angle;
+            x = axis.x * value;
+            y = axis.y * value;
+            z = axis.z * value;
 
-            w = std::cos(half_angle);
+            w = std::cos(angle);
         }
     };
 }
