@@ -65,7 +65,7 @@ namespace geometry
             return geometry;
         }
 
-        static auto bounding_box(const math::vec3& scale, const math::vec3& color) noexcept // TODO use here a static geometry because we know all the vertices = no allocation
+        static auto bounding_box(const math::vec3& scale, const math::vec3& color) noexcept
         {
             constexpr auto half = 0.5f;
 
