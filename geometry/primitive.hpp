@@ -67,23 +67,23 @@ namespace geometry
 
         static auto bounding_box(const math::vec3& scale, const math::vec3& color) noexcept // TODO use here a static geometry because we know all the vertices = no allocation
         {
-            constexpr auto value = 0.5f;
+            constexpr auto half = 0.5f;
 
-            const auto hx = scale.x * value; // TODO for this use an aabb instead of the scale? it makes more sens if you want to have more control over the bounding box - like in sprites with rect
-            const auto hy = scale.y * value;
-            const auto hz = scale.z * value;
+            const auto x = scale.x * half; // TODO for this use an aabb instead of the scale? it makes more sens if you want to have more control over the bounding box - like in sprites with rect
+            const auto y = scale.y * half;
+            const auto z = scale.z * half;
 
             return geometry // TODO use lines for this
             {
                 {
-                    { { -hx, -hy, -hz }, color },
-                    { {  hx, -hy, -hz }, color },
-                    { {  hx,  hy, -hz }, color },
-                    { { -hx,  hy, -hz }, color },
-                    { { -hx, -hy,  hz }, color },
-                    { {  hx, -hy,  hz }, color },
-                    { {  hx,  hy,  hz }, color },
-                    { { -hx,  hy,  hz }, color }
+                    { { -x, -y, -z }, color },
+                    { {  x, -y, -z }, color },
+                    { {  x,  y, -z }, color },
+                    { { -x,  y, -z }, color },
+                    { { -x, -y,  z }, color },
+                    { {  x, -y,  z }, color },
+                    { {  x,  y,  z }, color },
+                    { { -x,  y,  z }, color }
                 },
                 {
                     0, 1,  1, 2,  2, 3,  3, 0,
