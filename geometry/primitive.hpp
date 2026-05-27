@@ -1,9 +1,8 @@
 #pragma once
 
 #include "math/plane.hpp"
-#include "math/vec3.hpp" // TODO remove redundant include
 
-#include "geometry_type.hpp"
+#include "geometry_types.hpp"
 
 namespace geometry
 {
