@@ -8,6 +8,16 @@ namespace math
         float y;
         float z;
 
+        [[nodiscard]] auto squared_length() const noexcept
+        {
+            return x * x + y * y + z * z;
+        }
+
+        [[nodiscard]] auto length() const noexcept
+        {
+            return std::sqrt(squared_length());
+        }
+
         [[nodiscard]] auto normalize() noexcept
         {
             if (const auto magnitude = length(); magnitude > epsilon)
@@ -18,16 +28,6 @@ namespace math
                 y *= inverse;
                 z *= inverse;
             }
-        }
-
-        [[nodiscard]] auto length() const noexcept -> float
-        {
-            return std::sqrt(squared_length());
-        }
-
-        [[nodiscard]] auto squared_length() const noexcept -> float
-        {
-            return x * x + y * y + z * z;
         }
 
         [[nodiscard]] static auto cross(const vec3& a, const vec3& b) noexcept // TODO move this to another file?
