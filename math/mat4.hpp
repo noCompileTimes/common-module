@@ -1,13 +1,5 @@
 #pragma once
 
-#ifdef near // TODO remove at some point after we remove common_module from graphics
-#undef near
-#endif
-
-#ifdef far // TODO remove at some point after we remove common_module from graphics
-#undef far
-#endif
-
 namespace math
 {
     struct mat4
@@ -39,12 +31,12 @@ namespace math
         [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top, const float near, const float far) noexcept
         {
             _columns[0].x =  2.0f / (right - left);
-            _columns[1].y =  2.0f / (top   - bottom);
-            _columns[2].z = -2.0f / (far   - near);
+            _columns[1].y =  2.0f / (top - bottom);
+            _columns[2].z = -2.0f / (far - near);
 
-            _columns[3].x = -(right + left)   / (right - left);
-            _columns[3].y = -(top   + bottom) / (top   - bottom);
-            _columns[3].z = -(far   + near)   / (far   - near);
+            _columns[3].x = -(right + left) / (right - left);
+            _columns[3].y = -(top + bottom) / (top - bottom);
+            _columns[3].z = -(far + near)   / (far - near);
         }
 
         [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top) noexcept
