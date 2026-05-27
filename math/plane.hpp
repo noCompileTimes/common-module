@@ -7,7 +7,7 @@ namespace math
         vec3  normal;
         float distance;
 
-        enum class orientation
+        enum class orientation // TODO do something with this - it come to long with math::plane::orientation
         {
             xy, // normal along z axis
             xz, // normal along y axis

@@ -19,6 +19,19 @@ namespace math
             return std::sqrt(squared_length());
         }
 
+        [[nodiscard]] auto normalize() noexcept
+        {
+            if (const auto magnitude = this->length(); magnitude > epsilon)
+            {
+                const auto inverse = 1.0f / magnitude;
+
+                w *= inverse;
+                x *= inverse;
+                y *= inverse;
+                z *= inverse;
+            }
+        }
+
         [[nodiscard]] auto operator*(const quat& other) const noexcept
         {
             return quat
@@ -46,19 +59,6 @@ namespace math
             z = axis.z * sin_half_angle;
 
             w = std::cos(half_angle);
-        }
-
-        auto normalize() noexcept
-        {
-            if (const auto len = length(); len > epsilon)
-            {
-                const auto i = 1.0f / len;
-
-                w *= i;
-                x *= i;
-                y *= i;
-                z *= i;
-            }
         }
     };
 }

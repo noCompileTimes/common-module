@@ -8,15 +8,15 @@ namespace math
         float y;
         float z;
 
-        auto normalize() noexcept
+        [[nodiscard]] auto normalize() noexcept
         {
-            if (const auto len = length(); len > epsilon)
+            if (const auto magnitude = length(); magnitude > epsilon)
             {
-                const auto i = 1.0f / len;
+                const auto inverse = 1.0f / magnitude;
 
-                x *= i;
-                y *= i;
-                z *= i;
+                x *= inverse;
+                y *= inverse;
+                z *= inverse;
             }
         }
 
