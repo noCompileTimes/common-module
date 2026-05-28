@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "vertex/basic.hpp"
 
 namespace geometry

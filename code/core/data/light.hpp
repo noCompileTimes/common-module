@@ -1,5 +1,8 @@
 #pragma once
 
+#include "math/rgb.hpp"
+#include "math/vec3.hpp"
+
 namespace core::data
 {
     struct light
