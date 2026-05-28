@@ -14,11 +14,6 @@ namespace math
         return degrees * (pi / 180.0f);
     }
 
-    [[nodiscard]] constexpr auto sqrt(const float value)
-    {
-        return std::sqrt(value);
-    }
-
     [[nodiscard]] constexpr auto max(const float a, const float b)
     {
         return std::max(a, b);
@@ -27,5 +22,25 @@ namespace math
     [[nodiscard]] constexpr auto min(const float a, const float b)
     {
         return std::min(a, b);
+    }
+
+    [[nodiscard]] constexpr auto sqrt(const float value)
+    {
+        return std::sqrt(value);
+    }
+
+    [[nodiscard]] constexpr auto sin(const float angle)
+    {
+        return std::sin(angle);
+    }
+
+    [[nodiscard]] constexpr auto cos(const float angle)
+    {
+        return std::cos(angle);
+    }
+
+    [[nodiscard]]constexpr auto abs(const float value)
+    {
+        return std::abs(value);
     }
 }
