@@ -1,6 +1,5 @@
 #pragma once
 
-#include <intrin.h>
-
 #include <cassert>
-#include <cmath>
+
+#include <intrin.h>

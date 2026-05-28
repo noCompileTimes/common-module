@@ -1,6 +1,7 @@
 #pragma once
 
 #include "constants.hpp"
+#include "functions.hpp"
 
 namespace math
 {
@@ -17,7 +18,7 @@ namespace math
 
         [[nodiscard]] auto length() const noexcept
         {
-            return std::sqrt(squared_length());
+            return sqrt(squared_length());
         }
 
         [[nodiscard]] auto normalize() noexcept
