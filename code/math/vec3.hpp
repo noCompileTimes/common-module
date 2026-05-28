@@ -1,7 +1,5 @@
 #pragma once
 
-#include <cmath>
-
 #include "constants.hpp"
 
 namespace math

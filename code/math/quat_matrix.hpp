@@ -1,5 +1,7 @@
 #pragma once
 
+#include "mat4.hpp"
+
 namespace math
 {
     [[nodiscard]] static auto matrix(const quat& quat) noexcept
