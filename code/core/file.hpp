@@ -3,7 +3,6 @@
 #include <filesystem>
 #include <fstream>
 #include <vector>
-#include <cassert>
 
 namespace core
 {
