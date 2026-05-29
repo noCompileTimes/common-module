@@ -1,6 +1,6 @@
 #pragma once
 
-namespace code::data
+namespace data
 {
     struct transform
     {
