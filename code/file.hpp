@@ -3,7 +3,7 @@
 #include <filesystem>
 #include <fstream>
 
-namespace core
+namespace code
 {
     class File
     {

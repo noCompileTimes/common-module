@@ -2,7 +2,7 @@
 
 #include <chrono>
 
-namespace core
+namespace code
 {
     using time_clock = std::chrono::high_resolution_clock;
     using time_point = std::chrono::high_resolution_clock::time_point;
@@ -25,8 +25,8 @@ namespace core
 
             _current_time_point = current;
 
-            if (_delta_time > delta_time_max) {
-                _delta_time = delta_time_max;
+            if (_delta_time > max_delta_time) {
+                _delta_time = max_delta_time;
             }
         }
 
@@ -51,7 +51,7 @@ namespace core
         }
 
     private:
-     constexpr static auto  delta_time_max { 1.0f / 30.0f };
+        static constexpr auto max_delta_time { 1.0f / 30.0f };
 
         inline static auto _delta_time { 0.0f };
         inline static auto _total_time { 0.0f };
