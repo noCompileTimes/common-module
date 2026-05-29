@@ -6,10 +6,6 @@
 
 Coming soon
 
-## Modules
-
-`None`
-
 ## Reporting bugs
 
 Please report any [issues](https://github.com/noCompileTimes/game-framework/issues) you encounter,
