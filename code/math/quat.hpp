@@ -1,6 +1,7 @@
 #pragma once
 
-#include "vec3.hpp"
+#include "constants.hpp"
+#include "functions.hpp"
 
 namespace math
 {
@@ -18,7 +19,7 @@ namespace math
 
         [[nodiscard]] auto length() const noexcept
         {
-            return std::sqrt(squared_length());
+            return sqrt(squared_length());
         }
 
         [[nodiscard]] auto normalize() noexcept
@@ -54,13 +55,13 @@ namespace math
         auto rotation(const vec3& axis, const float radians) noexcept
         {
             const auto angle = radians * 0.5f;
-            const auto value = std::sin(angle);
+            const auto value = sin(angle);
 
             x = axis.x * value;
             y = axis.y * value;
             z = axis.z * value;
 
-            w = std::cos(angle);
+            w = cos(angle);
         }
     };
 }
