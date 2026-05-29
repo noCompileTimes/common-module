@@ -2,6 +2,8 @@
 
 #include <cmath>
 
+#include "constants.hpp"
+
 namespace math
 {
     [[nodiscard]] constexpr auto degrees(const float radians)
