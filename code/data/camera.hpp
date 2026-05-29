@@ -2,7 +2,7 @@
 
 #include "math/mat4.hpp"
 
-namespace core::data
+namespace code::data
 {
     struct camera
     {
