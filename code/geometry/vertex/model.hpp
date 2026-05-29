@@ -1,5 +1,7 @@
 #pragma once
 
+#include "math/vec2.hpp"
+
 namespace geometry::vertex
 {
     struct model

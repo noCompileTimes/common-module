@@ -1,5 +1,7 @@
 #pragma once
 
+#include "vec4.hpp"
+
 namespace math
 {
     struct mat4
