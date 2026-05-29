@@ -1,5 +1,7 @@
 #pragma once
 
+#include <span>
+
 template <typename type>
           requires std::is_trivially_copyable_v<type>
 [[nodiscard]] static auto as_bytes(const std::vector<type>& data) noexcept // TODO add some version for std::array?
