@@ -1,6 +1,6 @@
 #pragma once
 
-#include "math/plane.hpp"
+#include "plane.hpp"
 
 #include "geometry_types.hpp"
 

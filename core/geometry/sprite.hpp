@@ -1,6 +1,6 @@
 #pragma once
 
-#include "math/rect.hpp"
+#include "rect.hpp"
 
 #include "geometry_types.hpp"
 

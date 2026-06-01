@@ -1,6 +1,6 @@
 #pragma once
 
-#include "math/mat4.hpp"
+#include "mat4.hpp"
 
 namespace data
 {
