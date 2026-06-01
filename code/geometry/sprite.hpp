@@ -2,6 +2,8 @@
 
 #include "math/rect.hpp"
 
+#include "geometry_types.hpp"
+
 namespace geometry
 {
     class Sprite
