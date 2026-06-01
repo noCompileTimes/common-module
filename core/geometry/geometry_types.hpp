@@ -2,16 +2,17 @@
 
 #include "geometry.hpp"
 
+#include "vertex/basic.hpp"
 #include "vertex/model.hpp"
 #include "vertex/sprite.hpp"
 
-#include "primitive/line.hpp"
-#include "primitive/triangle.hpp"
+#include "element/line.hpp"
+#include "element/triangle.hpp"
 
 namespace core::geometry
 {
-    using  model = geometry<vertex::model>;
-    using sprite = geometry<vertex::sprite, primitive::triangle>;
+    using  model = geometry<vertex::model,  uint32_t>;
+    using sprite = geometry<vertex::sprite, element::triangle>;
 
-    using  gizmo = geometry<vertex::basic, primitive::line>;
+    using  gizmo = geometry<vertex::basic,  element::line>;
 }

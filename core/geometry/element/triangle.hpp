@@ -1,6 +1,6 @@
 #pragma once
 
-namespace core::geometry::primitive
+namespace core::geometry::element
 {
     struct triangle
     {
@@ -18,6 +18,6 @@ namespace core::geometry::primitive
             };
         }
 
-        static constexpr auto elements { 3 };
+        static constexpr auto size { 3 };
     };
 }

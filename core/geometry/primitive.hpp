@@ -72,7 +72,7 @@ namespace core::geometry
             const auto y = scale.y * half;
             const auto z = scale.z * half;
 
-            return geometry // TODO use lines for this
+            return geometry<vertex::basic, uint32_t> // TODO use lines for this
             {
                 {
                     { { -x, -y, -z }, color },

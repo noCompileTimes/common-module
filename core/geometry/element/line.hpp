@@ -1,6 +1,6 @@
 #pragma once
 
-namespace core::geometry::primitive
+namespace core::geometry::element
 {
     struct line
     {
@@ -16,6 +16,6 @@ namespace core::geometry::primitive
             };
         }
 
-        static constexpr auto elements { 2 };
+        static constexpr auto size { 2 };
     };
 }

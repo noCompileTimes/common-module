@@ -1,14 +1,12 @@
 #pragma once
 
-#include "vertex/basic.hpp"
-
 namespace core::geometry
-{   // TODO restrict the element to be a struct? to accept just line and triangle? it seems to be a good idea
-    template <typename vertex = vertex::basic, typename primitive = uint32_t> // TODO put the default for the primitive to be line?
+{
+    template <typename vertex, typename element>
     struct geometry
     {
-        std::vector<vertex>    vertices;
-        std::vector<primitive> elements;
+        std::vector<vertex>  vertices;
+        std::vector<element> elements;
 
         auto append(const geometry& other) noexcept
         {
@@ -20,9 +18,9 @@ namespace core::geometry
             vertices.insert(vertices.end(), other.vertices.begin(),
                                             other.vertices.end());
 
-            for (const auto& element : other.elements)
+            for (const auto& i : other.elements)
             {
-                elements.emplace_back(element + offset);
+                elements.emplace_back(i + offset);
             }
         }
 
