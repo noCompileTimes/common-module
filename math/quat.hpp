@@ -38,17 +38,11 @@ namespace math
         {
             return quat
             {
-                w * other.w - x * other.x - y * other.y - z * other.z,
+                w * other.w - x * other.x - y * other.y - z * other.z, // TODO use simd here?
                 w * other.x + x * other.w + y * other.z - z * other.y,
                 w * other.y - x * other.z + y * other.w + z * other.x,
                 w * other.z + x * other.y - y * other.x + z * other.w
             };
-        }
-
-        auto operator*=(const quat& other) noexcept -> quat&
-        {
-            return *this =
-                   *this * other;
         }
 
         auto rotation(const vec3& axis, const float radians) noexcept
@@ -61,6 +55,12 @@ namespace math
             z = axis.z * value;
 
             w = cos(angle);
+        }
+
+        auto operator*=(const quat& other) noexcept -> quat&
+        {
+            return *this =
+                   *this * other;
         }
     };
 }
