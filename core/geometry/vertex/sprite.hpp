@@ -1,6 +1,6 @@
 #pragma once
 
-namespace geometry::vertex
+namespace core::geometry::vertex
 {
     struct sprite
     {

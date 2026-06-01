@@ -2,7 +2,7 @@
 
 #include "vertex/basic.hpp"
 
-namespace geometry
+namespace core::geometry
 {   // TODO restrict the element to be a struct? to accept just line and triangle? it seems to be a good idea
     template <typename vertex = vertex::basic, typename primitive = uint32_t> // TODO put the default for the primitive to be line?
     struct geometry

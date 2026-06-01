@@ -2,7 +2,7 @@
 
 #include "geometry_types.hpp"
 
-namespace geometry
+namespace core::geometry
 {
     class Gizmo
     {

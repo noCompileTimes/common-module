@@ -8,7 +8,7 @@
 #include "primitive/line.hpp"
 #include "primitive/triangle.hpp"
 
-namespace geometry
+namespace core::geometry
 {
     using  model = geometry<vertex::model>;
     using sprite = geometry<vertex::sprite, primitive::triangle>;

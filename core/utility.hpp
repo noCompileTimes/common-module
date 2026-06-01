@@ -1,5 +1,7 @@
 #pragma once
 
+#include <span>
+
 namespace core
 {
     template <typename type>

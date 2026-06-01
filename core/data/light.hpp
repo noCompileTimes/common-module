@@ -2,7 +2,7 @@
 
 #include "vec3.hpp"
 
-namespace data
+namespace core::data
 {
     struct light
     {

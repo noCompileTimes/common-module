@@ -1,6 +1,6 @@
 #pragma once
 
-namespace geometry::primitive
+namespace core::geometry::primitive
 {
     struct line
     {
