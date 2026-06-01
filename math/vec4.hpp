@@ -2,8 +2,6 @@
 
 #include "vec3.hpp"
 
-#include <intrin.h>
-
 namespace math
 {
     struct alignas(16) vec4
