@@ -43,8 +43,8 @@ namespace core::geometry
         {
             const auto left   = -width  * pivot.x + offset.x;
             const auto top    = -height * pivot.y + offset.y;
-            const auto right  = left + width;
-            const auto bottom = top + height;
+            const auto right  = left + width; // TODO reverse members
+            const auto bottom = top + height; // TODO reverse members
 
             return create({ { left, top }, { right, bottom } });
         }
