@@ -31,8 +31,23 @@ namespace core::geometry
             return create({ { }, static_cast<float>(width), static_cast<float>(height) });
         }
 
-        // TODO some version to accept a pivot version? seems usefull to not do the * 0.5f outside the function
-        // TODO some version to accept an offset version? seems usefull to not do add the offset each time in the rendering part
+        // TODO rework this - not final
+        static auto create(const float width, const float height, const math::vec2& offset) noexcept // TODO use this just when you develop to get the rect
+        {
+            return create({ { -width * 0.5f + offset.x, -height * 0.5f + offset.y },
+                            {  width * 0.5f + offset.x,  height * 0.5f + offset.y } });
+        }
+
+        // TODO rework this - not final
+        static auto create(const float width, const float height, const math::vec2& pivot, const math::vec2& offset) noexcept
+        {
+            const auto left   = -width  * pivot.x + offset.x;
+            const auto top    = -height * pivot.y + offset.y;
+            const auto right  = left + width;
+            const auto bottom = top + height;
+
+            return create({ { left, top }, { right, bottom } });
+        }
 
         Sprite() = delete;
     };
