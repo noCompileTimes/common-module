@@ -9,7 +9,7 @@ namespace core::geometry
     class Primitive
     {
     public:
-        static auto circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept
+        static auto circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept // TODO bounding circle?
         {
             gizmo geometry;
                   geometry.reserve(segments, segments * 2);
