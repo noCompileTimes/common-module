@@ -1,19 +1,7 @@
 #pragma once
 
-#include "constants.hpp"
-
 namespace math
 {
-    [[nodiscard]] constexpr auto degrees(const float radians)
-    {
-        return radians * (180.0f / pi);
-    }
-
-    [[nodiscard]] constexpr auto radians(const float degrees)
-    {
-        return degrees * (pi / 180.0f);
-    }
-
     [[nodiscard]] constexpr auto max(const float a, const float b)
     {
         return std::max(a, b);
@@ -39,8 +27,18 @@ namespace math
         return std::cos(angle);
     }
 
-    [[nodiscard]]constexpr auto abs(const float value)
+    [[nodiscard]] constexpr auto abs(const float value)
     {
         return std::abs(value);
+    }
+
+    [[nodiscard]] constexpr auto radians(const float degrees)
+    {
+        return degrees * (pi / 180.0f);
+    }
+
+    [[nodiscard]] constexpr auto degrees(const float radians)
+    {
+        return radians * (180.0f / pi);
     }
 }

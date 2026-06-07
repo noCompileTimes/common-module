@@ -1,7 +1,5 @@
 #pragma once
 
-#include "functions.hpp"
-
 namespace math
 {
     struct quat
@@ -13,7 +11,7 @@ namespace math
 
         [[nodiscard]] auto squared_length() const noexcept
         {
-            return  w * w + x * x + y * y + z * z;
+            return w * w + x * x + y * y + z * z;
         }
 
         [[nodiscard]] auto length() const noexcept

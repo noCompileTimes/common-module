@@ -1,7 +1,5 @@
 #pragma once
 
-#include "math/mat4.hpp"
-
 namespace core::data
 {
     struct transform

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "math/rect.hpp"
-
 #include "geometry_types.hpp"
 
 namespace core::geometry

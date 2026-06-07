@@ -1,7 +1,5 @@
 #pragma once
 
-#include "math/vec3.hpp"
-
 namespace core::geometry::vertex
 {
     struct basic

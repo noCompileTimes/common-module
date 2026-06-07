@@ -1,13 +1,13 @@
 #pragma once
 
-#include "vec3.hpp"
-
 namespace math
 {
     struct alignas(16) vec4
     {
         union
         {
+            __m128 data;
+
             struct
             {
                 float x;
@@ -15,15 +15,13 @@ namespace math
                 float z;
                 float w;
             };
-
-            __m128 data;
         };
 
         [[nodiscard]] auto operator+(const vec4& other) const noexcept
         {
             return vec4
             {
-                .data = _mm_add_ps(data, other.data)
+                _mm_add_ps(data, other.data)
             };
         }
 
@@ -31,7 +29,7 @@ namespace math
         {
             return vec4
             {
-                .data = _mm_sub_ps(data, other.data)
+                _mm_sub_ps(data, other.data)
             };
         }
 
@@ -39,7 +37,7 @@ namespace math
         {
             return vec4
             {
-                .data = _mm_mul_ps(data, other.data)
+                _mm_mul_ps(data, other.data)
             };
         }
 
@@ -47,7 +45,7 @@ namespace math
         {
             return vec4
             {
-                .data = _mm_mul_ps(data, _mm_set1_ps(value))
+                _mm_mul_ps(data, _mm_set1_ps(value))
             };
         }
 
@@ -55,11 +53,11 @@ namespace math
         {
             return vec4
             {
-                .data = _mm_div_ps(data, _mm_set1_ps(value))
+                _mm_div_ps(data, _mm_set1_ps(value))
             };
         }
 
-        // TODO check more if this is a solution, how it looks in glm?
+        // TODO check more if this is a solution
         /*[[nodiscard]] auto operator/(const float value) const noexcept
         {
             return *this * (1.0f / value);
@@ -94,7 +92,7 @@ namespace math
             return *this;
         }
 
-        // TODO check more if this is a solution, how it looks in glm?
+        // TODO check more if this is a solution
         /*auto operator/=(const float value) noexcept -> vec4&
         {
             return *this *= 1.0f / value;
