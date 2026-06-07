@@ -1,8 +1,8 @@
 #pragma once
 
-#include "math/rect.hpp"
+#include "types.hpp"
 
-#include "geometry_types.hpp"
+#include "math/rect.hpp"
 
 namespace geometry
 {
