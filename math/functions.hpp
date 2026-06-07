@@ -2,21 +2,6 @@
 
 namespace math
 {
-    [[nodiscard]] constexpr auto max(const float a, const float b)
-    {
-        return std::max(a, b);
-    }
-
-    [[nodiscard]] constexpr auto min(const float a, const float b)
-    {
-        return std::min(a, b);
-    }
-
-    [[nodiscard]] constexpr auto sqrt(const float value)
-    {
-        return std::sqrt(value);
-    }
-
     [[nodiscard]] constexpr auto sin(const float angle)
     {
         return std::sin(angle);
@@ -27,9 +12,24 @@ namespace math
         return std::cos(angle);
     }
 
+    [[nodiscard]] constexpr auto sqrt(const float value)
+    {
+        return std::sqrt(value);
+    }
+
     [[nodiscard]] constexpr auto abs(const float value)
     {
         return std::abs(value);
+    }
+
+    [[nodiscard]] constexpr auto min(const float a, const float b)
+    {
+        return std::min(a, b);
+    }
+
+    [[nodiscard]] constexpr auto max(const float a, const float b)
+    {
+        return std::max(a, b);
     }
 
     [[nodiscard]] constexpr auto radians(const float degrees)
