@@ -1,6 +1,6 @@
 #pragma once
 
-namespace geometry::element // TODO I don't relly like this namespace
+namespace geometry::element // TODO I don't relly like this namespace // maybe layout???
 {
     struct line
     {
