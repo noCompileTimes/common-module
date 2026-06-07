@@ -15,7 +15,7 @@ namespace geometry
             const auto y = scale.y * half; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
             const auto z = scale.z * half; constexpr math::vec3 b { 0.0f, 0.0f, 1.0f };
 
-            return gizmo
+            return geometry<vertex::basic, element::line>
             {
                 {
                     { { -x, 0.0f, 0.0f }, r },

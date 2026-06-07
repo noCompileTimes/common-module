@@ -11,8 +11,7 @@ namespace geometry
     public:
         static auto circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept // TODO bounding circle?
         {
-            gizmo geometry;
-                  geometry.reserve(segments, segments * 2);
+            geometry<vertex::basic, element::line> geometry; geometry.reserve(segments, segments * 2);
 
             const auto t = 2.0f * math::pi / static_cast<float>(segments);
 
@@ -55,7 +54,7 @@ namespace geometry
 
         static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
         {
-            gizmo geometry;
+            geometry<vertex::basic, element::line> geometry;
 
             geometry.append(circle(segments, radius, math::plane::orientation::xy, color));
             geometry.append(circle(segments, radius, math::plane::orientation::xz, color));

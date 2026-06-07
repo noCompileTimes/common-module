@@ -2,7 +2,7 @@
 
 namespace geometry::element // TODO I don't relly like this namespace // maybe layout???
 {
-    struct line
+    struct line // TODO make a generic element for line and triangle / point? seems more than ok
     {
         uint32_t a;
         uint32_t b;
