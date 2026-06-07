@@ -3,7 +3,6 @@
 #include <intrin.h>
 
 #include "constants.hpp"
-#include "functions.hpp"
 
 #include "vec2.hpp"
 #include "vec3.hpp"
