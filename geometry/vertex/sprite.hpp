@@ -2,7 +2,7 @@
 
 #include "math/vec2.hpp"
 
-namespace core::geometry::vertex
+namespace geometry::vertex
 {
     struct sprite
     {

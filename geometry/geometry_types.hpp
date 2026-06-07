@@ -9,7 +9,7 @@
 #include "element/line.hpp"
 #include "element/triangle.hpp"
 
-namespace core::geometry
+namespace geometry
 {
     using  model = geometry<vertex::model,  uint32_t>; // TODO use triangle here
     using sprite = geometry<vertex::sprite, element::triangle>;

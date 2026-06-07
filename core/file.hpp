@@ -1,5 +1,8 @@
 #pragma once
 
+#include <cassert>
+
+#include <filesystem>
 #include <fstream>
 
 namespace core

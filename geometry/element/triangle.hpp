@@ -1,6 +1,6 @@
 #pragma once
 
-namespace core::geometry::element
+namespace geometry::element
 {
     struct triangle
     {

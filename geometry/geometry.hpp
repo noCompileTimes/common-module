@@ -1,6 +1,8 @@
 #pragma once
 
-namespace core::geometry
+#include <vector>
+
+namespace geometry
 {
     template <typename vertex, typename element>
     struct geometry
