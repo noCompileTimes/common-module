@@ -1,5 +1,7 @@
 #pragma once
 
+#include "vec3.hpp"
+
 namespace math
 {
     struct alignas(16) vec4

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <cmath>
-
 namespace math
 {
     [[nodiscard]] constexpr auto sin(const float angle)
