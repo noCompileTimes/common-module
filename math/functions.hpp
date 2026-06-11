@@ -4,6 +4,8 @@
 
 #include <cmath>
 
+#include "constants.hpp"
+
 namespace math
 {
     [[nodiscard]] constexpr auto sin(const float angle)
