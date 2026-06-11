@@ -26,11 +26,6 @@ namespace geometry
             };
         }
 
-        static auto create(const uint32_t width, const uint32_t height) noexcept
-        {
-            return create({ { }, static_cast<float>(width), static_cast<float>(height) });
-        }
-
         // TODO rework this - not final
         static auto create(const float width, const float height, const math::vec2& offset) noexcept // TODO use this just when you develop to get the rect
         {
