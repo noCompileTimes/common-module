@@ -94,7 +94,7 @@ namespace math
 
         constexpr void normalize() noexcept
         {
-            if (const auto magnitude = length(); magnitude > epsilon)
+            if (const auto magnitude = length(); magnitude > tolerance)
             {
                 const auto inverse = 1.0f / magnitude;
 

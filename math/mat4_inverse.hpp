@@ -90,7 +90,7 @@ namespace math
             mat[0].z * row0.z +
             mat[0].w * row0.w;
 
-        if (abs(determinant) < epsilon)
+        if (abs(determinant) < tolerance)
         {
             return mat4 { 1.0f };
         }
@@ -133,7 +133,7 @@ namespace math
 
         const auto determinant = m00 * c00 + m10 * c01 + m20 * c02;
 
-        if (abs(determinant) < epsilon)
+        if (abs(determinant) < tolerance)
         {
             return mat4 { 1.0f }; // TODO use the uninitialized constructor and put the diagonals with 1.0f
         }
