@@ -7,34 +7,48 @@ namespace math
         float x;
         float y;
 
-        [[nodiscard]] auto operator+(const vec2& other) const noexcept
+        [[nodiscard]] constexpr vec2 operator+(const vec2& other) const noexcept
         {
-            return vec2
+            return
             {
                 x + other.x,
                 y + other.y
             };
         }
 
-        [[nodiscard]] auto operator-(const vec2& other) const noexcept
+        [[nodiscard]] constexpr vec2 operator-(const vec2& other) const noexcept
         {
-            return vec2
+            return
             {
                 x - other.x,
                 y - other.y
             };
         }
 
-        [[nodiscard]] auto operator*(const float value) const noexcept
+        [[nodiscard]] constexpr vec2 operator*(const float value) const noexcept
         {
-            return vec2
+            return
             {
                 x * value,
                 y * value
             };
         }
 
-        auto operator+=(const vec2& other) noexcept -> vec2&
+        [[nodiscard]] constexpr vec2 operator/(const float value) const noexcept
+        {
+            return
+            {
+                x / value,
+                y / value
+            };
+        }
+
+        [[nodiscard]] constexpr static vec2 midpoint(const vec2& a, const vec2& b) noexcept
+        {
+            return (a + b) * 0.5f;
+        }
+
+        constexpr vec2& operator+=(const vec2& other) noexcept
         {
             x += other.x;
             y += other.y;
@@ -42,17 +56,12 @@ namespace math
             return *this;
         }
 
-        auto operator-=(const vec2& other) noexcept -> vec2&
+        constexpr vec2& operator-=(const vec2& other) noexcept
         {
             x -= other.x;
             y -= other.y;
 
             return *this;
-        }
-
-        [[nodiscard]] static auto midpoint(const vec2& a, const vec2& b) noexcept
-        {
-            return (a + b) * 0.5f;
         }
     };
 }
