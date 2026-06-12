@@ -4,7 +4,7 @@
 
 ## About
 
-* math: vec2, vec3, vec4, rect
+* math: 
 
 ## Reporting bugs
 
