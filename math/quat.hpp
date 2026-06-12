@@ -1,5 +1,7 @@
 #pragma once
 
+#include "mat4.hpp"
+
 namespace math
 {
     struct quat
@@ -9,19 +11,19 @@ namespace math
         float y;
         float z;
 
-        [[nodiscard]] auto squared_length() const noexcept
+        [[nodiscard]] auto length_squared() const noexcept
         {
             return w * w + x * x + y * y + z * z;
         }
 
         [[nodiscard]] auto length() const noexcept
         {
-            return sqrt(squared_length());
+            return sqrt(length_squared());
         }
 
         [[nodiscard]] auto normalize() noexcept
         {
-            if (const auto magnitude = this->length(); magnitude > epsilon)
+            if (const auto magnitude = length(); magnitude > epsilon)
             {
                 const auto inverse = 1.0f / magnitude;
 

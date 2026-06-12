@@ -1,6 +1,5 @@
 #pragma once
 
-#include "constants.hpp"
 #include "functions.hpp"
 
 namespace math
@@ -11,14 +10,14 @@ namespace math
         float y;
         float z;
 
-        [[nodiscard]] auto squared_length() const noexcept
+        [[nodiscard]] auto length_squared() const noexcept
         {
             return x * x + y * y + z * z;
         }
 
         [[nodiscard]] auto length() const noexcept
         {
-            return sqrt(squared_length());
+            return sqrt(length_squared());
         }
 
         [[nodiscard]] auto normalize() noexcept
