@@ -53,7 +53,7 @@ namespace math
 
         [[maybe_unused]] auto perspective(const float fov, const float aspect, const float near, const float far) noexcept
         {
-            const auto value = std::tan(fov * 0.5f);
+            const auto value = tan(fov * 0.5f);
             const auto range = far - near;
 
             _columns[0].x = 1.0f / (value * aspect);
@@ -102,15 +102,15 @@ namespace math
             return matrix;
         }
 
-        auto operator*=(const mat4& other) noexcept -> mat4&
+        mat4& operator*=(const mat4& other) noexcept
         {
             return *this =
                    *this * other;
         }
 
-        [[nodiscard]] auto operator*(const vec4& vec) const noexcept
+        [[nodiscard]] vec4 operator*(const vec4& vec) const noexcept
         {
-            return vec4
+            return
             {
                 _columns[0].x * vec.x + _columns[1].x * vec.y + _columns[2].x * vec.z + _columns[3].x * vec.w,
                 _columns[0].y * vec.x + _columns[1].y * vec.y + _columns[2].y * vec.z + _columns[3].y * vec.w,
