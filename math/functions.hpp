@@ -2,8 +2,6 @@
 
 #include "constants.hpp"
 
-#include <algorithm> // TODO this in a precompiled header?
-
 #include <cmath>
 
 namespace math
@@ -31,16 +29,6 @@ namespace math
     [[nodiscard]] constexpr float sqrt(const float value)
     {
         return std::sqrt(value);
-    }
-
-    [[nodiscard]] constexpr float min(const float a, const float b)
-    {
-        return std::min(a, b);
-    }
-
-    [[nodiscard]] constexpr float max(const float a, const float b)
-    {
-        return std::max(a, b);
     }
 
     [[nodiscard]] constexpr float radians(const float degrees)

@@ -9,7 +9,7 @@ namespace geometry
     class Sprite
     {
     public:
-        static auto create(const math::rect& position) noexcept
+        static auto create(const math::rect& position) noexcept // TODO extend this to receive also the uv?
         {
             return sprite
             {
