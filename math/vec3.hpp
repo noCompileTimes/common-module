@@ -10,19 +10,19 @@ namespace math
         float y;
         float z;
 
-        [[nodiscard]] constexpr float length() const noexcept
-        {
-            return sqrt(length_squared());
-        }
-
-        [[nodiscard]] constexpr float length_squared() const noexcept
+        [[nodiscard]] constexpr auto length_squared() const noexcept
         {
             return x * x + y * y + z * z;
         }
 
-        [[nodiscard]] constexpr vec3 operator+(const vec3& other) const noexcept
+        [[nodiscard]] constexpr auto length() const noexcept
         {
-            return
+            return sqrt(length_squared());
+        }
+
+        [[nodiscard]] constexpr auto operator+(const vec3& other) const noexcept
+        {
+            return vec3
             {
                 x + other.x,
                 y + other.y,
@@ -30,9 +30,9 @@ namespace math
             };
         }
 
-        [[nodiscard]] constexpr vec3 operator-(const vec3& other) const noexcept
+        [[nodiscard]] constexpr auto operator-(const vec3& other) const noexcept
         {
-            return
+            return vec3
             {
                 x - other.x,
                 y - other.y,
@@ -40,9 +40,9 @@ namespace math
             };
         }
 
-        [[nodiscard]] constexpr vec3 operator*(const vec3& other) const noexcept
+        [[nodiscard]] constexpr auto operator*(const vec3& other) const noexcept
         {
-            return
+            return vec3
             {
                 x * other.x,
                 y * other.y,
@@ -50,9 +50,9 @@ namespace math
             };
         }
 
-        [[nodiscard]] constexpr vec3 operator*(const float value) const noexcept
+        [[nodiscard]] constexpr auto operator*(const float value) const noexcept
         {
-            return
+            return vec3
             {
                 x * value,
                 y * value,
@@ -60,14 +60,14 @@ namespace math
             };
         }
 
-        [[nodiscard]] constexpr static float dot(const vec3& a, const vec3& b) noexcept
+        [[nodiscard]] static constexpr auto dot(const vec3& a, const vec3& b) noexcept
         {
             return a.x * b.x + a.y * b.y + a.z * b.z;
         }
 
-        [[nodiscard]] constexpr static vec3 cross(const vec3& a, const vec3& b) noexcept
+        [[nodiscard]] static constexpr auto cross(const vec3& a, const vec3& b) noexcept
         {
-            return
+            return vec3
             {
                 a.y * b.z - a.z * b.y,
                 a.z * b.x - a.x * b.z,
@@ -75,7 +75,7 @@ namespace math
             };
         }
 
-        constexpr vec3& operator+=(const vec3& other) noexcept
+        constexpr auto operator+=(const vec3& other) noexcept -> vec3&
         {
             x += other.x;
             y += other.y;
@@ -84,7 +84,7 @@ namespace math
             return *this;
         }
 
-        constexpr vec3& operator-=(const vec3& other) noexcept
+        constexpr auto operator-=(const vec3& other) noexcept -> vec3&
         {
             x -= other.x;
             y -= other.y;
@@ -93,7 +93,7 @@ namespace math
             return *this;
         }
 
-        constexpr vec3& operator*=(const float value) noexcept
+        constexpr auto operator*=(const float value) noexcept -> vec3&
         {
             x *= value;
             y *= value;
@@ -102,7 +102,7 @@ namespace math
             return *this;
         }
 
-        constexpr void normalize() noexcept
+        constexpr auto normalize() noexcept
         {
             if (const auto magnitude = length(); magnitude > tolerance)
             {

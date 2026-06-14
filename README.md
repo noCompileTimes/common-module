@@ -4,7 +4,7 @@
 
 ## About
 
-* math: 
+Coming soon
 
 ## Reporting bugs
 
