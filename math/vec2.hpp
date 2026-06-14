@@ -7,48 +7,48 @@ namespace math
         float x;
         float y;
 
-        [[nodiscard]] constexpr vec2 operator+(const vec2& other) const noexcept
+        [[nodiscard]] constexpr auto operator+(const vec2& other) const noexcept
         {
-            return
+            return vec2
             {
                 x + other.x,
                 y + other.y
             };
         }
 
-        [[nodiscard]] constexpr vec2 operator-(const vec2& other) const noexcept
+        [[nodiscard]] constexpr auto operator-(const vec2& other) const noexcept
         {
-            return
+            return vec2
             {
                 x - other.x,
                 y - other.y
             };
         }
 
-        [[nodiscard]] constexpr vec2 operator*(const float value) const noexcept
+        [[nodiscard]] constexpr auto operator*(const float value) const noexcept
         {
-            return
+            return vec2
             {
                 x * value,
                 y * value
             };
         }
 
-        [[nodiscard]] constexpr vec2 operator/(const float value) const noexcept
+        [[nodiscard]] constexpr auto operator/(const float value) const noexcept
         {
-            return
+            return vec2
             {
                 x / value,
                 y / value
             };
         }
 
-        [[nodiscard]] static constexpr vec2 midpoint(const vec2& a, const vec2& b) noexcept
+        [[nodiscard]] static constexpr auto midpoint(const vec2& a, const vec2& b) noexcept
         {
             return (a + b) * 0.5f;
         }
 
-        constexpr vec2& operator+=(const vec2& other) noexcept
+        constexpr auto operator+=(const vec2& other) noexcept -> vec2&
         {
             x += other.x;
             y += other.y;
@@ -56,7 +56,7 @@ namespace math
             return *this;
         }
 
-        constexpr vec2& operator-=(const vec2& other) noexcept
+        constexpr auto operator-=(const vec2& other) noexcept -> vec2&
         {
             x -= other.x;
             y -= other.y;

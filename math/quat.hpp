@@ -11,14 +11,14 @@ namespace math
         float y;
         float z;
 
-        [[nodiscard]] constexpr float length() const noexcept
-        {
-            return sqrt(length_squared());
-        }
-
-        [[nodiscard]] constexpr float length_squared() const noexcept
+        [[nodiscard]] constexpr auto length_squared() const noexcept
         {
             return w * w + x * x + y * y + z * z;
+        }
+
+        [[nodiscard]] constexpr auto length() const noexcept
+        {
+            return sqrt(length_squared());
         }
 
         [[nodiscard]] constexpr explicit operator mat4() const noexcept
@@ -61,38 +61,38 @@ namespace math
             return matrix;
         }
 
-        [[nodiscard]] constexpr quat operator*(const quat& other) const noexcept
+        [[nodiscard]] constexpr auto operator*(const quat& other) const noexcept
         {
-            return
+            return quat
             {
-                w * other.w - x * other.x - y * other.y - z * other.z, // TODO use simd here?
+                w * other.w - x * other.x - y * other.y - z * other.z,
                 w * other.x + x * other.w + y * other.z - z * other.y,
                 w * other.y - x * other.z + y * other.w + z * other.x,
                 w * other.z + x * other.y - y * other.x + z * other.w
             };
         }
 
-        static constexpr quat rotation(const vec3& axis, const float radians) noexcept
+        [[nodiscard]] static constexpr auto rotation(const vec3& axis, const float radians) noexcept
         {
             const auto angle = radians * 0.5f;
             const auto value = sin(angle);
 
-            return
+            return quat
             {
-                cos(angle),
-                axis.x * value,
-                axis.y * value,
-                axis.z * value
+                cos(angle),     // w
+                axis.x * value, // x
+                axis.y * value, // y
+                axis.z * value  // z
             };
         }
 
-        constexpr quat& operator*=(const quat& other) noexcept
+        constexpr auto operator*=(const quat& other) noexcept -> quat&
         {
             return *this =
                    *this * other;
         }
 
-        constexpr void normalize() noexcept
+        constexpr auto normalize() noexcept
         {
             if (const auto magnitude = length(); magnitude > tolerance)
             {

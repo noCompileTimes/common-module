@@ -11,26 +11,26 @@ namespace geometry
         {
             constexpr auto half = 0.5f;
 
-            const auto x = scale.x * half; constexpr math::vec3 r { 1.0f, 0.0f, 0.0f };
-            const auto y = scale.y * half; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
-            const auto z = scale.z * half; constexpr math::vec3 b { 0.0f, 0.0f, 1.0f };
+            const auto half_x = scale.x * half; constexpr math::vec3 r { 1.0f, 0.0f, 0.0f };
+            const auto half_y = scale.y * half; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
+            const auto half_z = scale.z * half; constexpr math::vec3 b { 0.0f, 0.0f, 1.0f };
 
             return geometry<vertex::basic, element::line>
             {
                 {
-                    { { -x, 0.0f, 0.0f }, r },
-                    { {  x, 0.0f, 0.0f }, r },
+                    { { -half_x, 0.0f, 0.0f }, r },
+                    { {  half_x, 0.0f, 0.0f }, r },
 
-                    { { 0.0f, -y, 0.0f }, g },
-                    { { 0.0f,  y, 0.0f }, g },
+                    { { 0.0f, -half_y, 0.0f }, g },
+                    { { 0.0f,  half_y, 0.0f }, g },
 
-                    { { 0.0f, 0.0f, -z }, b },
-                    { { 0.0f, 0.0f,  z }, b }
+                    { { 0.0f, 0.0f, -half_z }, b },
+                    { { 0.0f, 0.0f,  half_z }, b }
                 },
                 {
-                    { 0, 1 },
-                    { 2, 3 },
-                    { 4, 5 }
+                    { 0, 1 }, // x
+                    { 2, 3 }, // y
+                    { 4, 5 }  // z
                 }
             };
         }

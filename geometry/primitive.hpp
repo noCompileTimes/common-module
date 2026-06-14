@@ -1,17 +1,17 @@
 #pragma once
 
+#include "axis.hpp"
 #include "types.hpp"
-
-#include "math/plane.hpp"
 
 namespace geometry
 {
     class Primitive
     {
     public:
-        static auto circle(const uint32_t segments, const float radius, const math::plane::orientation plane, const math::vec3& color) noexcept // TODO bounding circle?
+        static auto circle(const uint32_t segments, const float radius, const axis normal_axis, const math::vec3& color) noexcept // TODO bounding circle?
         {
-            geometry<vertex::basic, element::line> geometry; geometry.reserve(segments, segments * 2);
+            geometry<vertex::basic, element::line> geometry;
+            geometry.reserve(segments, segments * 2);
 
             const auto t = 2.0f * math::pi / static_cast<float>(segments);
 
@@ -19,22 +19,22 @@ namespace geometry
             {
                 const auto a = static_cast<float>(i) * t;
 
-                const auto c = radius * std::cos(a);
-                const auto s = radius * std::sin(a);
+                const auto c = radius * math::cos(a);
+                const auto s = radius * math::sin(a);
 
-                switch (plane)
+                switch (normal_axis) // TODO go forward with this name?
                 {
-                    case math::plane::orientation::xy:
+                    case axis::z:
                     {
                         geometry.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
                         break;
                     }
-                    case math::plane::orientation::xz:
+                    case axis::y:
                     {
                         geometry.vertices.emplace_back(math::vec3 { c, 0.0f, s }, color);
                         break;
                     }
-                    case math::plane::orientation::yz:
+                    case axis::x:
                     {
                         geometry.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
                         break;
@@ -56,9 +56,9 @@ namespace geometry
         {
             geometry<vertex::basic, element::line> geometry;
 
-            geometry.append(circle(segments, radius, math::plane::orientation::xy, color));
-            geometry.append(circle(segments, radius, math::plane::orientation::xz, color));
-            geometry.append(circle(segments, radius, math::plane::orientation::yz, color));
+            geometry.append(circle(segments, radius, axis::x, color));
+            geometry.append(circle(segments, radius, axis::y, color));
+            geometry.append(circle(segments, radius, axis::z, color));
 
             return geometry;
         }
