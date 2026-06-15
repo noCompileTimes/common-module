@@ -10,26 +10,6 @@ namespace core
     class Time
     {
     public:
-        void start() noexcept
-        {
-            _initial_time_point =
-            _current_time_point = current_time_point();
-        }
-
-        void tick() noexcept
-        {
-            const auto current = current_time_point();
-
-            _delta_time = calculate_duration(_current_time_point, current).count();
-            _total_time = calculate_duration(_initial_time_point, current).count();
-
-            _current_time_point = current;
-
-            if (_delta_time > _max_delta_time) {
-                _delta_time = _max_delta_time;
-            }
-        }
-
         [[nodiscard]] static auto delta_time() noexcept
         {
             return _delta_time;
@@ -40,23 +20,43 @@ namespace core
             return _total_time;
         }
 
-        [[nodiscard]] static auto calculate_duration(const time_point start_time_point, const time_point end_time_point) noexcept -> std::chrono::duration<float>
-        {
-            return end_time_point - start_time_point;
-        }
-
-        [[nodiscard]] static auto current_time_point() noexcept
+        [[nodiscard]] static auto current_time() noexcept
         {
             return time_clock::now();
         }
 
+        [[nodiscard]] static auto duration(const time_point start_time, const time_point end_time) noexcept
+        {
+            return std::chrono::duration<float>(end_time - start_time).count();
+        }
+
+        auto start() noexcept
+        {
+            _initial_time =
+            _current_time = current_time();
+        }
+
+        auto tick() noexcept
+        {
+            const auto time = current_time();
+
+                _delta_time = duration(_current_time, time);
+                _total_time = duration(_initial_time, time);
+
+              _current_time = time;
+
+            if (_delta_time > _max_delta_time) {
+                _delta_time = _max_delta_time;
+            }
+        }
+
     private:
-        static constexpr float _max_delta_time { 1.0f / 30.0f };
+        static constexpr auto _max_delta_time { 1.0f / 30.0f };
 
-        inline static float _delta_time { };
-        inline static float _total_time { };
+        inline static auto _delta_time { 0.0f };
+        inline static auto _total_time { 0.0f };
 
-        time_point _initial_time_point { };
-        time_point _current_time_point { };
+        time_point _initial_time { };
+        time_point _current_time { };
     };
 }
