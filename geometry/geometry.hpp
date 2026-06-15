@@ -1,7 +1,5 @@
 #pragma once
 
-#include <vector>
-
 namespace geometry
 {
     template <typename vertex, typename element>
