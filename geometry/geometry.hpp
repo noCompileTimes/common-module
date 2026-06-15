@@ -18,9 +18,9 @@ namespace geometry
             vertices.insert(vertices.end(), other.vertices.begin(),
                                             other.vertices.end());
 
-            for (const auto& i : other.elements)
+            for (const auto& element : other.elements)
             {
-                elements.emplace_back(i + offset);
+                elements.emplace_back(element + offset);
             }
         }
 

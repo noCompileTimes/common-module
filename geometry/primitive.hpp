@@ -8,7 +8,7 @@ namespace geometry
     class Primitive
     {
     public:
-        static auto circle(const uint32_t segments, const float radius, const axis normal, const math::vec3& color) noexcept // TODO bounding circle?
+        static auto circle(const uint32_t segments, const float radius, const axis axis, const math::vec3& color) noexcept // TODO bounding circle?
         {
             geometry<vertex::basic, element::line> geometry;
             geometry.reserve(segments, segments * 2);
@@ -22,7 +22,7 @@ namespace geometry
                 const auto c = radius * math::cos(a);
                 const auto s = radius * math::sin(a);
 
-                switch (normal)
+                switch (axis)
                 {
                     case axis::x:
                     {
