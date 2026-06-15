@@ -4,20 +4,26 @@
 
 namespace core
 {
-    template <typename type>
-    [[nodiscard]] static auto as_bytes(const std::vector<type>& data) noexcept // TODO add some version for std::array?
+    template <typename T>
+    [[nodiscard]] static auto as_bytes(const std::vector<T>& data) noexcept
     {
         return std::as_bytes(std::span { data });
     }
 
-    template <typename type>
-    [[nodiscard]] static auto as_bytes(const type& object) noexcept
+    template <typename T, size_t N>
+    [[nodiscard]] static auto as_bytes(const std::array<T, N>& data) noexcept
     {
-        return std::as_bytes(std::span<const type> { &object, 1 });
+        return std::as_bytes(std::span { data });
     }
 
-    template <typename type>
-    [[nodiscard]] static auto as_base(const type value) noexcept
+    template <typename T>
+    [[nodiscard]] static auto as_bytes(const T& object) noexcept
+    {
+        return std::as_bytes(std::span<const T> { &object, 1 });
+    }
+
+    template <typename T>
+    [[nodiscard]] static auto as_base(const T value) noexcept
     {
         return std::to_underlying(value);
     }

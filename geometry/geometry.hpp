@@ -2,11 +2,11 @@
 
 namespace geometry
 {
-    template <typename vertex, typename element>
+    template <typename V, typename E>
     struct geometry
     {
-        std::vector<vertex>  vertices;
-        std::vector<element> elements;
+        std::vector<V> vertices;
+        std::vector<E> elements;
 
         auto append(const geometry& other) noexcept
         {
