@@ -8,7 +8,7 @@ namespace geometry
     class Primitive
     {
     public:
-        static auto circle(const uint32_t segments, const float radius, const axis normal_axis, const math::vec3& color) noexcept // TODO bounding circle?
+        static auto circle(const uint32_t segments, const float radius, const axis normal, const math::vec3& color) noexcept // TODO bounding circle?
         {
             geometry<vertex::basic, element::line> geometry;
             geometry.reserve(segments, segments * 2);
@@ -22,11 +22,11 @@ namespace geometry
                 const auto c = radius * math::cos(a);
                 const auto s = radius * math::sin(a);
 
-                switch (normal_axis) // TODO go forward with this name?
+                switch (normal)
                 {
-                    case axis::z:
+                    case axis::x:
                     {
-                        geometry.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
+                        geometry.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
                         break;
                     }
                     case axis::y:
@@ -34,9 +34,9 @@ namespace geometry
                         geometry.vertices.emplace_back(math::vec3 { c, 0.0f, s }, color);
                         break;
                     }
-                    case axis::x:
+                    case axis::z:
                     {
-                        geometry.vertices.emplace_back(math::vec3 { 0.0f, c, s }, color);
+                        geometry.vertices.emplace_back(math::vec3 { c, s, 0.0f }, color);
                         break;
                     }
                     default:
@@ -68,10 +68,10 @@ namespace geometry
             constexpr auto half = 0.5f;
 
             const auto x = scale.x * half; // TODO for this use an aabb instead of the scale? it makes more sens if you want to have more control over the bounding box - like in sprites with rect
-            const auto y = scale.y * half;
+            const auto y = scale.y * half; // TODO if using the aabb you dont need the half scale anymore?
             const auto z = scale.z * half;
 
-            return geometry<vertex::basic, uint32_t> // TODO use lines for this
+            return geometry<vertex::basic, element::line>
             {
                 {
                     { { -x, -y, -z }, color },
@@ -84,9 +84,9 @@ namespace geometry
                     { { -x,  y,  z }, color }
                 },
                 {
-                    0, 1,  1, 2,  2, 3,  3, 0,
-                    4, 5,  5, 6,  6, 7,  7, 4,
-                    0, 4,  1, 5,  2, 6,  3, 7
+                    { 0, 1 }, { 1, 2 }, { 2, 3 }, { 3, 0 },
+                    { 4, 5 }, { 5, 6 }, { 6, 7 }, { 7, 4 },
+                    { 0, 4 }, { 1, 5 }, { 2, 6 }, { 3, 7 }
                 }
             };
         }
