@@ -1,0 +1,30 @@
+#pragma once
+
+#include <span>
+
+namespace core
+{
+    template <typename T>
+    [[nodiscard]] static auto as_bytes(const std::vector<T>& data) noexcept
+    {
+        return std::as_bytes(std::span { data });
+    }
+
+    template <typename T, size_t N>
+    [[nodiscard]] static auto as_bytes(const std::array<T, N>& data) noexcept
+    {
+        return std::as_bytes(std::span { data });
+    }
+
+    template <typename T>
+    [[nodiscard]] static auto as_bytes(const T& object) noexcept
+    {
+        return std::as_bytes(std::span<const T> { &object, 1 });
+    }
+
+    template <typename T>
+    [[nodiscard]] static auto as_base(const T value) noexcept
+    {
+        return std::to_underlying(value);
+    }
+}
