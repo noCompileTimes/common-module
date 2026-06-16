@@ -1,9 +1,11 @@
 #pragma once
 
-namespace geometry::element
+namespace geometry::primitive
 {
     struct triangle
     {
+        static constexpr auto size { 3 };
+
         uint32_t a;
         uint32_t b;
         uint32_t c;
@@ -17,7 +19,5 @@ namespace geometry::element
                 c + offset
             };
         }
-
-        static constexpr auto size { 3 };
     };
 }

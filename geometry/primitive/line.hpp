@@ -1,9 +1,11 @@
 #pragma once
 
-namespace geometry::element // TODO I don't relly like this namespace // maybe layout???
+namespace geometry::primitive
 {
     struct line // TODO make a generic element for line and triangle / point? seems more than ok
     {
+        static constexpr auto size { 2 };
+
         uint32_t a;
         uint32_t b;
 
@@ -15,7 +17,5 @@ namespace geometry::element // TODO I don't relly like this namespace // maybe l
                 b + offset
             };
         }
-
-        static constexpr auto size { 2 };
     };
 }
