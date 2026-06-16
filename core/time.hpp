@@ -20,14 +20,14 @@ namespace core
             return _total_time;
         }
 
-        [[nodiscard]] static auto duration(const time_point start_time, const time_point end_time) noexcept // TODO extend this to have a template parameter for duration
-        {
-            return std::chrono::duration<float>(end_time - start_time).count();
-        }
-
         [[nodiscard]] static auto current_time() noexcept
         {
             return time_clock::now();
+        }
+
+        [[nodiscard]] static auto duration(const time_point start_time, const time_point end_time) noexcept // TODO extend this to have a template parameter for duration
+        {
+            return std::chrono::duration<float>(end_time - start_time).count();
         }
 
         auto start() noexcept

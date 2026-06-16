@@ -1,6 +1,10 @@
 #pragma once
 
-#include "geometry_types.hpp"
+#include "geometry.hpp"
+
+#include "vertex/basic.hpp"
+
+#include "primitive/line.hpp"
 
 namespace geometry
 {
@@ -15,15 +19,15 @@ namespace geometry
             const auto half_y = half * scale.y; constexpr math::vec3 g { 0.0f, 1.0f, 0.0f };
             const auto half_z = half * scale.z; constexpr math::vec3 b { 0.0f, 0.0f, 1.0f };
 
-            return geometry<vertex::basic, element::line>
+            return geometry<vertex::basic, primitive::line>
             {
                 {
-                    { { -half_x, 0.0f,   0.0f   }, r },
-                    { {  half_x, 0.0f,   0.0f   }, r },
-                    { {  0.0f,  -half_y, 0.0f   }, g },
-                    { {  0.0f,   half_y, 0.0f   }, g },
-                    { {  0.0f,   0.0f,  -half_z }, b },
-                    { {  0.0f,   0.0f,   half_z }, b }
+                    { -half_x, 0.0f,   0.0f,   r },
+                    {  half_x, 0.0f,   0.0f,   r },
+                    {  0.0f,  -half_y, 0.0f,   g },
+                    {  0.0f,   half_y, 0.0f,   g },
+                    {  0.0f,   0.0f,  -half_z, b },
+                    {  0.0f,   0.0f,   half_z, b }
                 },
                 {
                     { 0, 1 }, // x

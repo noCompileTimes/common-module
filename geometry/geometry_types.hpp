@@ -11,6 +11,6 @@
 
 namespace geometry
 {
-    using  model = geometry<vertex::model,  uint32_t>; // TODO use triangle here
+    using  model = geometry<vertex::model,  uint32_t>;
     using sprite = geometry<vertex::sprite, primitive::triangle>;
 }

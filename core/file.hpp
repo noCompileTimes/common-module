@@ -13,12 +13,14 @@ namespace core
             static_assert(sizeof(T) == 1, "file read requires byte-sized types");
 
             std::ifstream stream(path, std::ios::in | mode);
+
             if (!stream)
             {
                 throw std::runtime_error("failed to open file: " + path.string());
             }
 
-            const auto size = std::filesystem::file_size(path);
+            const auto size = file_size(path);
+
             if (size == 0)
             {
                 throw std::runtime_error("file is empty: " + path.string());

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "axis.hpp"
-#include "types.hpp"
+#include "geometry_types.hpp"
 
 namespace geometry
 {
@@ -10,7 +10,7 @@ namespace geometry
     public:
         static auto circle(const uint32_t segments, const float radius, const axis axis, const math::vec3& color) noexcept // TODO bounding circle?
         {
-            geometry<vertex::basic, element::line> geometry;
+            geometry<vertex::basic, primitive::line> geometry;
             geometry.reserve(segments, segments * 2);
 
             const auto t = 2.0f * math::pi / static_cast<float>(segments);
@@ -54,7 +54,7 @@ namespace geometry
 
         static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
         {
-            geometry<vertex::basic, element::line> geometry;
+            geometry<vertex::basic, primitive::line> geometry; // TODO make a reserve here?
 
             geometry.append(circle(segments, radius, axis::x, color));
             geometry.append(circle(segments, radius, axis::y, color));
@@ -71,7 +71,7 @@ namespace geometry
             const auto y = scale.y * half; // TODO if using the aabb you dont need the half scale anymore?
             const auto z = scale.z * half;
 
-            return geometry<vertex::basic, element::line>
+            return geometry<vertex::basic, primitive::line>
             {
                 {
                     { { -x, -y, -z }, color },
