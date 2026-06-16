@@ -74,14 +74,14 @@ namespace geometry
             return geometry<vertex::basic, primitive::line>
             {
                 {
-                    { { -x, -y, -z }, color },
-                    { {  x, -y, -z }, color },
-                    { {  x,  y, -z }, color },
-                    { { -x,  y, -z }, color },
-                    { { -x, -y,  z }, color },
-                    { {  x, -y,  z }, color },
-                    { {  x,  y,  z }, color },
-                    { { -x,  y,  z }, color }
+                    { -x, -y, -z, color },
+                    {  x, -y, -z, color },
+                    {  x,  y, -z, color },
+                    { -x,  y, -z, color },
+                    { -x, -y,  z, color },
+                    {  x, -y,  z, color },
+                    {  x,  y,  z, color },
+                    { -x,  y,  z, color }
                 },
                 {
                     { 0, 1 }, { 1, 2 }, { 2, 3 }, { 3, 0 },
