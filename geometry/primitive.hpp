@@ -1,7 +1,7 @@
 #pragma once
 
 #include "axis.hpp"
-#include "geometry_types.hpp"
+#include "types.hpp"
 
 namespace geometry
 {

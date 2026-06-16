@@ -1,6 +1,6 @@
 #pragma once
 
-#include "geometry_types.hpp"
+#include "types.hpp"
 
 #include "math/rect.hpp"
 
@@ -14,10 +14,10 @@ namespace geometry
             return sprite
             {
                 {
-                    {   position.min,                     { 0.0f, 1.0f } },
-                    { { position.max.x, position.min.y }, { 1.0f, 1.0f } },
-                    {   position.max,                     { 1.0f, 0.0f } },
-                    { { position.min.x, position.max.y }, { } }
+                    { position.min,                   { 0.0f, 1.0f } },
+                    { position.max.x, position.min.y, { 1.0f, 1.0f } },
+                    { position.max,                   { 1.0f, 0.0f } },
+                    { position.min.x, position.max.y, { } }
                 },
                 {
                     { 0, 2, 1 },
