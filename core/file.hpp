@@ -7,26 +7,31 @@ namespace core
     class File
     {
     public:
-        template <typename type = std::byte> // TODO which should be the value for mode if you don't want binary?
+        template <typename T = std::byte>
         [[nodiscard]] static auto read(const std::filesystem::path& path, const std::ios::openmode mode = std::ios::binary)
         {
-            static_assert(sizeof(type) == 1, "file read requires byte-sized types"); // TODO check if this is supported with char
+            static_assert(sizeof(T) == 1, "file read requires byte-sized types");
 
-            assert(is_regular_file(path));
+            std::ifstream stream(path, std::ios::in | mode);
+            if (!stream)
+            {
+                throw std::runtime_error("failed to open file: " + path.string());
+            }
 
-            std::ifstream stream(path, std::ios::in | std::ios::ate | mode);
-            assert(stream);
+            const auto size = std::filesystem::file_size(path);
+            if (size == 0)
+            {
+                throw std::runtime_error("file is empty: " + path.string());
+            }
 
-            const auto end = stream.tellg();
-            assert(end > 0);
+            std::vector<T> content(size);
 
-            const auto size = static_cast<size_t>(end);
-            std::vector<type> content(size);
-
-            stream.seekg(0, std::ios::beg);
-            stream.read(reinterpret_cast<char*>(content.data()), static_cast<std::streamsize>(size));
-
-            assert(stream.gcount() == static_cast<std::streamsize>(size));
+            stream.read(reinterpret_cast<char*>(content.data()),
+                                   static_cast<std::streamsize>(size));
+            if (stream.gcount() != static_cast<std::streamsize>(size))
+            {
+                throw std::runtime_error("failed to read full file: " + path.string());
+            }
 
             return content;
         }

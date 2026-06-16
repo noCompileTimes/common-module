@@ -10,24 +10,24 @@ namespace core
     class Time
     {
     public:
-        [[nodiscard]] static auto delta_time() noexcept
+        [[nodiscard]] auto delta_time() const noexcept
         {
             return _delta_time;
         }
 
-        [[nodiscard]] static auto total_time() noexcept
+        [[nodiscard]] auto total_time() const noexcept
         {
             return _total_time;
+        }
+
+        [[nodiscard]] static auto duration(const time_point start_time, const time_point end_time) noexcept // TODO extend this to have a template parameter for duration
+        {
+            return std::chrono::duration<float>(end_time - start_time).count();
         }
 
         [[nodiscard]] static auto current_time() noexcept
         {
             return time_clock::now();
-        }
-
-        [[nodiscard]] static auto duration(const time_point start_time, const time_point end_time) noexcept
-        {
-            return std::chrono::duration<float>(end_time - start_time).count();
         }
 
         auto start() noexcept
@@ -45,18 +45,18 @@ namespace core
 
               _current_time = time;
 
-            if (_delta_time > _max_delta_time) {
-                _delta_time = _max_delta_time;
-            }
+            //if (_delta_time > _max_delta_time) { // TODO handle this outside in the engine class
+            //    _delta_time = _max_delta_time;
+            //}
         }
 
     private:
-        static constexpr auto _max_delta_time { 1.0f / 30.0f };
-
-        inline static auto _delta_time { 0.0f };
-        inline static auto _total_time { 0.0f };
+        //static constexpr auto _max_delta_time { 1.0f / 30.0f };
 
         time_point _initial_time { };
         time_point _current_time { };
+
+        float _delta_time { };
+        float _total_time { };
     };
 }

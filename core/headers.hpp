@@ -5,5 +5,3 @@
 #include <filesystem>
 
 #include <vector>
-
-#include <cassert>

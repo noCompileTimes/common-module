@@ -16,10 +16,10 @@ namespace core
         return std::as_bytes(std::span { data });
     }
 
-    template <typename T>
+    template <typename T, size_t N = 1>
     [[nodiscard]] static auto as_bytes(const T& object) noexcept
     {
-        return std::as_bytes(std::span<const T> { &object, 1 });
+        return std::as_bytes(std::span<const T> { &object, N });
     }
 
     template <typename T>
