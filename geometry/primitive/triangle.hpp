@@ -12,7 +12,7 @@ namespace geometry::primitive
 
         auto operator+(const uint32_t offset) const noexcept
         {
-            return triangle // TODO maybe use simd here with vec4?
+            return triangle
             {
                 a + offset,
                 b + offset,
