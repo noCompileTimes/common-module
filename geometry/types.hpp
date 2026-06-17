@@ -11,6 +11,8 @@
 
 namespace geometry
 {
+    using  gizmo = geometry<vertex::basic,  primitive::line>;
     using  model = geometry<vertex::model,  uint32_t>;
+
     using sprite = geometry<vertex::sprite, primitive::triangle>;
 }
