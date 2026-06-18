@@ -4,46 +4,47 @@
 
 namespace math
 {
-    template <typename T> [[nodiscard]] constexpr T min(const T a, const T b) noexcept
+    template <typename T> [[nodiscard]] constexpr auto min(const T a, const T b) noexcept
     {
         return std::min(a, b);
     }
-    template <typename T> [[nodiscard]] constexpr T max(const T a, const T b) noexcept
+
+    template <typename T> [[nodiscard]] constexpr auto max(const T a, const T b) noexcept
     {
         return std::max(a, b);
     }
 
-    [[nodiscard]] constexpr float radians(const float degrees)
+    [[nodiscard]] constexpr auto radians(const float degrees)
     {
         return degrees * (pi / 180.0f);
     }
 
-    [[nodiscard]] constexpr float degrees(const float radians)
+    [[nodiscard]] constexpr auto degrees(const float radians)
     {
         return radians * (180.0f / pi);
     }
 
-    [[nodiscard]] constexpr float sin(const float angle)
+    [[nodiscard]] constexpr auto sin(const float angle)
     {
         return std::sin(angle);
     }
 
-    [[nodiscard]] constexpr float cos(const float angle)
+    [[nodiscard]] constexpr auto cos(const float angle)
     {
         return std::cos(angle);
     }
 
-    [[nodiscard]] constexpr float tan(const float angle)
+    [[nodiscard]] constexpr auto tan(const float angle)
     {
         return std::tan(angle);
     }
 
-    [[nodiscard]] constexpr float abs(const float value)
+    [[nodiscard]] constexpr auto abs(const float value)
     {
         return std::abs(value);
     }
 
-    [[nodiscard]] constexpr float sqrt(const float value)
+    [[nodiscard]] constexpr auto sqrt(const float value)
     {
         return std::sqrt(value);
     }
