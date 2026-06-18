@@ -102,15 +102,15 @@ namespace math
             return matrix;
         }
 
-        mat4& operator*=(const mat4& other) noexcept
+        auto operator*=(const mat4& other) noexcept -> mat4&
         {
             return *this =
                    *this * other;
         }
 
-        [[nodiscard]] vec4 operator*(const vec4& vec) const noexcept
+        [[nodiscard]] auto operator*(const vec4& vec) const noexcept
         {
-            return
+            return vec4
             {
                 _columns[0].x * vec.x + _columns[1].x * vec.y + _columns[2].x * vec.z + _columns[3].x * vec.w,
                 _columns[0].y * vec.x + _columns[1].y * vec.y + _columns[2].y * vec.z + _columns[3].y * vec.w,
