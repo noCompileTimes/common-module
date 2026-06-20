@@ -66,6 +66,47 @@ namespace math
             _columns[3].w =   0.0f;
         }
 
+        [[nodiscard]] auto operator*(const vec4& vec) const noexcept
+        {
+            return vec4
+            {
+                _columns[0].x * vec.x + _columns[1].x * vec.y + _columns[2].x * vec.z + _columns[3].x * vec.w,
+                _columns[0].y * vec.x + _columns[1].y * vec.y + _columns[2].y * vec.z + _columns[3].y * vec.w,
+                _columns[0].z * vec.x + _columns[1].z * vec.y + _columns[2].z * vec.z + _columns[3].z * vec.w,
+                _columns[0].w * vec.x + _columns[1].w * vec.y + _columns[2].w * vec.z + _columns[3].w * vec.w
+            };
+        }
+
+        [[nodiscard]] constexpr auto& operator[](const size_t index) const noexcept
+        {
+            return _columns[index];
+        }
+
+        [[nodiscard]] constexpr auto& operator[](const size_t index) noexcept
+        {
+            return _columns[index];
+        }
+
+        [[nodiscard]] auto operator*(const mat4& other) const noexcept
+        {
+            mat4 matrix;
+
+            for (auto i = 0; i < 4; ++i)
+            {
+                matrix[i] = _columns[0] * other[i].x +
+                            _columns[1] * other[i].y +
+                            _columns[2] * other[i].z +
+                            _columns[3] * other[i].w;
+            }
+
+            return matrix;
+        }
+
+        constexpr auto& operator*=(this mat4& self, const mat4& other) noexcept
+        {
+            return self = self * other;
+        }
+
         auto translation(const vec3& vec) noexcept
         {
             _columns[3].x = vec.x;
@@ -85,48 +126,6 @@ namespace math
             _columns[0] *= vec.x;
             _columns[1] *= vec.y;
             _columns[2] *= vec.z;
-        }
-
-        [[nodiscard]] auto operator*(const mat4& other) const noexcept
-        {
-            mat4 matrix;
-
-            for (auto i = 0; i < 4; ++i)
-            {
-                matrix[i] = _columns[0] * other[i].x +
-                            _columns[1] * other[i].y +
-                            _columns[2] * other[i].z +
-                            _columns[3] * other[i].w;
-            }
-
-            return matrix;
-        }
-
-        auto operator*=(const mat4& other) noexcept -> mat4&
-        {
-            return *this =
-                   *this * other;
-        }
-
-        [[nodiscard]] auto operator*(const vec4& vec) const noexcept
-        {
-            return vec4
-            {
-                _columns[0].x * vec.x + _columns[1].x * vec.y + _columns[2].x * vec.z + _columns[3].x * vec.w,
-                _columns[0].y * vec.x + _columns[1].y * vec.y + _columns[2].y * vec.z + _columns[3].y * vec.w,
-                _columns[0].z * vec.x + _columns[1].z * vec.y + _columns[2].z * vec.z + _columns[3].z * vec.w,
-                _columns[0].w * vec.x + _columns[1].w * vec.y + _columns[2].w * vec.z + _columns[3].w * vec.w
-            };
-        }
-
-        [[nodiscard]] constexpr auto operator[](const size_t index) const noexcept -> const vec4&
-        {
-            return _columns[index];
-        }
-
-        [[nodiscard]] constexpr auto operator[](const size_t index) noexcept -> vec4&
-        {
-            return _columns[index];
         }
 
     private:
