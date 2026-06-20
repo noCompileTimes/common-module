@@ -67,7 +67,7 @@ namespace math
             };
         }
 
-        constexpr auto operator+=(const vec4& other) noexcept -> vec4&
+        constexpr auto operator+=(const vec4& other) noexcept -> vec4& // TODO change everywhere with self? and auto&
         {
             data = _mm_add_ps(data, other.data);
 
