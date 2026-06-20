@@ -55,7 +55,7 @@ namespace geometry
 
         static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
         {
-            gizmo geometry; // TODO make a reserve here?
+            gizmo geometry; // TODO make a reserve here
 
             geometry.append(circle(segments, radius, axis::x, color));
             geometry.append(circle(segments, radius, axis::y, color));
