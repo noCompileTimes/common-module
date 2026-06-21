@@ -67,35 +67,35 @@ namespace math
             };
         }
 
-        constexpr auto operator+=(const vec4& other) noexcept -> vec4& // TODO change everywhere with self? and auto&
+        constexpr auto& operator+=(const vec4& other) noexcept // TODO change everywhere with self? and auto&
         {
             data = _mm_add_ps(data, other.data);
 
             return *this;
         }
 
-        constexpr auto operator-=(const vec4& other) noexcept -> vec4&
+        constexpr auto& operator-=(const vec4& other) noexcept
         {
             data = _mm_sub_ps(data, other.data);
 
             return *this;
         }
 
-        constexpr auto operator*=(const vec4& other) noexcept -> vec4&
+        constexpr auto& operator*=(const vec4& other) noexcept
         {
             data = _mm_mul_ps(data, other.data);
 
             return *this;
         }
 
-        constexpr auto operator*=(const float value) noexcept -> vec4&
+        constexpr auto& operator*=(const float value) noexcept
         {
             data = _mm_mul_ps(data, _mm_set1_ps(value));
 
             return *this;
         }
 
-        constexpr auto operator/=(const float value) noexcept -> vec4&
+        constexpr auto& operator/=(const float value) noexcept
         {
             data = _mm_div_ps(data, _mm_set1_ps(value));
 
