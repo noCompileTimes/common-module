@@ -24,6 +24,16 @@ namespace math
         return radians * (180.0f / pi);
     }
 
+    [[nodiscard]] constexpr auto sqrt(const float value)
+    {
+        return std::sqrt(value);
+    }
+
+    [[nodiscard]] constexpr auto abs(const float value)
+    {
+        return std::abs(value);
+    }
+
     [[nodiscard]] constexpr auto sin(const float angle)
     {
         return std::sin(angle);
@@ -37,15 +47,5 @@ namespace math
     [[nodiscard]] constexpr auto tan(const float angle)
     {
         return std::tan(angle);
-    }
-
-    [[nodiscard]] constexpr auto abs(const float value)
-    {
-        return std::abs(value);
-    }
-
-    [[nodiscard]] constexpr auto sqrt(const float value)
-    {
-        return std::sqrt(value);
     }
 }
