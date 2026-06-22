@@ -19,14 +19,6 @@ namespace math
             };
         };
 
-        [[nodiscard]] constexpr explicit operator vec3() const noexcept
-        {
-            return
-            {
-                x, y, z
-            };
-        }
-
         [[nodiscard]] constexpr auto operator+(const vec4& other) const noexcept
         {
             return vec4
@@ -100,6 +92,14 @@ namespace math
             data = _mm_div_ps(data, _mm_set1_ps(value));
 
             return *this;
+        }
+
+        [[nodiscard]] constexpr explicit operator vec3() const noexcept
+        {
+            return
+            {
+                x, y, z
+            };
         }
     };
 }
