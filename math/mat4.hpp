@@ -30,7 +30,7 @@ namespace math
         {
         }
 
-        [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top, const float near, const float far) noexcept
+        [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top, const float near, const float far) noexcept // TODO make this static?
         {
             _columns[0].x =  2.0f / (right - left);
             _columns[1].y =  2.0f / (top - bottom);
@@ -41,7 +41,7 @@ namespace math
             _columns[3].z = -(far + near)   / (far - near);
         }
 
-        [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top) noexcept
+        [[maybe_unused]] auto ortho(const float left, const float right, const float bottom, const float top) noexcept // TODO make this static?
         {
             _columns[0].x =  2.0f / (right - left);
             _columns[1].y =  2.0f / (top - bottom);
@@ -51,7 +51,7 @@ namespace math
             _columns[3].y = -(top + bottom) / (top - bottom);
         }
 
-        [[maybe_unused]] auto perspective(const float fov, const float aspect, const float near, const float far) noexcept
+        [[maybe_unused]] auto perspective(const float fov, const float aspect, const float near, const float far) noexcept // TODO make this static?
         {
             const auto value = tan(fov * 0.5f);
             const auto range = far - near;
