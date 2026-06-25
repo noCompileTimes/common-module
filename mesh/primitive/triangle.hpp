@@ -1,14 +1,12 @@
 #pragma once
 
-namespace geometry::primitive
+namespace mesh::primitive
 {
     struct triangle
     {
         uint32_t a;
         uint32_t b;
         uint32_t c;
-
-        static constexpr auto size { 3 };
 
         auto operator+(const uint32_t offset) const noexcept
         {
@@ -19,5 +17,7 @@ namespace geometry::primitive
                 c + offset
             };
         }
+
+        static constexpr auto size { 3 };
     };
 }

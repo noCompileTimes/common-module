@@ -4,9 +4,9 @@
 
 #include "math/rect.hpp"
 
-namespace geometry
+namespace mesh
 {
-    class Sprite
+    class Sprite // TODO rename this with lower case
     {
     public:
         static auto create(const math::rect& position) noexcept // TODO extend this to receive also the uv?

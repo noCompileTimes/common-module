@@ -4,9 +4,9 @@
 
 #include "types.hpp"
 
-namespace geometry
+namespace mesh
 {
-    class Primitive
+    class Primitive // TODO rename this with lower case
     {
     public:
         static auto circle(const uint32_t segments, const float radius, const axis axis, const math::vec3& color) noexcept // TODO bounding circle?

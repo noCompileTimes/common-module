@@ -1,6 +1,6 @@
 #pragma once
 
-namespace geometry
+namespace mesh
 {
     template <typename V, typename E>
     struct geometry

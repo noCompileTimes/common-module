@@ -1,6 +1,6 @@
 #pragma once
 
-namespace geometry
+namespace mesh
 {
     enum class axis
     {
