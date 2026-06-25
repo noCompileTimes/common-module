@@ -6,7 +6,7 @@ namespace mesh
     struct geometry
     {
         std::vector<V> vertices;
-        std::vector<E> elements;
+        std::vector<E> elements; // TODO this should be primitives?
 
         auto append(const geometry& other) noexcept
         {

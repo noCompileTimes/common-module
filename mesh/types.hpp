@@ -9,7 +9,7 @@
 #include "primitive/line.hpp"
 #include "primitive/triangle.hpp"
 
-namespace mesh
+namespace mesh // TODO remove this
 {
     using  gizmo = geometry<vertex::basic,  primitive::line>;
     using  model = geometry<vertex::model,  uint32_t>;
