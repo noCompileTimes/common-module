@@ -14,37 +14,37 @@ namespace math
         return std::max(a, b);
     }
 
-    [[nodiscard]] constexpr auto radians(const float degrees)
+    [[nodiscard]] constexpr auto radians(const float degrees) noexcept
     {
         return degrees * (pi / 180.0f);
     }
 
-    [[nodiscard]] constexpr auto degrees(const float radians)
+    [[nodiscard]] constexpr auto degrees(const float radians) noexcept
     {
         return radians * (180.0f / pi);
     }
 
-    [[nodiscard]] constexpr auto sqrt(const float value)
+    [[nodiscard]] constexpr auto sqrt(const float value) noexcept
     {
         return std::sqrt(value);
     }
 
-    [[nodiscard]] constexpr auto abs(const float value)
+    [[nodiscard]] constexpr auto abs(const float value) noexcept
     {
         return std::abs(value);
     }
 
-    [[nodiscard]] constexpr auto sin(const float angle)
+    [[nodiscard]] constexpr auto sin(const float angle) noexcept
     {
         return std::sin(angle);
     }
 
-    [[nodiscard]] constexpr auto cos(const float angle)
+    [[nodiscard]] constexpr auto cos(const float angle) noexcept
     {
         return std::cos(angle);
     }
 
-    [[nodiscard]] constexpr auto tan(const float angle)
+    [[nodiscard]] constexpr auto tan(const float angle) noexcept
     {
         return std::tan(angle);
     }

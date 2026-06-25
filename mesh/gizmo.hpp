@@ -7,7 +7,7 @@ namespace mesh
     class Gizmo // TODO rename this with lower case
     {
     public: // TODO use for this something live a vec2 for each axis? in this way you can make the lines starting from the center
-        static auto axis(const math::vec3& scale) noexcept // TODO use here a static geometry because we know all the vertices = no allocation
+        [[nodiscard]] static auto axis(const math::vec3& scale) noexcept // TODO use here a static geometry because we know all the vertices = no allocation
         {
             constexpr auto half = 0.5f;
 

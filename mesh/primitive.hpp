@@ -9,7 +9,7 @@ namespace mesh
     class Primitive // TODO rename this with lower case
     {
     public:
-        static auto circle(const uint32_t segments, const float radius, const axis axis, const math::vec3& color) noexcept // TODO bounding circle?
+        [[nodiscard]] static auto circle(const uint32_t segments, const float radius, const axis axis, const math::vec3& color) noexcept // TODO bounding circle?
         {
             gizmo geometry;
                   geometry.reserve(segments, segments * 2);
@@ -53,7 +53,7 @@ namespace mesh
             return geometry;
         }
 
-        static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
+        [[nodiscard]] static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
         {
             gizmo geometry; // TODO make a reserve here
 
@@ -64,7 +64,7 @@ namespace mesh
             return geometry;
         }
 
-        static auto bounding_box(const math::vec3& scale, const math::vec3& color) noexcept
+        [[nodiscard]] static auto bounding_box(const math::vec3& scale, const math::vec3& color) noexcept
         {
             constexpr auto half = 0.5f;
 

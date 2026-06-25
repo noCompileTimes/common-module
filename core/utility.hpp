@@ -2,7 +2,7 @@
 
 #include <span>
 
-namespace core
+namespace core // TODO rename the file with a better name
 {
     template <typename T>
     [[nodiscard]] static auto as_bytes(const std::vector<T>& data) noexcept
