@@ -2,7 +2,7 @@
 
 namespace mesh
 {
-    template <typename V, typename E>
+    template <typename V, typename E> // TODO have a version of this as static geometry with arrays, very useful for static meshes / sprites / primitives
     struct geometry
     {
         std::vector<V> vertices;
