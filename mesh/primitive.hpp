@@ -4,6 +4,7 @@
 
 #include "types.hpp"
 
+#include "math/aabb.hpp"
 #include "math/rect.hpp"
 
 namespace mesh
