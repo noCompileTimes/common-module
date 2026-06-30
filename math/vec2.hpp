@@ -48,7 +48,7 @@ namespace math
             return (a + b) * 0.5f;
         }
 
-        constexpr auto operator+=(const vec2& other) noexcept -> vec2&
+        constexpr auto& operator+=(const vec2& other) noexcept
         {
             x += other.x;
             y += other.y;
@@ -56,7 +56,7 @@ namespace math
             return *this;
         }
 
-        constexpr auto operator-=(const vec2& other) noexcept -> vec2&
+        constexpr auto& operator-=(const vec2& other) noexcept
         {
             x -= other.x;
             y -= other.y;
