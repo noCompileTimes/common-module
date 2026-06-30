@@ -4,6 +4,8 @@
 
 #include "types.hpp"
 
+#include "math/rect.hpp"
+
 namespace mesh
 {
     class Primitive // TODO rename this with lower case
@@ -51,6 +53,25 @@ namespace mesh
             }
 
             return geometry;
+        }
+
+        [[nodiscard]] static auto square(const math::rect& position, const math::vec3& color) noexcept
+        {
+            return gizmo
+            {
+                {
+                    { position.min.x, position.min.y, 0.0f, color },
+                    { position.max.x, position.min.y, 0.0f, color },
+                    { position.max.x, position.max.y, 0.0f, color },
+                    { position.min.x, position.max.y, 0.0f, color }
+                },
+                {
+                    { 0, 1 },
+                    { 1, 2 },
+                    { 2, 3 },
+                    { 3, 0 }
+                }
+            };
         }
 
         [[nodiscard]] static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
