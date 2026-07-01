@@ -1,6 +1,7 @@
 #pragma once
 
 #include "mat4.hpp"
+#include "vec2.hpp"
 
 #include "ray.hpp"
 
