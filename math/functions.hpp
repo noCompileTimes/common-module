@@ -14,12 +14,12 @@ namespace math
         return std::max(a, b);
     }
 
-    [[nodiscard]] constexpr auto radians(const float degrees) noexcept
+    [[nodiscard, maybe_unused]] constexpr auto radians(const float degrees) noexcept
     {
         return degrees * (pi / 180.0f);
     }
 
-    [[nodiscard]] constexpr auto degrees(const float radians) noexcept
+    [[nodiscard, maybe_unused]] constexpr auto degrees(const float radians) noexcept
     {
         return radians * (180.0f / pi);
     }

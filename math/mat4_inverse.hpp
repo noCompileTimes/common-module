@@ -4,7 +4,7 @@
 
 namespace math
 {
-    [[nodiscard]] static auto inverse(const mat4& mat) noexcept
+    [[nodiscard, maybe_unused]] static auto inverse(const mat4& mat) noexcept
     {
         const auto m00 = mat[0].x;
         const auto m01 = mat[0].y;
@@ -105,7 +105,7 @@ namespace math
         return result;
     }
 
-    [[nodiscard]] static auto inverse_affine(const mat4& mat) noexcept
+    [[nodiscard, maybe_unused]] static auto inverse_affine(const mat4& mat) noexcept
     {
         const auto m00 = mat[0].x;
         const auto m01 = mat[0].y;
@@ -165,7 +165,7 @@ namespace math
         return result;
     }
 
-    [[nodiscard]] static auto inverse_rigid(const mat4& mat) noexcept
+    [[nodiscard, maybe_unused]] static auto inverse_rigid(const mat4& mat) noexcept
     {
         mat4 result { 1.0f }; // TODO use the uninitialized constructor and put the diagonals with 1.0f
 

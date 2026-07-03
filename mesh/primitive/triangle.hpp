@@ -8,7 +8,7 @@ namespace mesh::primitive
         uint32_t b;
         uint32_t c;
 
-        auto operator+(const uint32_t offset) const noexcept
+        [[maybe_unused]] auto operator+(const uint32_t offset) const noexcept
         {
             return triangle
             {

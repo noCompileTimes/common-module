@@ -86,13 +86,13 @@ namespace math
             };
         }
 
-        constexpr auto operator*=(const quat& other) noexcept -> quat&
+        [[maybe_unused]] constexpr auto& operator*=(const quat& other) noexcept
         {
             return *this =
                    *this * other;
         }
 
-        constexpr auto normalize() noexcept
+        [[maybe_unused]] constexpr auto normalize() noexcept
         {
             if (const auto magnitude = length(); magnitude > tolerance)
             {

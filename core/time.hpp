@@ -15,7 +15,7 @@ namespace core
             return _delta_time;
         }
 
-        [[nodiscard]] auto total_time() const noexcept
+        [[nodiscard, maybe_unused]] auto total_time() const noexcept
         {
             return _total_time;
         }

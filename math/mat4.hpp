@@ -107,21 +107,21 @@ namespace math
             return self = self * other;
         }
 
-        auto translation(const vec3& vec) noexcept
+        [[maybe_unused]] auto translation(const vec3& vec) noexcept
         {
             _columns[3].x = vec.x;
             _columns[3].y = vec.y;
             _columns[3].z = vec.z;
         }
 
-        auto translate(const vec3& vec) noexcept
+        [[maybe_unused]] auto translate(const vec3& vec) noexcept
         {
             _columns[3] += _columns[0] * vec.x +
                            _columns[1] * vec.y +
                            _columns[2] * vec.z;
         }
 
-        auto scale(const vec3& vec) noexcept
+        [[maybe_unused]] auto scale(const vec3& vec) noexcept
         {
             _columns[0] *= vec.x;
             _columns[1] *= vec.y;

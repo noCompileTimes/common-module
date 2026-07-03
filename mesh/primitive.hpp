@@ -56,7 +56,7 @@ namespace mesh
             return geometry;
         }
 
-        [[nodiscard]] static auto square(const math::rect& position, const math::vec3& color) noexcept
+        [[nodiscard, maybe_unused]] static auto square(const math::rect& position, const math::vec3& color) noexcept
         {
             return gizmo
             {
@@ -75,7 +75,7 @@ namespace mesh
             };
         }
 
-        [[nodiscard]] static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
+        [[nodiscard, maybe_unused]] static auto bounding_sphere(const uint32_t segments, const float radius, const math::vec3& color) noexcept
         {
             gizmo geometry; // TODO make a reserve here
 
