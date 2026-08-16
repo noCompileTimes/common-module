@@ -66,6 +66,8 @@ namespace math
             _columns[3].w =   0.0f;
         }
 
+        // TODO add some pragma region for operators?
+
         [[nodiscard]] auto operator*(const vec4& vec) const noexcept
         {
             return vec4
