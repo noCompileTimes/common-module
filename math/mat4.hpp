@@ -9,7 +9,7 @@ namespace math
         constexpr mat4() noexcept = default;
 
         explicit constexpr mat4(const float scale) noexcept
-            : _columns
+            :   _columns
             {
                 { scale },
                 { 0.0f, scale },
@@ -20,7 +20,7 @@ namespace math
         }
 
         explicit constexpr mat4(const vec3& scale) noexcept
-            : _columns
+            :   _columns
             {
                 { scale.x },
                 { 0.0f, scale.y },
