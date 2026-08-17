@@ -4,12 +4,12 @@
 
 namespace math
 {
-    template <typename T> [[nodiscard]] constexpr auto min(const T a, const T b) noexcept
+    template <typename T>  [[nodiscard]] constexpr auto min(const T a, const T b) noexcept
     {
         return std::min(a, b);
     }
 
-    template <typename T> [[nodiscard]] constexpr auto max(const T a, const T b) noexcept
+    template <typename T>  [[nodiscard]] constexpr auto max(const T a, const T b) noexcept
     {
         return std::max(a, b);
     }
