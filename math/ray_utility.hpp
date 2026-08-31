@@ -12,7 +12,7 @@ namespace math
     {
         const vec2 ndc
         {
-            2.0f * point.x / static_cast<float>(width) - 1.0f,
+                   2.0f * point.x / static_cast<float>(width) - 1.0f,
             1.0f - 2.0f * point.y / static_cast<float>(height)
         };
 
